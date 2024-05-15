@@ -6,7 +6,7 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
         if (error) {
             alert(error);
         } else {
-            console.log(data);
+            // console.log(data);
         }
     }, lib.emotionSort);
 

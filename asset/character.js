@@ -8,7 +8,7 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
         PScharacter: {
           PScharacter_wei: ['PScaocao', 'PSzhonghui', 'PSdianwei', 'PSzhanghe', 'PScaoxiu', 'PScaoang', 'PSshiniangongzhu', 'PScaojinyu', 'PScaochun', 'PScaoshuang', 'PShs_zhonghui', 'PSxizhicai', 'PSxiahoujie', 'PSzhenji', 'PSwu_zhangliao', 'PShaozhao'],
           PScharacter_shu: ['PSsh_zhangfei', 'PSzhugeliang', 'PSmenghuo', 'PSshu_sunshangxiang', 'PStongxiangge', 'PSrs_wolong', 'PShuangyueying', 'PSzhaoxiang', 'PSzhangsong', 'PSguanyunchang', 'PSzhaoyun', 'PSzhuangbeidashi', 'PSguanyu', 'PSmeng_liubei'],
-          PScharacter_wu: ['PSrexusheng', 'PSlvmeng', 'PSxie_sunquan', 'PSsunquan', 'PSsunshangxiang', 'PSliuzan', 'PShuanggai', 'PSlukang', 'PSzhoutai', 'PSquansun', 'PSjiesuanjie', 'PSzhangxuan', 'PScenhun', 'PSsunben', 'PShw_sunquan', 'PSsunru', 'PSfuzhijie', 'PSxushi'],
+          PScharacter_wu: ['PSrexusheng', 'PSlingcao', 'PSlvmeng', 'PSpanzhangmazhong', 'PSxie_sunquan', 'PSsunquan', 'PSsunshangxiang', 'PSliuzan', 'PShuanggai', 'PSlukang', 'PSzhoutai', 'PSquansun', 'PSjiesuanjie', 'PSzhangxuan', 'PScenhun', 'PSsunben', 'PShw_sunquan', 'PSsunru', 'PSfuzhijie', 'PSxushi'],
           PScharacter_qun: ['PSzhangjiao', 'PSlibai', 'PSyuanshu', 'PSxushao', 'PSguanning', 'PSliru', 'PSzuoci', 'PSerciyuan', 'PSdahantianzi', 'PSnanhualaoxian', 'PSduyu', 'PSzhangrang', 'PSqun_sunce', 'PSgaoguimingmen', 'PSsishouyige', 'PSyangbiao', 'PSguosi', 'PSpeixiu', 'PSsb_xushao', 'PSjiaxu', 'PSxuyou'],
           PScharacter_jin: ['PSjin_duyu'],
           PScharacter_shen: ['PSshen_sunquan', 'PSshen_dianwei', 'PSshouyige', 'PSshen_zhuge', 'PSshen_ganning', 'PSshen_zhaoyun', 'PSxian_caozhi', 'PSshen_jiangweix', 'PSboss_lvbu1', 'PSboss_lvbu2', 'PSboss_lvbu3', 'PSboss_lvbu4', 'PSshengui', 'PSshen_huangzhong', 'PSshen_guojia', 'PSfx_shen_guanyu', 'PSshen_liubei', 'PSshen_zhangliao', 'PSshen_zhangfei', 'PSshen_dengai', 'PSshen_xunyu'],
@@ -108,6 +108,8 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
         "PSshu_sunshangxiang": ["female", "shu", 3, ["PSliangzhu", "PSfanxiang"], ["die:../audio/die/sp_sunshangxiang.mp3"]],
         PSmenghuo: ["male", "shu", 4, ["PShuoshou", "PSxingluan"], ["die:../audio/die/re_menghuo.mp3"]],
         PSzhugeliang: ["male", "shu", 3, ["PSjiqiao", "PShuoji", "PSpingnan"], []],
+        PSpanzhangmazhong: ["male", "wu", 4, ["PSduodao", "PSanjian"], []],
+        PSlingcao: ["male", "wu", 4, ["PSdujin", "PSgudan"], []],
       },
       characterIntro: {
         PSshouyige: '由“九个芒果”设计',
@@ -202,11 +204,13 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
         "PSshu_sunshangxiang": '由“九个鲨雕”设计',
         PSmenghuo: '由“群弱智（兼群小丑）”设计',
         PSzhugeliang: '由“一顿七只屑狐狸”设计',
+        PSpanzhangmazhong: '由“mento last”设计',
+        PSlingcao: '由“九个鲨雕”设计',
       },//武将介绍
       characterTitle: {
       },//武将称号
       characterReplace: {
-        PSsunquan: ['PSsunquan', 'PShw_sunquan', 'PSquansun', 'db_PSdaweiwuwang'],
+        PSsunquan: ['PSsunquan', 'PShw_sunquan', 'PSquansun', 'db_PSdaweiwuwang', 'PSxie_sunquan'],
         PSzhangxuan: ['PSzhangxuan', 'PSfuzhijie', 'PSjiesuanjie'],
         "PSboss_lvbu1": ["PSboss_lvbu1", "PSboss_lvbu2", "PSboss_lvbu3", "PSboss_lvbu4"],
         "PSsunshangxiang": ["PSsunshangxiang", "PSshu_sunshangxiang"],
@@ -229,16 +233,6 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
       },//珠联璧合
       card: {},
       skill: {
-        PSceshi: {
-          trigger: {
-            player: "gainAfter",
-          },
-          content: () => {
-            let arr = player.getHistory('useSkill');
-            console.log(arr);
-            game.log(arr);
-          },
-        },
         PSfenyin: {
           audio: "fenyin",
           trigger: {
@@ -9145,16 +9139,6 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
           },
           forced: true,
           popup: false,
-          shuffle: function (array) {
-            var j, x, i;
-            for (i = array.length; i; i--) {
-              j = Math.floor(Math.random() * i);
-              x = array[i - 1];
-              array[i - 1] = array[j];
-              array[j] = x;
-            }
-            return array;
-          },
           content: function () {
             'step 0'
             var num = 3;
@@ -9175,7 +9159,7 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
             ];
             var list = [answer[num3] + 1, answer[num3], answer[num3] - 1];//根据随机数字num3得到答案数组，新的数组元素为正确答案+1/-1
             event.num = answer[num3];
-            lib.skill.PSxingtu.shuffle(list);//调用上面声明的函数shuffle
+            list.randomSort();//list里的元素随机排序
             list.push('放弃');
             var next = player.chooseControl(list);
             next.set('prompt', '行图：请回答' + prompt);
@@ -12486,14 +12470,13 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
             if (!skills.length) return true;
             let suits = [];
             let num = lib.suit.length;
-            skills.forEach(skill => {
-              skill.event.cards.forEach(card => {
+            skills.forEach(evt => {
+              evt.event.cards.forEach(card => {
                 suits.add(get.suit(card));
               });
               num -= suits.length;
-              suit = [];
+              suits = [];
             });
-
             return num > 0;
           },
           complexCard: true,
@@ -12625,6 +12608,7 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
           "_priority": 0,
         },
         PShuoshou: {
+          audio: "ext:PS武将/audio/skill:2",
           inherit: "huoshou",
           trigger: {
             source: "damageSource",
@@ -12738,6 +12722,7 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
           multitarget: true,
           content: function () {
             'step 0'
+            targets.sort(lib.sort.seat);
             targets.forEach(target => target.damage());
             const filterTarget = targets.filter(current => current.isAlive() && current.isIn() && current !== player && current.countGainableCards(player, 'he') > 0);
             if (filterTarget.length) {
@@ -12766,6 +12751,114 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
               },
             },
             threaten: 1.5,
+          },
+        },
+        PSduodao: {
+          audio: "reduodao",
+          trigger: {
+            player: "damageEnd",
+            target: "useCardToTargeted",
+          },
+          filter: function (event, player, name) {
+            if (name === "useCardToTargeted") return event.card.name == 'sha';
+            var source = event.source;
+            if (!source) return false;
+            return player.countCards('he') > 0 && event.source &&
+              event.card && event.card.name == 'sha';
+          },
+          direct: true,
+          check: function (event, player) {
+            return 1;
+          },
+          content: function () {
+            'step 0'
+            player.draw();
+            var target = event.triggername === 'useCardToTargeted' ? trigger.player : trigger.source;
+            if (target && target.countGainableCards(player, 'he') > 0) {
+              player.gainPlayerCard(target, 1, 'he', false);
+            }
+            'step 1'
+            if (!result.bool || (result.bool && result.cards[0].original !== 'h')) {
+              player.draw();
+            }
+          },
+          ai: {
+            "maixie_defend": true,
+          },
+          "_priority": 0,
+        },
+        PSanjian: {
+          mod: {
+            targetEnabled: function (card, player, target, now) {
+              if (player.getEquips(1).length === 0) {
+                if (card.name == 'sha') return false;
+              }
+            },
+          },
+          audio: "reanjian",
+          trigger: {
+            player: "useCardToPlayered",
+          },
+          forced: true,
+          filter: function (event, player) {
+            return event.card.name == 'sha' && !event.target.getEquips(1).length;
+          },
+          logTarget: "target",
+          content: function () {
+            trigger.directHit.add(trigger.target);
+            var map = trigger.customArgs;
+            var id = trigger.target.playerid;
+            if (!map[id]) map[id] = {};
+            if (!map[id].extraDamage) map[id].extraDamage = 0;
+            map[id].extraDamage++;
+          },
+        },
+        PSdujin: {
+          audio: "dujin",
+          trigger: {
+            player: "phaseDrawBegin2",
+          },
+          forced: true,
+          filter: function (event, player) {
+            return !event.numFixed;
+          },
+          content: function () {
+            trigger.num += Math.max(1, player.countCards('e'));
+          },
+          mod: {
+            maxHandcard: function (player, num) {
+              return num + Math.max(1, player.countCards('e'));
+            },
+          },
+        },
+        PSgudan: {
+          audio: "ext:PS武将/audio/skill:2",
+          trigger: {
+            player: "damageBegin4",
+            target: "useCardToTargeted",
+          },
+          forced: true,
+          filter: function (event, player, name) {
+            if (name === "useCardToTargeted") return get.type2(event.card) === 'trick' && get.color(event.card) === 'black' && event.targets.length === 1 && event.targets[0] === player;
+            if (!event.source || event.source === player) return false;
+            let card = event.cards ? event.cards[0] : event.card;
+            if (get.itemtype(card) == 'card' && card.original === 'h') return false;
+            return true;
+          },
+          content: function () {
+            'step 0'
+            if (event.triggername === "damageBegin4") {
+              trigger.num++;
+              event.finish();
+            } else {
+              player.chooseToDiscard('he', 1).ai = function (card) {
+                return 6 - get.value(card);
+              };
+            }
+            'step 1'
+            if (!result.bool) {
+              player.loseHp();
+            }
           },
         },
       },
@@ -12870,7 +12963,17 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
         "PSshu_sunshangxiang": "PS孙尚香",
         PSmenghuo: "PS孟获",
         PSzhugeliang: "PS诸葛亮",
+        PSpanzhangmazhong: "PS潘璋马忠",
+        PSlingcao: "PS凌操",
 
+        "PSdujin": "独进",
+        "PSdujin_info": "锁定技，摸牌阶段你额外摸X张牌，你的手牌上限+X（X为你装备区里的装备牌数量且至少为1）。",
+        "PSgudan": "孤胆",
+        "PSgudan_info": "锁定技，当你受到其他角色造成的伤害时，若此伤害不为手牌造成的伤害，此伤害+1；当你成为黑色锦囊牌的唯一目标时，你须弃置一张牌或者失去一点体力。",
+        "PSduodao": "夺刀",
+        "PSduodao_info": "当你受到其他角色的伤害后或成为其他角色杀的目标时，你可以摸一张牌并获得伤害来源／该角色的一张牌。若未从其手牌区获得牌则你额外摸一张牌。",
+        "PSanjian": "暗箭",
+        "PSanjian_info": "锁定技，武器栏没有牌的角色不能对你使用【杀】，不可响应你使用的【杀】，且受到你的【杀】伤害+1。",
         "PSjiqiao": "机巧",
         "PSjiqiao_info": "锁定技，游戏开始时，你将【木牛流马】、【八卦阵】、【诸葛连弩】置入你的对应装备栏。当一名角色触发上述装备效果时，你摸一张牌。",
         "PShuoji": "火计",

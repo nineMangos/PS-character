@@ -23,7 +23,7 @@ game.import("extension", function (lib, game, ui, get, ai, _status) {
       //垃圾武将
       lib.rank.rarity.junk.addArray(['PScenhun', 'PSliru', 'PSquansun', 'PSrs_wolong', 'PSsunshangxiang', 'PSfx_shen_guanyu']);
       //精品武将
-      lib.rank.rarity.rare.addArray(['PScaoang', 'PSzhugeliang', 'PSmenghuo', 'PSsp_yebai', 'PSshu_sunshangxiang', 'PSxie_sunquan', 'PSxushi', 'PSguanyu', 'PSshen_zhangfei', 'PSlvmeng', 'PSxuyou', 'PShaozhao', 'PSpeixiu', 'PSjiaxu', 'PSshen_liubei', 'PSjiaxu', 'PSzhuangbeidashi', 'PScaocao', 'PSzhoutai', 'PSzhangsong', 'PSshiniangongzhu', 'PSzhanghe', 'PSzhangjiao', 'PSsp_yeshou', 'PSyuanshu', 'PSxizhicai', 'PSsunben', 'PSsunquan', 'PSliuzan', 'PSshen_jiangweix', 'PSshen_zhuge', 'PSrexusheng', 'PSshen_huangzhong', 'PSshen_guojia', 'PScaochun', 'PSqun_sunce', 'PScaoshuang', 'PSlukang', 'PScaoxiu', 'PSdahantianzi', 'db_PSdaweiwuwang', 'PSdianwei', 'PSduyu', 'PSerciyuan', 'PSgaoguimingmen', 'PSguosi', 'PShs_zhonghui', 'PShuanggai', 'PShuangyueying', 'PShw_sunquan']);
+      lib.rank.rarity.rare.addArray(['PScaoang', 'PSsp_jiugemangguo', 'PSlingcao', 'PSpanzhangmazhong', 'PSzhugeliang', 'PSmenghuo', 'PSsp_yebai', 'PSshu_sunshangxiang', 'PSxie_sunquan', 'PSxushi', 'PSguanyu', 'PSshen_zhangfei', 'PSlvmeng', 'PSxuyou', 'PShaozhao', 'PSpeixiu', 'PSjiaxu', 'PSshen_liubei', 'PSjiaxu', 'PSzhuangbeidashi', 'PScaocao', 'PSzhoutai', 'PSzhangsong', 'PSshiniangongzhu', 'PSzhanghe', 'PSzhangjiao', 'PSsp_yeshou', 'PSyuanshu', 'PSxizhicai', 'PSsunben', 'PSsunquan', 'PSliuzan', 'PSshen_jiangweix', 'PSshen_zhuge', 'PSrexusheng', 'PSshen_huangzhong', 'PSshen_guojia', 'PScaochun', 'PSqun_sunce', 'PScaoshuang', 'PSlukang', 'PScaoxiu', 'PSdahantianzi', 'db_PSdaweiwuwang', 'PSdianwei', 'PSduyu', 'PSerciyuan', 'PSgaoguimingmen', 'PSguosi', 'PShs_zhonghui', 'PShuanggai', 'PShuangyueying', 'PShw_sunquan']);
       //史诗武将
       lib.rank.rarity.epic.addArray(['PSpeixiu', 'PSsp_jiugeshadiao', 'PSlibai', 'PSzhonghui', 'PSshen_sunquan', 'PSshen_dengai', 'PSshen_xunyu', 'PSmeng_liubei', 'PScaojinyu', 'PSjin_duyu', 'PSsb_xushao', 'PSfuzhijie', 'PSfuzhijie', 'PSwu_zhangliao', 'PSzuoci', 'PSzhangrang', 'PSzhenji', 'PSzhaoxiang', 'PSzhaoyun', 'PSxiahoujie', 'PSguanning', 'PSxushao', 'PSyangbiao', 'PSguanyunchang', 'PSsishouyige', 'PStongxiangge', 'PSsunru', 'PSjiesuanjie', 'PSshengui', 'PSnanhualaoxian', 'PSsh_zhangfei', 'PSshen_ganning']);
       //传说武将
@@ -36,6 +36,24 @@ game.import("extension", function (lib, game, ui, get, ai, _status) {
       lib.translate.phaseUse = '出牌阶段';
       lib.translate.phaseDiscard = '弃牌阶段';
       lib.translate.phaseJieshu = '回合结束阶段';
+
+      get.suitTranslation = function (suit) {
+        if (Array.isArray(suit)) {
+          return suit.map(function (s) {
+            return get.suitTranslation(s);
+          }).join('、');
+        }
+        else if (typeof suit !== 'string') {
+          return void 0;
+        }
+        const obj = {
+          'spade': '<font color="black">♠︎</font>',
+          'heart': '<font color="red">♥︎</font>',
+          'club': '<font color="black">♣︎</font>',
+          'diamond': '<font color="red">♦︎</font>',
+        }
+        return obj[suit];
+      }
       /* <-------------------------播放阵亡语音-------------------------> */
       /* lib.skill._PSdieAudio = {
         trigger: {
@@ -78,6 +96,36 @@ game.import("extension", function (lib, game, ui, get, ai, _status) {
       }); */
     },
     precontent: function (PScharacter) {
+
+      /* <-------------------------给String原型添加方法-------------------------> */
+      Object.defineProperty(String.prototype, "searchAll", {
+        configurable: true,
+        enumerable: false,
+        writable: true,
+        value: function (subStr) {
+          if (typeof subStr !== 'string' && subStr instanceof RegExp === false) throw new Error('参数必须为字符串或正则表达式');
+          const arr = [];
+          if (subStr instanceof RegExp) {
+            let array1;
+            if (!subStr.global) {
+              subStr = new RegExp(subStr.source, subStr.flags + 'g');
+            }
+            while ((array1 = subStr.exec(this)) !== null) {
+              arr.push(subStr.lastIndex - array1[0].length);
+            }
+          } else {
+            let index = this.search(subStr);
+            if (subStr.length === 0) return [];
+            while (index !== -1) {
+              arr.push(index);
+              const subIndex = this.slice(index + subStr.length).search(subStr);
+              index = subIndex === -1 ? -1 : index + subStr.length + subIndex;
+            }
+          }
+          return arr;
+        }
+      });//const str = 'aabbccaabbcc'; str.searchAll('a') => [0, 1, 6, 7]; str.searchAll(/a/) => [0, 1, 6, 7]
+
       /* <-------------------------加载json文件函数，搬运自福瑞拓展，已获得原作者允许，感谢钫酸酱-------------------------> */
       game.PS_loadJsonFromFile = function (filePath, callback, targetObject) {
         // 默认参数处理
@@ -131,7 +179,7 @@ game.import("extension", function (lib, game, ui, get, ai, _status) {
         if (error) {
           alert(error);
         } else {
-          console.log(data);
+          // console.log(data);
         }
       }, window.PScharacter.updateHistory);
 
@@ -170,7 +218,7 @@ game.import("extension", function (lib, game, ui, get, ai, _status) {
         if (error) {
           alert(error);
         } else {
-          console.log(data);
+          // console.log(data);
         }
       }, lib.PS_rusheng);
 
@@ -308,18 +356,19 @@ game.import("extension", function (lib, game, ui, get, ai, _status) {
               let changeLog = window.PScharacter.updateHistory[lib.extensionPack.PS武将.version].changeLog.slice(0);
               let str = '';
               changeLog.forEach(i => {
-                if (i !== "/setPlayer/") {
+                if (i !== "/setPlayer/" && i !== "/setCard/") {
                   window.PScharacter.characters.forEach(j => {
-                    if (i.includes(lib.translate[j])) {
-                      i = i.replace(lib.translate[j], `<span style="color:#ffce46">${lib.translate[j]}</span>`);
-                    }
-                    if (i.includes('〖') && i.includes('〗')) {
-                      i = i.replace('〖', '<span style="color:#24c022">〖').replace('〗', '〗</span>');
+                    if (i.includes(lib.translate[j]) || (i.includes('〖') && i.includes('〗'))) {
+                      i = i
+                        .replace(new RegExp(lib.translate[j], 'g'), `<font color=#ffce46>${lib.translate[j]}</font>`)
+                        .replace(new RegExp('〖', 'g'), `<font color=#24c022>〖`)
+                        .replace(new RegExp('〗', 'g'), `〗</font>`)
                     }
                   });
                   str += `·${i}<br>`;
                 }
               });
+              str = `<span style="width:335px; display:block; font-size: 15px">${str}<span>`;
               /* '·<span style="color:#ffce46">PS左慈</span>增强，制衡化身时额外获得一张化身牌。',
               '·<span style="color:#ffce46">PS裴秀</span><span style="color:#24c022">【行图】</span>增加了“倒计时”显示。',
               '·优化了<span style="color:#ffce46">PS赵襄、大魏吴王、双倍许劭、PS神张辽</span>选技能时的loading框样式。（需要开启扩展<span style="color:#24c022">“天牢令”</span>，已征得<span style="color:#bd6420">铝宝</span>和<span style="color:#bd6420">雷佬</span>同意）', */
@@ -352,7 +401,7 @@ game.import("extension", function (lib, game, ui, get, ai, _status) {
           node.style.width = "350px";
           switch (link) {
             case "1":
-              node.innerHTML = "早期本人在B站上做了一系列魔改武将技能的视频。由于这些武将大多只是在原基础上修改细枝末叶，类似于P图，且为了对应三国杀的SP系列武将，本人把此包命名为PS武将。目前PS武将包的技能设计大部分来自于网友，小部分来自本人（均有备注），强度基本上处于<font color=#ff9800>半阴</font>到<font color=#ff9800>阴间</font>的范围。如果你在游玩过程中遇到bug，可以通过qq群或b站私信（b站同名）向本人反馈。";
+              node.innerHTML = '<span style="width:335px; display:block; font-size: 15px"><p style="line-height: 1.5; margin:0; padding: 0;text-indent:  2em;">早期本人在B站上做了一系列魔改武将技能的视频。由于这些武将大多只是在原基础上修改细枝末叶，类似于P图，且为了对应三国杀的SP系列武将，本人把此包命名为PS武将。</p> <p style="line-height: 1.3; margin:0; padding: 0; text-indent: 2em;">目前PS武将包的技能设计大部分来自于网友，小部分来自本人（均有备注），强度基本上处<font color=#ff9800>半阴</font>到<font color=#ff9800>阴间</font>的范围。如果你在游玩过程中遇到bug，可以通过qq群或b站私信（b站同名）向本人反馈。</p></span>';
           }
         },
       },
@@ -382,22 +431,22 @@ game.import("extension", function (lib, game, ui, get, ai, _status) {
         },
       }, */
 
-      /* "PS_jiaqun": {
-        name: '欢迎加群<span style="color:#87CEEB"><font size="4px">▶▶▶</font></span>',
+      "PS_jiaqun": {
+        name: '交流群<span style="color:#87CEEB"><font size="4px">▶</font></span>',
         clear: true,
         onclick: function () {
           if (this.jiaqun == undefined) {
-            var more = ui.create.div('.jiaqun', '<div style="border:2px solid gray"><span><img style=width:238px src=' + lib.assetURL + 'extension/PS武将/image/QQgroup/pswj_jiaqun.jpg></span>');
+            var more = ui.create.div('.jiaqun', '<div style="border:2px solid gray"><span><img style=width:238px src=' + lib.assetURL + 'extension/PS武将/image/QQgroup/QQgroup.jpg></span>');
             this.parentNode.insertBefore(more, this.nextSibling);
             this.jiaqun = more;
-            this.innerHTML = '欢迎加群<span style="color:#87CEEB"><font size="4px">▼▼▼</font></span>';
+            this.innerHTML = '交流群<span style="color:#87CEEB"><font size="4px">▼</font></span>';
           } else {
             this.parentNode.removeChild(this.jiaqun);
             delete this.jiaqun;
-            this.innerHTML = '欢迎加群<span style="color:#87CEEB"><font size="4px">▶▶▶</font></span>';
+            this.innerHTML = '交流群<span style="color:#87CEEB"><font size="4px">▶</font></span>';
           };
         },
-      }, */
+      },
 
       "PS_prefix": {
         name: "武将前缀",
@@ -648,7 +697,7 @@ game.import("extension", function (lib, game, ui, get, ai, _status) {
       author: '九个芒果',
       diskURL: "",
       forumURL: "",
-      version: "2.1.0",
+      version: "2.1.1",
     }, files: { "character": [], "card": [], "skill": [] },
   }
 })

@@ -1,4 +1,21 @@
 {
+  "2.1.1": {
+    "changeLog": [
+      "/setPlayer/",
+      "/setCard/",
+      "新增了武将：九个芒果、PS潘璋马忠、PS凌操",
+      "修复了已知的bug",
+      "增加了更多的bug"
+    ],
+    "players": [
+      "PSsp_jiugemangguo",
+      "PSpanzhangmazhong",
+      "PSlingcao"
+    ],
+    "cards": [
+      "PSsp_blank"
+    ]
+  },
   "2.1.0": {
     "changeLog": [
       "/setPlayer/",
