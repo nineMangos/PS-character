@@ -32,7 +32,7 @@ export let CONFIG = {
         changeLog.forEach(i => {
           if (i !== "/setPlayer/" && i !== "/setCard/") {
             window.PScharacter.characters.forEach(j => {
-              if (i.includes(lib.translate[j]) || (i.includes('〖') && i.includes('〗'))) {
+              if ((i.includes(lib.translate[j]) || (i.includes('〖') && i.includes('〗'))) && !i.startsWith('收录了')) {
                 i = i
                   .replace(new RegExp(lib.translate[j], 'g'), `<font color=#ff9800>${lib.translate[j]}</font>`)
                   .replace(new RegExp('〖', 'g'), `<font color=#24c022>〖`)

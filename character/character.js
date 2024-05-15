@@ -7,11 +7,11 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
       characterSort: {
         PScharacter: {
           PScharacter_wei: ['PScaocao', 'PScaoying', 'PSzhonghui', 'PScaopi', 'PSxuzhu', 'PScaoren', 'PSdianwei', 'PSzhanghe', 'PScaoxiu', 'PScaoang', 'PSshiniangongzhu', 'PScaojinyu', 'PScaochun', 'PScaoshuang', 'PShs_zhonghui', 'PSxizhicai', 'PSxiahoujie', 'PSzhenji', 'PSwu_zhangliao', 'PShaozhao'],
-          PScharacter_shu: ['PSsh_zhangfei', 'PSliubei', 'PShuangzhong', 'PSliaohua', 'PSchenshi', 'PSlifeng', 'PSzhangfei', 'PSzhugeliang', 'PSmenghuo', 'PSshu_sunshangxiang', 'PStongxiangge', 'PSrs_wolong', 'PShuangyueying', 'PSzhaoxiang', 'PSzhangsong', 'PSguanyunchang', 'PSzhaoyun', 'PSzhuangbeidashi', 'PSguanyu', 'PSmeng_liubei'],
-          PScharacter_wu: ['PSrexusheng', 'PSlingcao', 'PSben_sunben', 'PSdian_huanggai', 'PSlvmeng', 'PSpanzhangmazhong', 'PSxie_sunquan', 'PSsunquan', 'PSsunshangxiang', 'PSliuzan', 'PShuanggai', 'PSlukang', 'PSzhoutai', 'PSquansun', 'PSjiesuanjie', 'PSzhangxuan', 'PScenhun', 'PSsunben', 'PShw_sunquan', 'PSsunru', 'PSfuzhijie', 'PSxushi'],
-          PScharacter_qun: ['PSzhangjiao', 'PSlibai', 'PSyue_caiwenji', 'PSdongzhuo', 'PSgongsunzan', 'PSqun_zhaoyun', 'PSxurong', 'PSluxun', 'PSyuanshu', 'PSxushao', 'PSguanning', 'PSliru', 'PSzuoci', 'PSerciyuan', 'PSdahantianzi', 'PSnanhualaoxian', 'PSduyu', 'PSzhangrang', 'PSqun_sunce', 'PSgaoguimingmen', 'PSsishouyige', 'PSyangbiao', 'PSguosi', 'PSpeixiu', 'PSsb_xushao', 'PSjiaxu', 'PSxuyou'],
+          PScharacter_shu: ['PSsh_zhangfei', 'PSliubei', 'PSmachao', 'PShuangzhong', 'PSliaohua', 'PSchenshi', 'PSlifeng', 'PSzhangfei', 'PSzhugeliang', 'PSmenghuo', 'PSshu_sunshangxiang', 'PStongxiangge', 'PSrs_wolong', 'PShuangyueying', 'PSzhaoxiang', 'PSzhangsong', 'PSguanyunchang', 'PSzhaoyun', 'PSzhuangbeidashi', 'PSguanyu', 'PSmeng_liubei'],
+          PScharacter_wu: ['PSrexusheng', 'PSluji', 'PSlingcao', 'PSreluxun', 'PSluxun', 'PSben_sunben', 'PSdian_huanggai', 'PSlvmeng', 'PSpanzhangmazhong', 'PSxie_sunquan', 'PSsunquan', 'PSsunshangxiang', 'PSliuzan', 'PShuanggai', 'PSlukang', 'PSzhoutai', 'PSquansun', 'PSjiesuanjie', 'PSzhangxuan', 'PScenhun', 'PSsunben', 'PShw_sunquan', 'PSsunru', 'PSfuzhijie', 'PSxushi'],
+          PScharacter_qun: ['PSzhangjiao', 'PSlvbu', 'PSreyuanshu', 'PSqun_machao', 'PSlibai', 'PSyue_caiwenji', 'PSquyi', 'PSdongzhuo', 'PSgongsunzan', 'PSqun_zhaoyun', 'PSxurong', 'PSyuanshu', 'PSxushao', 'PSguanning', 'PSliru', 'PSzuoci', 'PSerciyuan', 'PSdahantianzi', 'PSnanhualaoxian', 'PSduyu', 'PSzhangrang', 'PSqun_sunce', 'PSgaoguimingmen', 'PSsishouyige', 'PSyangbiao', 'PSguosi', 'PSpeixiu', 'PSsb_xushao', 'PSjiaxu', 'PSxuyou'],
           PScharacter_jin: ['PSjin_duyu'],
-          PScharacter_shen: ['PSshen_sunquan', 'PSshen_simayi', 'PSshen_dianwei', 'PSshouyige', 'PSshen_zhuge', 'PSshen_ganning', 'PSshen_zhaoyun', 'PSxian_caozhi', 'PSshen_jiangweix', 'PSboss_lvbu1', 'PSboss_lvbu2', 'PSboss_lvbu3', 'PSboss_lvbu4', 'PSshengui', 'PSshen_huangzhong', 'PSshen_guojia', 'PSfx_shen_guanyu', 'PSshen_liubei', 'PSshen_zhangliao', 'PSshen_zhangfei', 'PSshen_dengai', 'PSshen_xunyu'],
+          PScharacter_shen: ['PSshen_sunquan', 'PSshen_zuoci', 'PSshen_simayi', 'PSshen_dianwei', 'PSshouyige', 'PSshen_zhuge', 'PSshen_ganning', 'PSshen_zhaoyun', 'PSxian_caozhi', 'PSshen_jiangweix', 'PSboss_lvbu1', 'PSboss_lvbu2', 'PSboss_lvbu3', 'PSboss_lvbu4', 'PSshengui', 'PSshen_huangzhong', 'PSshen_guojia', 'PSfx_shen_guanyu', 'PSshen_liubei', 'PSshen_zhangliao', 'PSshen_zhangfei', 'PSshen_dengai', 'PSshen_xunyu'],
           PScharacter_db: ['db_PSdaweiwuwang'],
         },
       },
@@ -113,7 +113,7 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
         PSliubei: ["male", "shu", 4, ["PSrende", "rejijiang"], ["zhu"]],
         PScaoren: ["male", "wei", '2 / 5', ["PSjushou", "PSbianzhen"], []],
         PSzhangfei: ["male", "shu", 4, ["PSrepaoxiao", "PSliyong"], []],
-        PSluxun: ["male", "wu", 3, ["PSqianxun", "PSlianying"], []],
+        PSreluxun: ["male", "wu", 3, ["PSreqianxun", "PSrelianying"], []],
         PSxurong: ["male", "qun", 4, ["PSxionghuo", "PSshajue"], []],
         PSlifeng: ["male", "shu", 3, ["PStunchu", "PSshuliang"], []],
         PSchenshi: ["male", "shu", 4, ["PSqingbei"], []],
@@ -129,6 +129,14 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
         PScaoying: ["female", "wei", 4, ["PSlingren", "PSfujian"], []],
         PSdian_huanggai: ["male", "wu", 4, ["kurou", "PSshiming"], ["die:../audio/die/huanggai.mp3"]],
         PSliaohua: ["male", "shu", ' 5/6', ["PSdangxian", "PSfuli"], ["die:../audio/die/xin_liaohua.mp3"]],
+        PSquyi: ["male", "qun", 4, ["PSjiaozi", "PSfuqi"], []],
+        PSmachao: ["male", "shu", 4, ["PStieji", "PScema"], ["die:../audio/die/sb_machao.mp3"]],
+        PSqun_machao: ["male", "qun", 4, ["PSzhuiming", "PSjinge"], ["die:../audio/die/sp_machao.mp3"]],
+        PSluji: ["male", "wu", 3, ["PShuaiju", "nzry_yili", "nzry_zhenglun"], []],
+        PSluxun: ["male", "wu", 3, ["PSqianxun", "PSlianying"], []],
+        PSlvbu: ["male", "qun", 5, ["PSwushuang", "PSbaifu", "PSpanshi",], []],
+        PSshen_zuoci: ["male", "shen", 3, ["PSshen_huashen", "PSshen_jihun", "PSshen_xinsheng"], ['die:ext:PS武将/audio/die/PSshen_zuoci.mp3']],
+        PSreyuanshu: ["male", "qun", 4, ["PSshelian", "PSjixi"], ["die:../audio/die/re_yuanshu.mp3"]],
       },
       characterIntro: {
         //武将介绍
@@ -229,7 +237,7 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
         PSliubei: '由“九个芒果”设计',
         PScaoren: '由“mento last”设计',
         PSzhangfei: '由“九个芒果”设计',
-        PSluxun: '由“九个芒果”设计',
+        PSreluxun: '由“九个芒果”设计',
         PSxurong: '由“九个芒果”设计',
         PSlifeng: '由“九个芒果”设计',
         PSchenshi: '由“神鬼高达”设计',
@@ -245,6 +253,13 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
         PScaoying: '由“九个鲨雕”设计',
         PSdian_huanggai: '由“九个陈皮”设计',
         PSliaohua: '由“mento last”设计',
+        PSquyi: '由“九个陈皮”设计',
+        PSmachao: '由“九个芒果”设计',
+        PSqun_machao: '由“九个陈皮”设计',
+        PSluji: '由“九个鲨雕”设计',
+        PSluxun: '由“希霞”设计',
+        PSshen_zuoci: '由“九个夜白”设计',
+        PSreyuanshu: '由“九个陈皮”设计',
       },
       characterTitle: {
         //武将称号
@@ -263,6 +278,9 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
         PSliubei: ['PSliubei', 'PSmeng_liubei'],
         "PShs_zhonghui": ['PShs_zhonghui', 'PSzhonghui'],
         PSzhaoyun: ['PSzhaoyun', 'PSqun_zhaoyun'],
+        PSmachao: ['PSmachao', 'PSqun_machao'],
+        PSluxun: ['PSluxun', 'PSreluxun'],
+        PSzuoci: ['PSzuoci', 'PSshen_zuoci'],
       },
       characterFilter: {
         //武将在特定模式下禁用
@@ -272,6 +290,11 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
         db_PSdaweiwuwang: function (mode) {
           return mode != 'guozhan';
         },
+      },
+      characterSubstitute: {
+        PSzhaoxiang: [
+          ['PSzhaoxiang2', [((lib.device || lib.node) ? 'ext:' : 'db:extension-') + 'PS武将/image/character/PSzhaoxiang2.jpg']]
+        ],
       },
       perfectPair: {
         //珠联璧合
@@ -654,8 +677,9 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
                 trigger.cancel();
                 player.awakenSkill('PSshuangquan_niepan');
                 player.storage.PSshuangquan_niepan = true;
-
                 'step 1'
+                player.maxHp = 8;
+                player.update();
                 if (player.hp < player.maxHp) {
                   player.recoverTo(player.maxHp);
                 }
@@ -2446,16 +2470,16 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
           },
         },
         PSfushi: {
-          audio: "fuhan",
+          audio: "ext:PS武将/audio/skill:2",
           trigger: {
-            player: "phaseZhunbeiBegin",
+            player: "phaseJieshuBegin",
           },
           skillAnimation: true,
           animationColor: "orange",
           filter: function (event, player) {
-            const list = [];
-            game.players.concat(game.dead).forEach(cur => list.add(cur.group));
-            if (player.getAllHistory('useSkill', evt => evt.skill === 'PSfushi').length >= list.length) return false;
+            // const list = [];
+            /* game.players.concat(game.dead).forEach(cur => list.add(cur.group));
+            if (player.getAllHistory('useSkill', evt => evt.skill === 'PSfushi').length >= list.length) return false; */
             return player.countMark('fanghun') >= 0;
           },
           characterList: function () {//此函数的作用是将武将包名称数组转化为武将id数组      
@@ -2645,6 +2669,9 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
           },
           content: function () {
             'step 0'
+            try {
+              player.changeSkin("PSfushi", "PSzhaoxiang2");
+            } catch { }
             event.num = player.storage.fanghun;
             player.draw(event.num);
             player.removeMark('fanghun', player.storage.fanghun);
@@ -3907,7 +3934,7 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
                 const prompt = '是否将性别和势力改为与一张“化身牌”相同？';
                 if (player.isOnline2()) {
                   player.send(function (cards, id) {
-                    var dialog = ui.create.dialog(prompt, [cards, (item, type, position, noclick, node) => lib.skill.PShuashen.$createButton(item, type, position, noclick, node)]);
+                    var dialog = ui.create.dialog('是否将性别和势力改为与一张“化身牌”相同？', [cards, (item, type, position, noclick, node) => lib.skill.PShuashen.$createButton(item, type, position, noclick, node)]);
                     dialog.videoId = id;
                   }, cards, event.videoId);
                 }
@@ -3959,7 +3986,6 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
                   game.log(player, '将性别变为了', '#y' + get.translation(lib.character[event.card][0]) + '性');
                   player.changeGroup(lib.character[event.card][1]);
                 }
-
               },
               sub: true,
             },
@@ -6470,6 +6496,7 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
             return event.num > 0;
           },
           frequent: true,
+          locked: false,
           "prompt2": "摸两张牌",
           content: function () {
             'step 0'
@@ -7000,7 +7027,6 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
               forced: true,
               content: function () {
                 'step 0'
-                game.log(trigger.name + '0');
                 if (trigger.name == 'die') trigger.cancel();
                 var list = ['暴怒战神', '神鬼无前', '炼狱修罗'];
                 player.chooseControl(list, function () {
@@ -7008,15 +7034,12 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
                 }).set('prompt', '请选择一个变身形态：');
                 'step 1'
                 if (result.control == '暴怒战神') {
-                  player.init('PSboss_lvbu2');
+                  player.reinitCharacter2('PSboss_lvbu1', 'PSboss_lvbu2', [6, 6]);
                 }
                 else if (result.control == '神鬼无前') {
-                  player.init('PSboss_lvbu3');
+                  player.reinitCharacter2('PSboss_lvbu1', 'PSboss_lvbu3', [6, 6]);
                 }
-                else player.init('PSboss_lvbu4');
-                player.maxHp = 6;
-                player.hp = 6;
-                player.update();
+                else player.reinitCharacter2('PSboss_lvbu1', 'PSboss_lvbu4', [6, 6]);
                 ui.clear();
                 'step 2'
                 if (player.isLinked()) player.link();
@@ -7582,8 +7605,6 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
               }
             }
             event.skills = skillsx;
-            event.num1 = player.maxHp;
-            event.num2 = player.hp;
             'step 1'
             var list = ['暴怒战神', '神鬼无前', '炼狱修罗'];
             switch (player.name) {
@@ -7603,22 +7624,20 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
               return list.randomGet();
             }).set('prompt', '请选择你要变换的形态：');
             'step 2'
+            const name = player.name1.startsWith('PSboss_lvbu') ? player.name1 : player.name2 && player.name2.startsWith('PSboss_lvbu') ? player.name2 : player.name1;
             if (result.control == '暴怒战神') {
-              player.init('PSboss_lvbu2');
+              player.reinitCharacter2(name, 'PSboss_lvbu2');
             }
             else if (result.control == '神鬼无前') {
-              player.init('PSboss_lvbu3');
+              player.reinitCharacter2(name, 'PSboss_lvbu3');
             }
             else if (result.control == '炼狱修罗') {
-              player.init('PSboss_lvbu4');
+              player.reinitCharacter2(name, 'PSboss_lvbu4');
             }
             else event.finish();
             'step 3'
             player.logSkill('PSbaguan1_bianshen');
             player.addSkill("PSbaguan2_clear");
-            player.maxHp = event.num1;
-            player.hp = event.num2;
-            player.update();
             'step 4'
             if (event.skills.length > 0) {
               for (var i of event.skills) {
@@ -7650,8 +7669,6 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
                   }
                 }
                 event.skills = skillsx;
-                event.num1 = player.maxHp;
-                event.num2 = player.hp;
                 'step 1'
                 var list = ['暴怒战神', '神鬼无前', '炼狱修罗'];
                 switch (player.name) {
@@ -7671,22 +7688,20 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
                   return list.randomGet();
                 }).set('prompt', '请选择你要变换的形态：');
                 'step 2'
+                const name = player.name1.startsWith('PSboss_lvbu') ? player.name1 : player.name2 && player.name2.startsWith('PSboss_lvbu') ? player.name2 : player.name1;
                 if (result.control == '暴怒战神') {
-                  player.init('PSboss_lvbu2');
+                  player.reinitCharacter2(name, 'PSboss_lvbu2');
                 }
                 else if (result.control == '神鬼无前') {
-                  player.init('PSboss_lvbu3');
+                  player.reinitCharacter2(name, 'PSboss_lvbu3');
                 }
                 else if (result.control == '炼狱修罗') {
-                  player.init('PSboss_lvbu4');
+                  player.reinitCharacter2(name, 'PSboss_lvbu4');
                 }
                 else event.finish();
                 'step 3'
                 player.logSkill('PSbaguan1_bianshen');
                 player.addSkill("PSbaguan2_clear");
-                player.maxHp = event.num1;
-                player.hp = event.num2;
-                player.update();
                 'step 4'
                 if (event.skills.length > 0) {
                   for (var i of event.skills) {
@@ -9568,12 +9583,12 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
             next.set('ai', function () {
               return event.num.toString();
             });
-            player.popup(num--);//玩家武将牌弹出数字
+            /* player.popup(num--);//玩家武将牌弹出数字
             event.popup = setInterval(function () {
               player.popup(num);
               num--;
               if (num == 0) num = '时间到！';
-            }, 1000);//每过1秒弹出一次 
+            }, 1000);//每过1秒弹出一次 */
             var o = {
               O: function (num = 3) {
                 if (typeof num != 'number') num = 3;
@@ -9587,11 +9602,12 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
             setTimeout(function () {
               clearInterval(event.popup);//停止弹出函数
               if (next.controlbars) {
-                for (var i = 0; i < next.controlbars.length - 1; i++) {
+                /* for (var i = 0; i < next.controlbars.length - 1; i++) {
                   next.controlbars[i].close();//按钮关闭
-                }
+                } */
+                next.controlbars.at(-1).click();
               }
-            }, 3000);//3秒后停止弹出，除最后一个按钮外，其他按钮关闭
+            }, 3000);//3秒后自动点击“取消”
             'step 1'
             clearInterval(event.popup);//停止弹出函数 
             if (result.control == event.num) {
@@ -11411,7 +11427,7 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
               var types = ['任意'].concat(['basic', 'trick', 'equip']);
               event._result = {
                 bool: true,
-                suit: ['任意'].concat(lib.suit.randomGet()),
+                suit: ['任意', ...lib.suit].randomGet(),
                 type: types.randomGet(),
               };
               if (event.dialog) event.dialog.close();
@@ -11525,7 +11541,10 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
             if (map.bool) {
               if (map.type && map.type != '任意') event.type = map.type;
               if (map.suit && map.suit != '任意') event.suit = map.suit;
-              game.log(player, '声明了', (event.type || '任意类型'), '和', (event.suit || '任意花色'));
+              game.log(player, '声明了', (event.suit || '任意花色'), '和', (event.type || '任意类型'));
+              console.log(map);
+              console.log(event.suit);
+              console.log(event.type);
               player.popup(get.translation(event.suit + 2 || '任意花色') + '<br/>' + get.translation(event.type || '任意类型'), 'thunder');
             }
             "step 3"
@@ -11995,7 +12014,7 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
           /* filter: function (event, player) {
               return game.shuffleNumber <= 2;
           }, */
-          content: () => {
+          content() {
             "step 0"
             var cards = get.cards(8);
             event.cards = cards;
@@ -12019,26 +12038,27 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
           trigger: {
             player: ["damageEnd", "phaseEnd"],
           },
-          init: function (player) {
+          /* init: function (player) {
             if (!player.storage.PStianzuo) player.storage.PStianzuo = 0;
-          },
+          }, */
           filter: function (event, player) {
             if (!ui.discardPile.childNodes.length) return false;
             if (event.name != 'phase') return event.num > 0;
             return true;
           },
-          content: () => {
+          async content(event, trigger, player) {
             'step 0'
-            event.num = trigger.num || 1;
-            'step 1'
-            event.num--;
-            var cards = get.cards(ui.cardPile.childElementCount + 1);
+            const num = event.triggername === "damageEnd" ? trigger.num : 1;
+            // event.num--;
+            /* var cards = get.cards(ui.cardPile.childElementCount + 1);
             for (var i = 0; i < cards.length; i++) {
               ui.cardPile.insertBefore(cards[i], ui.cardPile.childNodes[get.rand(ui.cardPile.childElementCount)]);
             }
             game.updateRoundNumber();
-            player.storage.PStianzuo++;
-            if (event.num > 0) event.redo();
+            player.storage.PStianzuo++; */
+            for (let i = 0; i < num; i++) {
+              await game.washCard();
+            }
           },
           group: 'PStianzuo_use',
           subSkill: {
@@ -12051,13 +12071,14 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
                 return true;
               },
               content: () => {
-                var cards = get.cards(ui.cardPile.childElementCount + 1);
+                game.washCard();
+                /* var cards = get.cards(ui.cardPile.childElementCount + 1);
                 for (var i = 0; i < cards.length; i++) {
                   ui.cardPile.insertBefore(cards[i], ui.cardPile.childNodes[get.rand(ui.cardPile.childElementCount)]);
                 }
                 player.storage.PStianzuo++;
-                game.updateRoundNumber();
-                event.trigger('PStianzuoAfter');
+                game.updateRoundNumber(); */
+                // event.trigger('PStianzuoAfter');
               },
               sub: true,
             },
@@ -12079,7 +12100,7 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
             player: "PStianzuoAfter",
           },
           filter: (event, player) => {
-            return player.storage.PStianzuo && player.storage.PStianzuo >= 3;
+            return player.getAllHistory('useSkill', evt => ['PStianzuo', 'PStianzuo_use'].includes(evt.skill)).length >= 3;
           },
           content: () => {
             player.awakenSkill(event.name);
@@ -13591,19 +13612,23 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
           audio: 'paoxiao_re_zhangfei',
           firstDo: true,
           trigger: {
-            player: ["useCard1", "phaseZhunbeiBegin"],
+            player: ["useCard1", "useCard", "respond"],
           },
           forced: true,
+          shaRelated: true,
           filter(event, player, name) {
-            if (name === "phaseZhunbeiBegin") return true;
-            return !event.audioed && event.card.name == 'sha' && player.countUsed('sha', true) > 1 && event.getParent().type == 'phase';
+            if (name === "useCard1") return !event.audioed && event.card.name == 'sha' && player.countUsed('sha', true) > 1 && event.getParent().type == 'phase';
+            if (!event.cards.length || event.card.name !== 'sha' || !['o', 'd'].includes(get.position(event.cards[0]))) return false;
+            if (name === "respond") return player.getHistory('respond', evt => evt.card.name === 'sha').length === 1;
+            return player.getHistory('useCard', evt => evt.card.name === 'sha').length === 1;
           },
           async content(event, trigger, player) {
-            if (event.triggername === "phaseZhunbeiBegin") {
-              const card = get.cardPile('sha', true);
-              if (card) player.gain(card, 'gain2');
-            }
             trigger.audioed = true;
+            if (event.triggername === "useCard" && player.getHistory('useCard', evt => evt.card.name === 'sha').length === 1) {
+              player.gain(trigger.cards, 'gain2');
+            } else if (player.getHistory('respond', evt => evt.card.name === 'sha').length === 1) {
+              player.gain(trigger.cards, 'gain2');
+            }
           },
           mod: {
             cardUsable(card, player, num) {
@@ -13631,6 +13656,7 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
           },
           forced: true,
           direct: true,
+          shaRelated: true,
           filter: function (event, player, name) {
             switch (name) {
               case "shaMiss":
@@ -13653,17 +13679,9 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
             },
           },
           content: function () {
-            player.when("phaseEnd")
-              .then(() => {
-                player.storage.PSliyong = [];
-                player.unmarkSkill('PSliyong');
-              });
             switch (event.triggername) {
               case "shaMiss":
-                player.logSkill(event.name);
-                player.markSkill(event.name);
-                player.addTempSkill('PSliyong_effect');
-                player.storage[event.name].add('强命！');
+                player.getHistory('custom').push({ PSliyong_effect: true });
                 break;
               case "useCardToPlayered":
                 player.logSkill(event.name);
@@ -13678,7 +13696,8 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
                   }
                   map[id].extraDamage++;
                 }
-                if (player.hasSkill('PSliyong_effect') && trigger.isFirstTarget) {
+                if (player.hasHistory('custom', evt => evt.PSliyong_effect) && trigger.isFirstTarget) {
+                  player.storage[event.name].add('强命！');
                   trigger.getParent().directHit.addArray(game.players);
                 }
                 break;
@@ -13687,9 +13706,23 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
                 trigger.player.addTempSkill('fengyin');
             }
           },
+          group: 'PSliyong_draw',
           subSkill: {
-            effect: {
-              charlotte: true,
+            draw: {
+              audio: 'liyong',
+              trigger: {
+                global: "phaseEnd",
+              },
+              filter: function (event, player, name) {
+                return player.storage.PSliyong && player.storage.PSliyong.length > 0;
+              },
+              forced: true,
+              content() {
+                const num = player.storage.PSliyong.length;
+                player.storage.PSliyong = [];
+                player.unmarkSkill('PSliyong');
+                player.draw(num);
+              },
             },
           },
           ai: {
@@ -13705,7 +13738,7 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
             },
           },
         },
-        PSqianxun: {
+        PSreqianxun: {
           audio: "reqianxun",
           trigger: {
             target: "useCardToBegin",
@@ -13722,16 +13755,16 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
           },
           content: function () {
             var cards = player.getCards('h');
-            player.loseToSpecial(cards, 'PSqianxun').visible = false;
-            player.markSkill('PSqianxun');
-            // player.addToExpansion(cards, 'giveAuto', player).gaintag.add('PSqianxun_storage');
-            player.addSkill('PSqianxun_gain');
+            player.loseToSpecial(cards, 'PSreqianxun').visible = false;
+            player.markSkill('PSreqianxun');
+            // player.addToExpansion(cards, 'giveAuto', player).gaintag.add('PSreqianxun_storage');
+            player.addSkill('PSreqianxun_gain');
           },
           marktext: "谦",
           intro: {
             mark: function (dialog, storage, player) {
               var content = player.getCards('s', function (card) {
-                return card.hasGaintag('PSqianxun');
+                return card.hasGaintag('PSreqianxun');
               })
               if (content && content.length) {
                 if (player == game.me || player.isUnderControl()) {
@@ -13744,12 +13777,12 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
             },
             markcount: function (storage, player) {
               return player.getCards('s', function (card) {
-                return card.hasGaintag('PSqianxun');
+                return card.hasGaintag('PSreqianxun');
               }).length;
             },
             onunmark: function (storage, player) {
               var cards = player.getCards('s', function (card) {
-                return card.hasGaintag('PSqianxun');
+                return card.hasGaintag('PSreqianxun');
               });
               if (cards.length) {
                 player.lose(cards, ui.discardPile);
@@ -13788,19 +13821,19 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
               content: function () {
                 'step 0'
                 var cards = player.getCards('s', function (card) {
-                  return card.hasGaintag('PSqianxun');
+                  return card.hasGaintag('PSreqianxun');
                 });
                 if (cards.length) player.gain(cards, 'draw');
                 'step 1'
                 game.delay();
-                player.unmarkSkill('PSqianxun');
-                player.removeSkill('PSqianxun_gain');
+                player.unmarkSkill('PSreqianxun');
+                player.removeSkill('PSreqianxun_gain');
               },
               "_priority": 0,
             },
           },
         },
-        PSlianying: {
+        PSrelianying: {
           audio: "relianying",
           trigger: {
             player: "loseAfter",
@@ -13822,7 +13855,7 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
             }
             "step 1"
             if (result.bool) {
-              player.logSkill('relianying', result.targets);
+              player.logSkill('PSrelianying', result.targets);
               game.asyncDraw(result.targets);
             }
             else event.finish();
@@ -13839,7 +13872,7 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
             noh: true,
           },
           "_priority": 0,
-          group: "PSlianying_else",
+          group: "PSrelianying_else",
           subSkill: {
             else: {
               trigger: {
@@ -14616,7 +14649,6 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
               return list.randomGet();
             });
             'step 1'
-            player.draw(player.countDisabled());
             player.when({ source: 'damageBegin2', player: "useCardEnd" }).filter(evt => {
               if (evt.name == "useCard") return true;
               return evt.getParent().skill === 'PSluoyi' && player.countCards('e') <= evt.player.countCards('e');
@@ -14683,8 +14715,7 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
           usable: 1,
           check: () => true,
           async content(event, trigger, player) {
-            player.drawTo(4);
-            if (player.countDiscardableCards(player, 'hes') > 0 && player.hasDisabledSlot()) {
+            if (player.countDiscardableCards(player, 'hes') > 0) {
               const { result } = await player.chooseToDiscard([1, 2], 'hes', '是否弃置至多两张牌，恢复等量的装备栏？', false).set('ai', get.disvalue);
               if (result.cards && result.cards.length) {
                 const num = result.cards.length;
@@ -14706,6 +14737,7 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
                 }
               }
             }
+            player.drawTo(4);
           }
         },
         PSlingbao: {
@@ -15748,6 +15780,1280 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
           },
           "_priority": 0,
         },
+        PSjiaozi: {
+          audio: "jiaozi",
+          trigger: {
+            player: "damageBegin3",
+            source: "damageBegin1",
+          },
+          forced: true,
+          filter: function (event, player) {
+            if (!event.source) return false;
+            const target = event.source === player ? event.player : event.source;
+            return player.countCards('h') >= target.countCards('h');
+          },
+          content: function () {
+            trigger.num++;
+          },
+          ai: {
+            presha: true,
+          },
+          group: "PSjiaozi_else",
+          subSkill: {
+            else: {
+              audio: "jiaozi",
+              trigger: {
+                player: ["phaseBegin", "phaseDiscardBegin"],
+              },
+              forced: true,
+              content() {
+                const num = game.countPlayer(current => current.hp <= player.hp);
+                if (event.triggername === "phaseBegin") {
+                  player.draw(num);
+                } else {
+                  player.chooseToDiscard('he', num, true);
+                }
+              },
+            },
+          },
+          "_priority": 0,
+        },
+        PSfuqi: {
+          audio: "fuqi",
+          forced: true,
+          trigger: {
+            player: "useCard",
+          },
+          filter: function (event, player) {
+            return event.card && (get.type(event.card) == 'trick' || get.type(event.card) == 'basic' && !['shan', 'tao', 'jiu', 'du'].includes(event.card.name)) && game.hasPlayer(function (current) {
+              return current != player && get.distance(current, player) <= 1;
+            });
+          },
+          content: function () {
+            trigger.directHit.addArray(game.filterPlayer(function (current) {
+              return current != player && get.distance(current, player) <= 1;
+            }));
+          },
+          ai: {
+            "directHit_ai": true,
+            skillTagFilter: function (player, tag, arg) {
+              return get.distance(arg.target, player) <= 1;
+            },
+          },
+          mod: {
+            globalFrom: function (from, to, distance) {
+              if (get.distance(to, from) <= 1) return -Infinity;
+            },
+          },
+          "_priority": 0,
+        },
+        PStieji: {
+          audio: "sbtieji",
+          trigger: {
+            player: "useCardToPlayered",
+          },
+          logTarget: "target",
+          filter: function (event, player) {
+            return player != event.target && event.card.name == 'sha' && event.target.isIn();
+          },
+          check: function (event, player) {
+            return get.attitude(player, event.target) < 0;
+          },
+          content: function () {
+            'step 0'
+            var target = trigger.target;
+            event.target = target;
+            if (!target.hasSkill('fengyin')) target.addTempSkill('fengyin');
+            trigger.directHit.add(target);
+            if (player.hasHistory('custom', evt => evt.PStieji_target === target)) {
+              event.finish();
+              return;
+            }
+            player.PSchooseToDuiben(target).set('title', '谋弈').set('namelist', [
+              '出阵迎战', '拱卫中军', '直取敌营', '扰阵疲敌'
+            ])
+              .set('ai', button => {
+                var source = get.event().getParent().player, target = get.event().getParent().target;
+                if (!target.countCards('he') && button.link[2] == 'db_def2') return 10;
+                if (!target.countCards('he') && get.attitude(target, source) <= 0 && button.link[2] == 'db_atk1') return 10;
+                return 1 + Math.random();
+              })
+              .set('translation',
+                [
+                  `以防止${get.translation(player)}摸两张牌`,
+                  `以防止${get.translation(player)}获得你的牌`,
+                  `以获得${get.translation(target)}的一张牌`,
+                  `以摸两张牌`,
+                ]
+              );
+            'step 1'
+            if (result.bool) {
+              target.addTempSkill('fengyin', { player: "phaseEnd" });
+              player.addTempSkill('PStieji_mark');
+              player.addMark('PStieji_mark', 1, false);
+              if (result.player == 'db_def1') player.gainPlayerCard(target, 'he', true);
+              else player.draw(2);
+            } else {
+              event.choice = result.player;
+              const str = event.choice === 'db_def1' ? '摸两张牌' : `获得${get.translation(target)}的一张牌`;
+              player.chooseBool(`是否${str}？然后你本回合对${get.translation(target)}发动〖铁骑〗时不能与其进行谋弈`)
+                .set('ai', (event, player) => {
+                  if (!player.isPhaseUsing()) return true;
+                  const evt = event.getParent('chooseToUse');
+                  if (evt && evt.getParent().name === 'phaseUse' && evt.filterCard({ name: 'sha' }, player, evt) && player.countCards('hs', 'sha')) return false;
+                  return _status.event.canGain;
+                })
+                .set('canGain', result.player === 'db_def1' || result.player === 'db_def2' && target.countDiscardableCards(player, 'he') > 0);
+            }
+            'step 2'
+            if (event.choice && result.bool && result.confirm) {
+              player.getHistory('custom').push({ PStieji_target: target });
+              if (event.choice === 'db_def1') player.draw(2);
+              else player.gainPlayerCard(target, 'he', true);
+            }
+          },
+          shaRelated: true,
+          ai: {
+            ignoreSkill: true,
+            skillTagFilter: function (player, tag, arg) {
+              if (tag == 'directHit_ai') {
+                return get.attitude(player, arg.target) <= 0;
+              }
+              if (!arg || arg.isLink || !arg.card || arg.card.name != 'sha') return false;
+              if (!arg.target || get.attitude(player, arg.target) >= 0) return false;
+              if (!arg.skill || !lib.skill[arg.skill] || lib.skill[arg.skill].charlotte || get.is.locked(arg.skill) || !arg.target.getSkills(true, false).includes(arg.skill)) return false;
+            },
+            "directHit_ai": true,
+          },
+          subSkill: {
+            "true1": {
+              audio: true,
+              sub: true,
+              "_priority": 0,
+            },
+            "true2": {
+              audio: true,
+              sub: true,
+              "_priority": 0,
+            },
+            false: {
+              audio: true,
+              sub: true,
+              "_priority": 0,
+            },
+            mark: {
+              mod: {
+                cardUsable: function (card, player, num) {
+                  if (card.name == 'sha') return num + player.countMark('PStieji_mark');
+                },
+              },
+              charlotte: true,
+              onremove: true,
+              "_priority": 0,
+            },
+          },
+          "audioname2": {
+            PSshengui: "retieji_boss_lvbu3",
+          },
+          "_priority": 0,
+        },
+        PScema: {
+          mod: {
+            globalFrom(from, to, distance) {
+              return distance - 1;
+            },
+          },
+          enable: ["chooseToRespond", "chooseToUse"],
+          filterCard(card, player) {
+            return get.subtype(card) == 'equip3' || get.subtype(card) == 'equip4' || get.subtype(card) == 'equip6';
+          },
+          position: "hes",
+          viewAs: {
+            name: "sha",
+          },
+          shaRelated: true,
+          locked: true,
+          viewAsFilter(player) {
+            if (!player.countCards('hes', card => {
+              return get.subtype(card) == 'equip3' || get.subtype(card) == 'equip4' || get.subtype(card) == 'equip6'
+            })) return false;
+          },
+          prompt: "将一张坐骑牌当杀使用或打出",
+          check(card) {
+            const val = get.value(card);
+            if (_status.event.name == 'chooseToRespond') return 1 / Math.max(0.1, val);
+            return 5 - val;
+          },
+          precontent() {
+            player.when('useCard1')
+              .assign({
+                firstDo: true,
+              })
+              .filter(evt => evt.skill === 'PScema' && evt.card.name === 'sha')
+              .then(() => {
+                trigger.baseDamage = 2;
+              });
+          },
+          ai: {
+            skillTagFilter(player) {
+              if (!player.countCards('hes', card => {
+                return get.subtype(card) == 'equip3' || get.subtype(card) == 'equip4' || get.subtype(card) == 'equip6'
+              })) return false;
+            },
+            respondSha: true,
+            yingbian: function (card, player, targets, viewer) {
+              if (get.attitude(viewer, player) <= 0) return 0;
+              var base = 0, hit = false;
+              if (get.cardtag(card, 'yingbian_hit')) {
+                hit = true;
+                if (targets.some(target => {
+                  return target.mayHaveShan(viewer, 'use', target.getCards('h', i => {
+                    return i.hasGaintag('sha_notshan');
+                  })) && get.attitude(viewer, target) < 0 && get.damageEffect(target, player, viewer, get.natureList(card)) > 0;
+                })) base += 5;
+              }
+              if (get.cardtag(card, 'yingbian_add')) {
+                if (game.hasPlayer(function (current) {
+                  return !targets.includes(current) && lib.filter.targetEnabled2(card, player, current) && get.effect(current, card, player, player) > 0;
+                })) base += 5;
+              }
+              if (get.cardtag(card, 'yingbian_damage')) {
+                if (targets.some(target => {
+                  return get.attitude(player, target) < 0 && (hit || !target.mayHaveShan(viewer, 'use', target.getCards('h', i => {
+                    return i.hasGaintag('sha_notshan');
+                  })) || player.hasSkillTag('directHit_ai', true, {
+                    target: target,
+                    card: card,
+                  }, true)) && !target.hasSkillTag('filterDamage', null, {
+                    player: player,
+                    card: card,
+                    jiu: true,
+                  })
+                })) base += 5;
+              }
+              return base;
+            },
+            canLink: function (player, target, card) {
+              if (!target.isLinked() && !player.hasSkill('wutiesuolian_skill')) return false;
+              if (player.hasSkill('jueqing') || player.hasSkill('gangzhi') || target.hasSkill('gangzhi')) return false;
+              return true;
+            },
+            basic: {
+              useful: [5, 3, 1],
+              value: [5, 3, 1],
+            },
+            order: function (item, player) {
+              if (player.hasSkillTag('presha', true, null, true)) return 10;
+              if (typeof item === 'object' && game.hasNature(item, 'linked')) {
+                if (game.hasPlayer(function (current) {
+                  return current != player && lib.card.sha.ai.canLink(player, current, item) && player.canUse(item, current, null, true) && get.effect(current, item, player, player) > 0;
+                }) && game.countPlayer(function (current) {
+                  return current.isLinked() && get.damageEffect(current, player, player, get.nature(item)) > 0;
+                }) > 1) return 3.1;
+                return 3;
+              }
+              return 3.05;
+            },
+            result: {
+              target: function (player, target, card, isLink) {
+                let eff = -1.5, odds = 1.35, num = 1;
+                if (isLink) {
+                  let cache = _status.event.getTempCache('sha_result', 'eff');
+                  if (typeof cache !== 'object' || cache.card !== get.translation(card)) return eff;
+                  if (cache.odds < 1.35 && cache.bool) return 1.35 * cache.eff;
+                  return cache.odds * cache.eff;
+                }
+                if (player.hasSkill('jiu') || player.hasSkillTag('damageBonus', true, {
+                  target: target,
+                  card: card
+                })) {
+                  if (target.hasSkillTag('filterDamage', null, {
+                    player: player,
+                    card: card,
+                    jiu: true,
+                  })) eff = -0.5;
+                  else {
+                    num = 2;
+                    if (get.attitude(player, target) > 0) eff = -7;
+                    else eff = -4;
+                  }
+                }
+                if (!player.hasSkillTag('directHit_ai', true, {
+                  target: target,
+                  card: card,
+                }, true)) odds -= 0.7 * target.mayHaveShan(player, 'use', target.getCards('h', i => {
+                  return i.hasGaintag('sha_notshan');
+                }), 'odds');
+                _status.event.putTempCache('sha_result', 'eff', {
+                  bool: target.hp > num && get.attitude(player, target) > 0,
+                  card: get.translation(card),
+                  eff: eff,
+                  odds: odds
+                });
+                return odds * eff;
+              },
+            },
+            tag: {
+              respond: 1,
+              respondShan: 1,
+              damage: function (card) {
+                if (game.hasNature(card, 'poison')) return;
+                return 2;
+              },
+              natureDamage: function (card) {
+                if (game.hasNature(card, 'linked')) return 2;
+              },
+              fireDamage: function (card, nature) {
+                if (game.hasNature(card, 'fire')) return 2;
+              },
+              thunderDamage: function (card, nature) {
+                if (game.hasNature(card, 'thunder')) return 2;
+              },
+              poisonDamage: function (card, nature) {
+                if (game.hasNature(card, 'poison')) return 2;
+              },
+            },
+          },
+          "_priority": 0,
+        },
+        PSzhuiming: {
+          audio: "ol_shichou",
+          trigger: {
+            player: "useCardToPlayer",
+          },
+          shaRelated: true,
+          filter(event, player) {
+            return event.card.name == 'sha' && get.distance(player, event.target) === 1;
+          },
+          check(event, player) {
+            return get.attitude(player, event.target) <= 0;
+          },
+          content() {
+            'step 0'
+            const target = trigger.target;
+            event.target = target;
+            var choices = ['选项一'], choiceList = [
+              `令${get.translation(trigger.card)}无视你的防具、对你造成伤害+1，且你不能响应`,
+              `你获得${get.translation(trigger.cards)}，然后${get.translation(player)}获得你两张牌`,
+            ];
+            if (target.countGainableCards(player, 'he')) choices.push('选项二');
+            else choiceList[1] = '<span style="opacity:0.5; ">' + choiceList[1] + '</span>';
+
+            if (choices.length === 1) event._result = { control: '选项一', index: 0 };
+            else target.chooseControl(choices).set('prompt', '追命：请选择一项').set('choiceList', choiceList).set('ai', () => {
+              const target = _status.event.targetx;
+              const player = _status.event.playerx;
+              if (target.hasSkillTag('maixie') && target.hp > 2) return 0;
+              if (get.damageEffect(target, player, target) >= 0) return 0;
+              return 1;
+            }).set('targetx', target).set('playerx', player);
+            'step 1'
+            if (result.control) {
+              switch (result.index) {
+                case 0:
+                  player.markAuto('PSzhuiming', event.target);
+                  player.when("useCardToPlayered")
+                    .then(() => {
+                      delete player.storage.PSzhuiming;
+                    });
+                  trigger.getParent().directHit.add(event.target);
+                  var id = event.target.playerid;
+                  var map = trigger.getParent().customArgs;
+                  if (!map[id]) map[id] = {};
+                  if (typeof map[id].extraDamage != 'number') {
+                    map[id].extraDamage = 0;
+                  }
+                  map[id].extraDamage++;
+                  break;
+                case 1:
+                  if (trigger.cards.length && ['o', 'd'].includes(get.position(trigger.cards[0]))) event.target.gain(trigger.cards, 'gain2');
+                  player.gainPlayerCard(event.target, 'he', 2, true);
+                  break;
+              }
+            }
+          },
+          ai: {
+            unequip: true,
+            skillTagFilter: function (player, tag, arg) {
+              if (tag == 'unequip') {
+                if (arg && arg.card && arg.card.name === 'sha' && arg.target && player.storage.PSzhuiming && player.storage.PSzhuiming.includes(arg.target)) return false;
+              }
+            },
+          },
+        },
+        PSjinge: {
+          mod: {
+            globalFrom(from, to, distance) {
+              return distance - 2;
+            },
+            cardname: function (card, player, name) {
+              if (get.cardNameLength({ name: card.name }) === 2) return 'sha';
+            },
+            cardUsable: function (card, player, num) {
+              if (card.cards && card.cards.length === 1 && get.name(card) === 'sha' && get.cardNameLength({ name: card.cards[0].name }) === 2) return Infinity;
+            },
+          },
+          trigger: {
+            player: "useCard1",
+          },
+          forced: true,
+          silent: true,
+          charlotte: true,
+          filter: function (event, player) {
+            if (!event.card.cards || event.card.cards.length !== 1 || event.addCount === false) return false;
+            return get.name(event.card) === 'sha' && get.cardNameLength(event.card.cards[0]) === 2;
+          },
+          content: function () {
+            trigger.addCount = false;
+            if (player.stat[player.stat.length - 1].card.sha > 0) {
+              player.stat[player.stat.length - 1].card.sha--;
+            }
+          },
+          popup: false,
+          sub: true,
+          "_priority": 1,
+        },
+        PShuaiju: {
+          marktext: "橘",
+          intro: {
+            name: "怀橘",
+            "name2": "橘",
+            content: "当前有#个“橘”",
+          },
+          onremove: function () {
+            game.players.forEach(current => {
+              if (current.hasMark('nzry_huaiju')) current.removeMark('nzry_huaiju', current.countMark('nzry_huaiju'));
+            });
+          },
+          audio: "nzry_huaiju",
+          trigger: {
+            global: "phaseBefore",
+            player: "enterGame",
+          },
+          forced: true,
+          filter: function (event, player) {
+            return (event.name != 'phase' || game.phaseNumber == 0);
+          },
+          content: function () {
+            player.addMark('nzry_huaiju', 3);
+            player.addSkill('PShuaiju_ai');
+          },
+          group: ["PShuaiju_effect"],
+          subSkill: {
+            effect: {
+              audio: "nzry_huaiju",
+              trigger: {
+                global: ["damageBegin4", "drawBegin"],
+              },
+              forced: true,
+              filter: function (event, player) {
+                return event.player.hasMark('nzry_huaiju');
+              },
+              content: function () {
+                player.line(trigger.player, 'green');
+                if (trigger.name == 'damage') {
+                  trigger.cancel();
+                  trigger.player.removeMark('nzry_huaiju', 1);
+                }
+                else trigger.num += trigger.player.countMark('nzry_huaiju');
+              },
+              "_priority": 0,
+            },
+            ai: {
+              charlotte: true,
+              ai: {
+                filterDamage: true,
+                skillTagFilter: function (player, tag, arg) {
+                  if (!player.hasMark('nzry_huaiju')) return false;
+                  if (!game.hasPlayer(function (current) {
+                    return current.hasSkill('PShuaiju_effect');
+                  })) return false;
+                  if (arg && arg.player) {
+                    if (arg.player.hasSkillTag('jueqing', false, player)) return false;
+                  }
+                },
+              },
+              "_priority": 0,
+            },
+          },
+          "_priority": 0,
+        },
+        PSqianxun: {
+          mod: {
+            targetEnabled(card, player, target, now) {
+              if (card.name == 'shunshou' || get.type(card) === 'delay' || card.name == 'guohe') return false;
+            },
+          },
+          audio: 2,
+          "_priority": 0,
+        },
+        PSlianying: {
+          audio: "lianying",
+          trigger: {
+            player: ["useCard", "respond"],
+          },
+          frequent: true,
+          getSuitsLength: function (player) {
+            const suits = [];
+            for (let i = 0; i < player.getCards().length; i++) {
+              const suit = get.suit(player.getCards()[i], player);
+              if (!lib.suit.includes(suit) || suits.includes(suit)) continue;
+              suits.add(suit);
+              if (lib.suit.length === suits.length) break;
+            }
+            return suits.length;
+          },
+          filter: function (event, player) {
+            return 4 - lib.skill.PSlianying.getSuitsLength(player) > 0;
+          },
+          content() {
+            player.draw(4 - lib.skill.PSlianying.getSuitsLength(player));
+          },
+        },
+        PSwushuang: {
+          audio: "wushuang",
+          locked: true,
+          derivation: "wushuangfangtianji",
+          group: ["PSwushuang_wushuangfangtianji", "wushuang1", "wushuang2"],
+          subSkill: {
+            wushuangfangtianji: {
+              nobracket: true,
+              equipSkill: true,
+              trigger: {
+                source: "damageSource",
+              },
+              filter: function (event, player) {
+                if (!player.hasEmptySlot(1) || !lib.card.wushuangfangtianji) return false;
+                return lib.skill.wushuangfangtianji_skill.filter(event, player);
+              },
+              direct: true,
+              locked: false,
+              content: function () {
+                'step 0'
+                var target = trigger.player;
+                var choices = ['摸一张牌'];
+                if (target.hasCard(function (card) {
+                  return lib.filter.canBeDiscarded(card, player, target);
+                }, 'he')) choices.push('弃置' + get.translation(target) + '的一张牌');
+                player.chooseControl('cancel2').set('choiceList', choices).set('prompt', get.prompt('wushuangfangtianji_skill')).set('ai', function () {
+                  var player = _status.event.player, target = _status.event.getTrigger().player;
+                  if (target.hasCard(function (card) {
+                    return lib.filter.canBeDiscarded(card, player, target);
+                  }, 'he') && get.effect(target, { name: 'guohe_copy2' }, player, player) > get.effect(player, { name: 'draw' }, player, player)) return 1;
+                  return 0;
+                });
+                'step 1'
+                if (result.control == 'cancel2') return;
+                if (result.index == 0) {
+                  player.logSkill('wushuangfangtianji_skill');
+                  player.draw();
+                }
+                else {
+                  var target = trigger.player;
+                  player.logSkill('wushuangfangtianji_skill', target);
+                  player.discardPlayerCard(target, 'he', true);
+                }
+              },
+              mod: {
+                attackRange: function (player, num) {
+                  if (lib.card.wushuangfangtianji && player.hasEmptySlot(1)) return num - lib.card.wushuangfangtianji.distance.attackFrom;
+                },
+              },
+              sub: true,
+              "_priority": -25,
+            },
+          },
+          "_priority": 0,
+        },
+        PSbaifu: {
+          audio: "ext:PS武将/audio/skill:2",
+          trigger: {
+            source: "damageBegin1",
+          },
+          logTarget: "player",
+          log: false,
+          check: function (event, player) {
+            const target = game.findPlayer(current => current.storage.PSbaifu_yifu && current.storage.PSbaifu_yifu.includes(player));
+            if (target && get.attitude(player, target) > 0) return false;
+            return true;
+          },
+          filter: function (event, player) {
+            if (event.player === player) return false;
+            return !event.player.storage.PSbaifu_yifu || !event.player.storage.PSbaifu_yifu.includes(player);
+          },
+          async content(event, trigger, player) {
+            const yifu = game.filterPlayer(current => current.storage.PSbaifu_yifu && current.storage.PSbaifu_yifu.includes(player));
+            if (yifu.length) {
+              for (let i = 0; i < yifu.length; i++) {
+                await yifu[i].damage('nocard');
+                yifu[i].storage.PSbaifu_yifu.remove(player);
+                yifu[i].markAuto('PSbaifu_yifu');
+              }
+            }
+            if (!trigger.player.hasSkill('PSbaifu_yifu')) trigger.player.addSkill('PSbaifu_yifu');
+            trigger.player.storage.PSbaifu_yifu.add(player);
+            trigger.player.markAuto('PSbaifu_yifu');
+            player.gainPlayerCard(trigger.player, 'he', true);
+            game.playAudio('..', 'extension', 'PS武将/audio/skill', ['PSbaifu1', 'PSbaifu2'].randomGet());
+            trigger.cancel();
+          },
+          subSkill: {
+            yifu: {
+              intro: {
+                content: function (storage, player) {
+                  return player.storage['PSbaifu_yifu'].reduce((a, b) => a + `我儿${get.translation(b)}天下无双！<br>`, '');
+                },
+                markcount: function (storage, player) {
+                  return storage.length;
+                },
+              },
+              onremove: true,
+              init(player, skill) {
+                if (!player.storage[skill]) player.storage[skill] = [];
+              }
+            },
+          },
+          "_priority": 0,
+        },
+        PSpanshi: {
+          audio: "ext:PS武将/audio/skill:2",
+          trigger: {
+            source: "damageBegin1",
+            global: "useCardBefore",
+          },
+          direct: true,
+          forced: true,
+          filter: function (event, player, name) {
+            if (!event.player.storage.PSbaifu_yifu || !event.player.storage.PSbaifu_yifu.includes(player)) return false;
+            if (name === "damageBegin1") return true;
+            if (event.player.hasHistory('custom', evt => evt.PSpanshi_use)) return false;
+            if (!event.targets || event.targets.length === 1 && event.targets[0] === player) return false;
+            if (event.player.hasHistory('useCard', evt => get.tag(evt.card, 'damage') > 0)) return false;
+            return get.tag(event.card, 'damage') > 0;
+          },
+          logTarget: (event, player) => event.name === 'damage' ? event.player : player,
+          content: function () {
+            if (event.triggername === "damageBegin1") {
+              trigger.num++;
+              player.when({ source: 'dieBegin' })
+                .filter((evt, player) => evt.player.storage.PSbaifu_yifu && evt.player.storage.PSbaifu_yifu.includes(player))
+                .then(() => {
+                  game.playAudio('..', 'extension', 'PS武将/audio/die', ['PSpanshi_kill1', 'PSpanshi_kill2'].randomGet());
+                });
+              game.playAudio('..', 'extension', 'PS武将/audio/skill', ['PSpanshi1', 'PSpanshi2'].randomGet());
+            } else {
+              trigger.player.getHistory('custom').push({ PSpanshi_use: true });
+              trigger.targets.remove(player);
+              if (trigger.targets.every(target => player.canUse(trigger.card, target, true, true))) {
+                trigger.player = player;
+                game.playAudio('..', 'extension', 'PS武将/audio/skill', ['PSpanshi_use1', 'PSpanshi_use2'].randomGet());
+                trigger.noai = true;
+                game.delay(0.5);
+              }
+            }
+          },
+        },
+        PSshen_huashen: {
+          unique: true,
+          audio: "ext:PS武将/audio/skill:2",
+          trigger: {
+            global: "phaseBefore",
+            player: ["enterGame", /* "phaseBegin", */ "phaseAfter", "PSshen_huashen"],
+          },
+          filter: function (event, player, name) {
+            if (player.storage.PSshen_huashen.invalid) return false;
+            if (event.name !== 'phase') return true;
+            if (name == 'phaseBefore') return game.phaseNumber == 0 || event.player === player;
+            return player.storage.PSshen_huashen && player.storage.PSshen_huashen.character.length > 0;
+          },
+          direct: true,
+          content: function () {
+            /* 
+             player.storage.PSshen_huashen.current //当前化身牌武将id
+             player.storage.PSshen_huashen.current2 //当前化身的技能id数组
+             event.card //选中的化身牌（新化身牌）  
+            */
+            "step 0"
+            var name = event.triggername;
+            if (trigger.name != 'phase' || (name == 'phaseBefore' && game.phaseNumber == 0)) {
+              player.logSkill('PSshen_huashen');
+              lib.skill.PSshen_huashen.addHuashens(player, 2);
+              event.logged = true;
+              /* if (name == 'phaseBefore' && game.phaseNumber == 0 && trigger.player !== player) {
+                event.finish();
+                return;
+              } */
+            }
+            _status.noclearcountdown = true;
+            event.videoId = lib.status.videoId++;
+            var cards = player.storage.PSshen_huashen.character.slice(0);
+            if (player.isOnline2()) {
+              player.send(function (cards, id) {
+                var dialog = ui.create.dialog('###是否发动【化身】？###<div class="text center">选择一张“魂”作为你的表象武将</div>', [cards, (item, type, position, noclick, node) => lib.skill.PSshen_huashen.$createButton(item, type, position, noclick, node)]);
+                dialog.videoId = id;
+              }, cards, event.videoId);
+            }
+            event.dialog = ui.create.dialog('###是否发动【化身】？###<div class="text center">选择一张“魂”作为你的表象武将</div>', [cards, (item, type, position, noclick, node) => lib.skill.PSshen_huashen.$createButton(item, type, position, noclick, node)]);
+            event.dialog.videoId = event.videoId;
+            if (!event.isMine()) {
+              event.dialog.style.display = 'none';
+            }
+            if (!event.logged) { player.logSkill('PSshen_huashen'); event.logged = true }
+            var next = player.chooseButton(false).set('dialog', event.videoId);
+            next.set('filterButton', function (button) {
+              return button.link != _status.event.current;
+            });
+            next.set('current', player.storage.PSshen_huashen.current);
+            next.set('ai', function (button) {
+              const rarity = lib.rank.rarity;
+              const num = rarity.legend.includes(button.link) ?
+                4 : rarity.epic.includes(button.link) ?
+                  3 : rarity.rare.includes(button.link) ?
+                    2 : 1;
+              return num;
+            });
+            "step 1"
+            if (player.isOnline2()) {
+              player.send('closeDialog', event.videoId);
+            }
+            event.dialog.close();
+            delete _status.noclearcountdown;
+            if (!_status.noclearcountdown) {
+              game.stopCountChoose();
+            }
+            if (result.bool) {
+              //切换形象
+              event.card = result.links[0];
+              const old = player.storage.PSshen_huashen.current;
+              player.storage.PSshen_huashen.current = event.card;
+              const name = player.name2 === 'PSshen_zuoci' ? player.name2 : player.name;
+              player.setAvatar(name, event.card, true, true);
+              game.broadcastAll(function (player, character, old) {
+                player.tempname.remove(old);
+                player.tempname.add(character);
+                player.sex = lib.character[event.card][0];
+              }, player, event.card, old);
+              game.log(player, '将性别变为了', '#y' + get.translation(lib.character[event.card][0]) + '性');
+              player.changeGroup(lib.character[event.card][1]);
+              game.log(player, '将', '#y' + get.translation(event.card), '作为了表象武将');
+              //获得技能
+              const skills = get.character(event.card, 3).filter(function (skill) {
+                const categories = get.skillCategoriesOf(skill);
+                return !categories.some(type => lib.skill.PSshen_huashen.bannedType.includes(type));
+              });
+              if (skills.length) {
+                const old2 = player.storage.PSshen_huashen.current2;
+                player.storage.PSshen_huashen.current2 = skills;
+                player.addAdditionalSkills('PSshen_huashen', skills);
+                player.syncStorage('PSshen_huashen');
+                player.updateMarks('PSshen_huashen');
+              } else {
+                player.removeAdditionalSkill('PSshen_huashen');
+              }
+            }
+          },
+          group: 'PSshen_huashen_use',
+          subSkill: {
+            use: {
+              audio: 'PSshen_huashen',
+              enable: "chooseToUse",
+              filter: function (event, player) {
+                if (!player.storage.PSshen_huashen.invalid || !player.storage.PSshen_huashen.character.length) return false;
+                for (var i of lib.inpile) {
+                  var type = get.type2(i);
+                  if ((type == 'basic' || type == 'trick') && !player.hasHistory('custom', evt => evt.PSshen_huashen_use && evt.card && evt.card.name === i) && event.filterCard(get.autoViewAs({ name: i }, 'unsure'), player, event)) return true;
+                }
+                return false;
+              },
+              chooseButton: {
+                dialog: function (event, player) {
+                  var list = [];
+                  for (var i = 0; i < lib.inpile.length; i++) {
+                    const filter = function (name) {
+                      return !player.hasHistory('custom', evt => evt.PSshen_huashen_use && evt.card && get.name(evt.card) === name);
+                    };
+                    var name = lib.inpile[i];
+                    if (name == 'sha') {
+                      if (event.filterCard(get.autoViewAs({ name }, 'unsure'), player, event) && filter(name)) list.push(['基本', '', 'sha']);
+                      for (var nature of lib.inpile_nature) {
+                        if (event.filterCard(get.autoViewAs({ name, nature }, 'unsure'), player, event)) list.push(['基本', '', 'sha', nature]);
+                      }
+                    }
+                    else if (get.type(name) == 'trick' && filter(name) && event.filterCard(get.autoViewAs({ name }, 'unsure'), player, event)) list.push(['锦囊', '', name]);
+                    else if (get.type(name) == 'basic' && filter(name) && event.filterCard(get.autoViewAs({ name }, 'unsure'), player, event)) list.push(['基本', '', name]);
+                  }
+                  return ui.create.dialog('化身', [list, 'vcard']);
+                },
+                check: function (button) {
+                  if (_status.event.getParent().type != 'phase') return 1;
+                  var player = _status.event.player;
+                  if (['wugu', 'zhulu_card', 'yiyi', 'lulitongxin', 'lianjunshengyan', 'diaohulishan'].includes(button.link[2])) return 0;
+                  return player.getUseValue({
+                    name: button.link[2],
+                    nature: button.link[3],
+                  });
+                },
+                backup: function (links, player) {
+                  return {
+                    filterCard: () => false,
+                    selectCard: -1,
+                    audio: 'PSshen_huashen',
+                    popname: true,
+                    viewAs: { name: links[0][2], nature: links[0][3], isCard: true },
+                    onuse: function (links, player) {
+                      const next = game.createEvent('chooseHuashenCharacter');
+                      next.player = player;
+                      next.links = links;
+                      next.setContent(lib.skill.PSshen_huashen_use.chooseHuashenCharacter);
+                    },
+                  }
+                },
+                prompt: function (links, player) {
+                  return '将一张牌当做' + (get.translation(links[0][3]) || '') + get.translation(links[0][2]) + '使用';
+                },
+              },
+              chooseHuashenCharacter: function () {
+                'step 0'
+                const links = event.links;
+                _status.noclearcountdown = true;
+                event.videoId = lib.status.videoId++;
+                var cards = player.storage.PSshen_huashen.character.slice(0);
+                if (player.isOnline2()) {
+                  player.send(function (cards, id) {
+                    var dialog = ui.create.dialog('###是否发动【化身】？###<div class="text center">选择展示一张武将牌上的“魂”并将其置入剩余武将牌堆</div>', [cards, (item, type, position, noclick, node) => lib.skill.PSshen_huashen.$createButton(item, type, position, noclick, node)]);
+                    dialog.videoId = id;
+                  }, cards, event.videoId);
+                }
+                event.dialog = ui.create.dialog('###是否发动【化身】？###<div class="text center">选择展示一张武将牌上的“魂”并将其置入剩余武将牌堆</div>', [cards, (item, type, position, noclick, node) => lib.skill.PSshen_huashen.$createButton(item, type, position, noclick, node)]);
+                event.dialog.videoId = event.videoId;
+                if (!event.isMine()) {
+                  event.dialog.style.display = 'none';
+                }
+                var next = player.chooseButton(true).set('dialog', event.videoId);
+                next.set('ai', function (button) {
+                  return 1;
+                });
+                'step 1'
+                if (player.isOnline2()) {
+                  player.send('closeDialog', event.videoId);
+                }
+                event.dialog.close();
+                delete _status.noclearcountdown;
+                if (!_status.noclearcountdown) {
+                  game.stopCountChoose();
+                }
+                if (result.bool) {
+                  player.getHistory('custom').push({ card: event.links.card, PSshen_huashen_use: true });
+                  const cardname = 'huashen_card_' + result.links[0];
+                  lib.card[cardname] = {
+                    fullimage: true,
+                    image: 'character:' + result.links[0]
+                  }
+                  lib.translate[cardname] = get.rawName2(result.links[0]);
+                  player.showCards(game.createCard(cardname, '', ''));
+                  lib.skill.PSshen_huashen.removeHuashen(player, result.links.slice(0));
+                  player.syncStorage('PSshen_huashen');
+                  player.updateMarks('PSshen_huashen');
+                }
+              },
+              hiddenCard: function (player, name) {
+                if (!lib.inpile.includes(name)) return false;
+                var type = get.type2(name);
+                return (type == 'basic' || type == 'trick') && player.storage.PSshen_huashen.character.length && player.storage.PSshen_huashen.invalid;
+              },
+              ai: {
+                combo: "PSshen_jihun",
+                fireAttack: true,
+                respondSha: true,
+                respondShan: true,
+                skillTagFilter: function (player) {
+                  if (!player.storage.PSshen_huashen.character.length || !player.storage.PSshen_huashen.invalid) return false;
+                },
+                order: 1,
+                result: {
+                  player: function (player) {
+                    if (_status.event.dying) return get.attitude(player, _status.event.dying);
+                    return 1;
+                  },
+                },
+              },
+              "_priority": 0,
+            },
+          },
+          init: function (player, skill) {
+            if (!player.storage[skill]) player.storage[skill] = {
+              character: [],
+              map: {},
+            }
+            player.flashAvatar = () => { };
+            player.when('dieBegin').then(() => {
+              const name = player.name ? player.name : player.name1;
+              if (name) {
+                const sex = get.character(name, 0);
+                const group = get.character(name, 1);
+                if (player.sex != sex) {
+                  game.broadcastAll((player, sex) => {
+                    player.sex = sex;
+                  }, player, sex);
+                  player.setAvatar('PSshen_zuoci', 'PSshen_zuoci', true, true);
+                  game.log(player, '将性别变为了', '#y' + get.translation(sex) + '性');
+                }
+                if (player.group != group) player.changeGroup(group);
+              }
+            });
+          },
+          banned: ["lisu", "sp_xiahoudun", "xushao", "jsrg_xushao", "zhoutai", "old_zhoutai", "shixie", "xin_zhoutai", "dc_shixie", "old_shixie"],
+          bannedType: [/* "Charlotte", */ "主公技", "隐匿技",  /* "觉醒技", "限定技", "使命技" */],
+          addHuashen: function (player) {
+            if (!player.storage.PSshen_huashen) return;
+            if (!_status.characterlist) {
+              lib.skill.pingjian.initList();
+            }
+            _status.characterlist.randomSort();
+            for (let i = 0; i < _status.characterlist.length; i++) {
+              let name = _status.characterlist[i];
+              if (name.indexOf('zuoci') != -1 || name.indexOf('key_') == 0 || name.indexOf('sp_key_') == 0 || get.is.double(name) || lib.skill.PSshen_huashen.banned.includes(name) || player.storage.PSshen_huashen.character.includes(name)) continue;
+              let skills = lib.character[name][3].filter(skill => {
+                const categories = get.skillCategoriesOf(skill);
+                return !categories.some(type => lib.skill.PSshen_huashen.bannedType.includes(type));
+              })
+              if (skills.length) {
+                player.storage.PSshen_huashen.character.push(name);
+                player.storage.PSshen_huashen.map[name] = skills;
+                _status.characterlist.remove(name);
+                return name;
+              }
+            }
+          },
+          addHuashens: function (player, num) {
+            var list = [];
+            for (var i = 0; i < num; i++) {
+              var name = lib.skill.PSshen_huashen.addHuashen(player);
+              if (name) list.push(name);
+            }
+            if (list.length) {
+              player.syncStorage('PSshen_huashen');
+              player.updateMarks('PSshen_huashen');
+              game.log(player, '获得了', get.cnNumber(list.length) + '张', '#g魂');
+              lib.skill.PSshen_huashen.drawCharacter(player, list);
+            }
+          },
+          removeHuashen: function (player, links) {
+            player.storage.PSshen_huashen.character.removeArray(links);
+            _status.characterlist.addArray(links);
+            game.log(player, '移去了', get.cnNumber(links.length) + '张', '#g魂')
+          },
+          drawCharacter: function (player, list) {
+            game.broadcastAll(function (player, list) {
+              if (player.isUnderControl(true)) {
+                var cards = [];
+                for (var i = 0; i < list.length; i++) {
+                  var cardname = 'huashen_card_' + list[i];
+                  lib.card[cardname] = {
+                    fullimage: true,
+                    image: 'character:' + list[i]
+                  }
+                  lib.translate[cardname] = get.rawName2(list[i]);
+                  cards.push(game.createCard(cardname, '', ''));
+                }
+                player.$draw(cards, 'nobroadcast');
+              }
+            }, player, list);
+          },
+          "$createButton": function (item, type, position, noclick, node) {
+            node = ui.create.buttonPresets.character(item, 'character', position, noclick);
+            const info = lib.character[item];
+            const skills = info[3].filter(function (skill) {
+              const categories = get.skillCategoriesOf(skill);
+              return !categories.some(type => lib.skill.PSshen_huashen.bannedType.includes(type));
+            });
+            if (skills.length) {
+              const skillstr = skills.map(i => `[${get.translation(i)}]`).join('<br>');
+              const skillnode = ui.create.caption(
+                `<div class="text" data-nature=${get.groupnature(info[1], 'raw')
+                }m style="font-family: ${(lib.config.name_font || 'xinwei')
+                },xinwei">${skillstr}</div>`, node);
+              skillnode.style.left = '2px';
+              skillnode.style.bottom = '2px';
+            }
+            node._customintro = function (uiintro, evt) {
+              const character = node.link, characterInfo = get.character(node.link);
+              let capt = get.translation(character);
+              if (characterInfo) {
+                capt += `&nbsp;&nbsp;${get.translation(characterInfo[0])}`;
+                let charactergroup;
+                const charactergroups = get.is.double(character, true);
+                if (charactergroups) charactergroup = charactergroups.map(i => get.translation(i)).join('/');
+                else charactergroup = get.translation(characterInfo[1]);
+                capt += `&nbsp;&nbsp;${charactergroup}`;
+              }
+              uiintro.add(capt);
+
+              if (lib.characterTitle[node.link]) {
+                uiintro.addText(get.colorspan(lib.characterTitle[node.link]));
+              }
+              for (let i = 0; i < skills.length; i++) {
+                if (lib.translate[skills[i] + '_info']) {
+                  let translation = lib.translate[skills[i] + '_ab'] || get.translation(skills[i]).slice(0, 2);
+                  if (lib.skill[skills[i]] && lib.skill[skills[i]].nobracket) {
+                    uiintro.add('<div><div class="skilln">' + get.translation(skills[i]) + '</div><div>' + get.skillInfoTranslation(skills[i]) + '</div></div>');
+                  }
+                  else {
+                    uiintro.add('<div><div class="skill">【' + translation + '】</div><div>' + get.skillInfoTranslation(skills[i]) + '</div></div>');
+                  }
+                  if (lib.translate[skills[i] + '_append']) {
+                    uiintro._place_text = uiintro.add('<div class="text">' + lib.translate[skills[i] + '_append'] + '</div>')
+                  }
+                }
+              }
+            }
+            return node;
+          },
+          mark: true,
+          intro: {
+            onunmark: function (storage, player) {
+              _status.characterlist.addArray(storage.character);
+              storage.character = [];
+            },
+            mark: function (dialog, storage, player) {
+              if (storage && storage.current) dialog.addSmall([[storage.current], (item, type, position, noclick, node) => lib.skill.PSshen_huashen.$createButton(item, type, position, noclick, node)]);
+              if (storage && storage.current2) {
+                for (var i = 0; i < storage.current2.length; i++) {
+                  dialog.add('<div><div class="skill">【' + get.translation(lib.translate[storage.current2[i] + '_ab'] || get.translation(storage.current2[i]).slice(0, 2)) + '】</div><div>' + get.skillInfoTranslation(storage.current2[i], player) + '</div></div>');
+                }
+              }
+              if (storage && storage.character.length) {
+                if (player.isUnderControl(true)) {
+                  dialog.addSmall([storage.character, (item, type, position, noclick, node) => lib.skill.PSshen_huashen.$createButton(item, type, position, noclick, node)]);
+                }
+                else {
+                  dialog.addText('共有' + get.cnNumber(storage.character.length) + '张“化身”');
+                }
+              }
+              else {
+                return '没有化身';
+              }
+            },
+            content: function (storage, player) {
+              return '共有' + get.cnNumber(storage.character.length) + '张“化身”'
+            },
+            markcount: function (storage, player) {
+              if (storage && storage.character) return storage.character.length;
+              return 0;
+            },
+          },
+          "_priority": 0,
+        },
+        PSshen_jihun: {
+          audio: "ext:PS武将/audio/skill:2",
+          trigger: {
+            player: "damageEnd",
+            global: "dyingAfter",
+          },
+          frequent: true,
+          filter(event, player, name) {
+            if (!player.hasSkill('PSshen_huashen')) return false;
+            if (name === "dyingAfter") return event.player !== player && event.player.isAlive() && !player.storage.PSshen_huashen.dyingAfter;
+            return !player.storage.PSshen_huashen.damage;
+          },
+          content() {
+            lib.skill.PSshen_huashen.addHuashens(player, 1);
+          },
+        },
+        PSshen_xinsheng: {
+          audio: "ext:PS武将/audio/skill:2",
+          trigger: {
+            player: "dieBefore",
+          },
+          forced: true,
+          filter(event, player) {
+            if (player.maxHp <= 0) return false;
+            return !player.storage.PSshen_huashen.invalid || !player.storage.PSshen_huashen.damage || !player.storage.PSshen_huashen.dyingAfter;
+          },
+          content() {
+            'step 0'
+            var choices = [], choiceList = [
+              `将表象角色置入剩余武将牌堆，并变为本体武将`,
+              `删去〖汲魂〗第一个获得“魂”的途径`,
+              `删去〖汲魂〗第二个获得“魂”的途径`,
+            ];
+            if (!player.storage.PSshen_huashen.invalid && player.storage.PSshen_huashen.current) choices.push('选项一');
+            else choiceList[0] = '<span style="opacity:0.5; ">' + choiceList[0] + '</span>';
+            if (!player.storage.PSshen_huashen.damage) choices.push('选项二');
+            else choiceList[1] = '<span style="opacity:0.5; ">' + choiceList[1] + '</span>';
+            if (!player.storage.PSshen_huashen.dyingAfter) choices.push('选项三');
+            else choiceList[2] = '<span style="opacity:0.5; ">' + choiceList[2] + '</span>';
+
+            if (choices.length === 1) event._result = { control: '选项一', index: 0 };
+            if (choices.length > 1) {
+              player.chooseControl(choices).set('prompt', '新生：请选择一项').set('choiceList', choiceList).set('ai', () => {
+                return choices.length - 1;
+              });
+            }
+            'step 1'
+            switch (result.index) {
+              case 0:
+                player.storage.PSshen_huashen.invalid = true;
+                const name = player.name ? player.name : player.name1;
+                if (name) {
+                  const sex = get.character(name, 0);
+                  const group = get.character(name, 1);
+                  if (player.sex != sex) {
+                    game.broadcastAll((player, sex) => {
+                      player.sex = sex;
+                    }, player, sex);
+                    game.log(player, '将性别变为了', '#y' + get.translation(sex) + '性');
+                  }
+                  if (player.group != group) player.changeGroup(group);
+                }
+                player.setAvatar('PSshen_zuoci', 'PSshen_zuoci', true, true);
+                if (player.additionalSkills.PSshen_huashen && player.additionalSkills.PSshen_huashen.length) {
+                  player.removeAdditionalSkills('PSshen_huashen');
+                }
+                game.log(player, '移去了表象武将', '#y' + get.translation(player.storage.PSshen_huashen.current));
+                delete player.storage.PSshen_huashen.current;
+                delete player.storage.PSshen_huashen.current2;
+                break;
+              case 1:
+                player.storage.PSshen_huashen.damage = true;
+                break;
+              case 2:
+                player.storage.PSshen_huashen.dyingAfter = true;
+                break;
+            }
+            trigger.cancel();
+            const storage = player.storage.PSshen_huashen;
+            player.recoverTo(!storage.disable + !storage.damage + !storage.dyingAfter + 1);
+          },
+        },
+        PSshelian: {
+          audio: "xinyongsi",
+          enable: "phaseUse",
+          usable: 1,
+          filterCard: true,
+          selectCard: [1, Infinity],
+          discard: false,
+          lose: false,
+          delay: false,
+          position: "h",
+          complexCard: true,
+          check: function (card) {
+            var player = _status.event.player;
+            if (get.cardsSuitsLength(ui.selected.cards, player) === 4) return 0;
+            for (var i = 0; i < ui.selected.cards.length; i++) {
+              if (get.suit(card) == get.suit(ui.selected.cards[i])) return 0;
+            }
+            return 1;
+          },
+          filter(event, player) {
+            return player.countCards('h') > 0;
+          },
+          content() {
+            'step 0'
+            player.showCards(cards, get.translation(player) + '展示了部分手牌');
+            'step 1'
+            const list = Array.from({ length: 8 }, (_, i) => (i + 1).toString());
+            const num = get.cardsSuitsLength(cards, player);
+            player.chooseControl(list).set('prompt', '请选择要亮出牌堆顶的牌数').set('ai', () => {
+              return _status.event.choice;
+            }).set('choice', num - 2 + (player.awakenedSkills.includes('PSjixi') && num > 2));
+            'step 2'
+            if (result.control) {
+              event.cardsx = get.cards(+result.control);
+              const bool = get.cardsSuitsLength(cards, player) > get.cardsSuitsLength(event.cardsx);
+              const prompt = `花色数${bool ? '<span class="greentext">小于</span>' : '<span class="firetext">不小于</span>'}${get.translation(player)}展示的手牌花色数`;
+              player.showCards(event.cardsx, prompt);
+              if (bool) {
+                player.draw(event.cardsx.length);
+              } else {
+                player.loseHp();
+              }
+            }
+          },
+          ai: {
+            order: 10,
+            result: {
+              player: function (player) {
+                if (get.cardsSuitsLength(player.getCards(), player) <= 1) return -1;
+                return 1;
+              },
+            }
+          },
+        },
+        PSjixi: {
+          derivation: "rewangzun",
+          audio: "weidi",
+          trigger: {
+            player: "phaseJieshuBegin",
+          },
+          forced: true,
+          filter: function (event, player) {
+            if (player.phaseNumber < 3) return false;
+            var num = 0;
+            for (var i = player.actionHistory.length - 1; i >= 0; i--) {
+              if (!player.actionHistory[i].isMe) continue;
+              if (_status.globalHistory[i].changeHp.some(evt => evt.player == player && evt.getParent().name == 'loseHp' && evt.getParent(2).name == 'PSshelian')) return false;
+              else {
+                num++;
+                if (num >= 3) break;
+              }
+            }
+            return true;
+          },
+          skillAnimation: true,
+          animationColor: "gray",
+          unique: true,
+          juexingji: true,
+          content: function () {
+            'step 0'
+            player.awakenSkill('PSjixi');
+            player.gainMaxHp();
+            player.recover();
+            'step 1'
+            var str = '摸两张牌';
+            var mode = get.mode();
+            var choice = '选项一';
+            if (mode == 'identity' || (mode == 'versus' && _status.mode == 'four')) {
+              var list = [];
+              var zhu = get.zhu(player);
+              if (zhu && zhu != player && zhu.skills) {
+                for (var i = 0; i < zhu.skills.length; i++) {
+                  if (lib.skill[zhu.skills[i]] && lib.skill[zhu.skills[i]].zhuSkill) {
+                    list.push(zhu.skills[i]);
+                  }
+                }
+              }
+              if (list.length) {
+                str += '并获得技能' + get.translation(list);
+                event.list = list;
+                choice = '选项二';
+              }
+            }
+            player.chooseControl(function (event, player) {
+              return _status.event.choice;
+            }).set('choiceList', ['获得技能〖妄尊〗', str]).set('choice', choice);
+            'step 2'
+            if (result.control == '选项一') {
+              player.addSkills('rewangzun');
+            }
+            else {
+              player.draw(2);
+              if (event.list) {
+                player.addSkills(event.list);
+                game.broadcastAll(function (list) {
+                  game.expandSkills(list);
+                  for (var i of list) {
+                    var info = lib.skill[i];
+                    if (!info) continue;
+                    if (!info.audioname2) info.audioname2 = {};
+                    info.audioname2.old_yuanshu = 'weidi';
+                  }
+                }, event.list);
+              }
+            }
+          },
+          "_priority": 0,
+        },
       },
       translate: {
         "PScharacter_wei": '<span style="color:#0054ff;font-family:xingkai;font-size:24px">建安风骨</span>',
@@ -15765,7 +17071,7 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
         PSzhangjiao: "PS张角",
         PSsunshangxiang: "PS孙尚香",
         PSliuzan: "PS留赞",
-        PSyuanshu: "PS袁术",
+        PSyuanshu: "骷髅王",
         PSzhanghe: "PS张郃",
         "PSsh_zhangfei": "拾荒张飞",
         PStongxiangge: "同甘共苦哥",
@@ -15857,7 +17163,8 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
         PSliubei: "PS刘备",
         PScaoren: "PS曹仁",
         PSzhangfei: "PS张飞",
-        PSluxun: "PS陆逊",
+        PSreluxun: "PS界陆逊",
+        PSreluxun_prefix: "PS界",
         PSxurong: "PS徐荣",
         PSlifeng: "PS李丰",
         PSchenshi: "PS陈式",
@@ -15875,8 +17182,50 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
         "PSdian_huanggai": "PS经典黄盖",
         "PSdian_huanggai_prefix": "PS经典",
         PSliaohua: "PS廖化",
+        PSquyi: "PS麴义",
+        PSmachao: "PS马超",
+        PSqun_machao: "PS群马超",
+        PSluji: "PS陆绩",
+        PSluxun: "PS陆逊",
+        PSlvbu: "PS吕布",
+        "PSshen_zuoci": "PS神左慈",
+        "PSreyuanshu": "PS袁术",
 
 
+        "PSshelian": "奢敛",
+        "PSshelian_info": "出牌阶段限一次，你可以展示至少1张手牌，然后亮出牌堆顶至多8张牌，对比其中的花色数：若展示牌的花色数大于亮出牌的花色数，你摸X张牌（X为此次亮出的牌数）；否则，你失去一点体力。",
+        "PSjixi": "觊玺",
+        "PSjixi_info": "觉醒技，结束阶段，若你连续三回合没有因〖奢敛〗而失去过体力，则你增加1点体力上限并回复1点体力，然后选择一项：获得技能〖妄尊〗：摸两张牌并获得当前主公的主公技。",
+        "PSshen_huashen": "化身",
+        "PSshen_huashen_info": "游戏开始时，你将剩余武将牌堆的两张牌置于武将牌上，称为“魂”，然后你可将一张“魂”作为你的表象武将展示；若表象角色未阵亡，则回合开始前或回合结束后，你可以用一张其他“魂”替换表象角色；若表象角色已阵亡，你可以展示一张武将牌上的“魂”并将其置入剩余武将牌堆，视为使用一张本回合内未以此法使用过的基本牌或普通锦囊牌。",
+        "PSshen_jihun": "汲魂",
+        "PSshen_jihun_info": "当[你受到伤害后]，或[其他角色脱离濒死状态后]，你可以将剩余武将牌堆的一张牌置于武将牌上，称为“魂”",
+        "PSshen_xinsheng": "新生",
+        "PSshen_xinsheng_info": "锁定技，当你即将阵亡时，你须选择一项：①将表象角色置入剩余武将牌堆，并变为本体武将；②删去〖汲魂〗第一个获得“魂”的途径；③删去〖汲魂〗第二个获得“魂”的途径。然后终止阵亡结算并回复体力至剩余选项数+1。",
+        "PSwushuang": "无双",
+        "PSwushuang_info": "锁定技。①若你有空置的武器栏，则视为你装备【无双方天戟】。②当你使用【杀】或【决斗】指定目标后，你令此牌需要依次使用或打出两张【闪】或【杀】响应。",
+        "PSbaifu": "拜父",
+        "PSbaifu_info": "当你对一名其他角色A造成伤害时，若其不是“义父”，你可以防止此伤害。若如此做，你对场上的“义父”B造成一点伤害并移去B的“义父”标记，然后你获得A的一张牌并令A获得“义父”标记。",
+        "PSpanshi": "叛弑",
+        "PSpanshi_info": "锁定技。①当“义父”于一回合内首次使用伤害类牌前，若你不是此牌的唯一目标，此牌的目标排除你。然后若你满足使用此牌的合法性，你成为此牌的使用者。②当你对“义父”造成伤害时，此伤害+1。",
+        "PSqianxun": "谦逊",
+        "PSqianxun_info": "锁定技，你不能成为【过河拆桥】、【顺手牵羊】和延时锦囊牌的目标。",
+        "PSlianying": "连营",
+        "PSlianying_info": "当你使用或打出牌时，你可以摸X张牌（X为4-你的手牌花色数）。",
+        "PShuaiju": "怀橘",
+        "PShuaiju_info": "锁定技，游戏开始时，你获得3个“橘”标记。（有“橘”的角色受到伤害时，防止此伤害，然后移去一个“橘”；有“橘”的角色摸牌时额外摸其拥有的“橘”标记数张牌）",
+        "PSzhuiming": "追命",
+        "PSzhuiming_info": "当你使用【杀】指定距离为1的目标时，你可以令目标角色选择一项：1.此【杀】令其防具无效、不可响应且对其造成伤害+1；2.其获得此【杀】对应的实体牌，然后你获得其两张牌。",
+        "PSjinge": "金戈",
+        "PSjinge_info": "锁定技，你计算与其他角色的距离时-2。你的牌名数为2的牌均视为不计入次数且无次数限制【杀】。",
+        "PStieji": "铁骑",
+        "PStieji_info": "当你使用【杀】指定其他角色为目标后，你可以令目标角色不能响应此【杀】，且其非锁定技失效直到回合结束。然后你与其进行谋弈。<br>若你赢，你本回合使用的【杀】次数上限+1，且其非锁定技失效的效果延续至其回合结束。然后你选择的选项为:“直取敌营”，则你获得其一张牌:“扰阵疲敌”，你摸两张牌。<br>若你没赢，你可以执行你选择的另一项，若如此做，你本回合对其发动此技能时不能与其进行谋弈。",
+        "PScema": "策马",
+        "PScema_info": "锁定技，你计算与其他角色的距离时-1，你可以将一张坐骑牌当作伤害基数为2的【杀】使用或打出。",
+        "PSjiaozi": "骄恣",
+        "PSjiaozi_info": "锁定技。①当你造成或受到伤害时，若你的手牌数不小于对方，此伤害+1。②回合开始时/弃牌阶段开始时，你摸/弃置X张牌（X为场上体力值不大于你的角色数）。",
+        "PSfuqi": "伏骑",
+        "PSfuqi_info": "锁定技。①当你使用牌时，你令所有与你距离为1的其他角色不能使用或打出牌响应此牌。②你与所有与你距离为1的角色的距离视为1。",
         "PSdangxian": "当先",
         "PSdangxian_info": "锁定技，回合开始时，你执行一个额外的摸牌阶段和出牌阶段。摸牌阶段和出牌阶段开始时，你从牌堆中获得一张不计入手牌上限【杀】并记录之。结束阶段，若你有“当先”记录过的杀，弃置之并失去X点体力，然后视为使用一张伤害类锦囊牌。（X为“当先“记录过的杀的数量）",
         "PSfuli": "伏枥",
@@ -15900,9 +17249,9 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
         "PSxujin": "蓄劲",
         "PSxujin_info": "锁定技，若X：<br>不小于1，你使用【杀】无距离限制；<br>不小于2，你使用【杀】不可被响应；<br>不小于3，你使用【杀】造成伤害+Y。<br>当你使用【杀】结算后，若X不小于4，你将手牌摸至体力上限，记录Z为此时本回合使用过的牌数，然后本回合X修改为本回合使用过的牌数-Z。 (X为本回合使用过的牌数，Y为本回合使用过的花色数-1)",
         "PSrepaoxiao": "咆哮",
-        "PSrepaoxiao_info": "锁定技。①你使用【杀】无次数限制。②若你的装备区内有武器牌，则你使用【杀】无距离限制。③准备阶段，你获得一张【杀】。",
+        "PSrepaoxiao_info": "锁定技。①你使用【杀】无次数限制。②若你的装备区内有武器牌，则你使用【杀】无距离限制。③当你于一回合内首次使用或打出【杀】时，你收回此【杀】对应的实体牌。",
         "PSliyong": "厉勇",
-        "PSliyong_info": "锁定技，①当你使用【杀】被响应后，你本回合使用【杀】不可被响应；②当你使用【杀】后，你本回合使用【杀】造成伤害+1；③当你使用【杀】对一名其他角色造成伤害后，其本回合非锁定技失效。",
+        "PSliyong_info": "锁定技。<br>①当你使用【杀】指定目标后，若你本回合使用过的【杀】：被响应过，此【杀】不可被响应；数量不为1，此【杀】对其造成伤害+1。<br>②当你使用【杀】对一名其他角色造成伤害后，其本回合非锁定技失效。<br>③一名角色回合结束时，若你本回合使用过的【杀】因〖厉勇〗触发了{强命/加伤/铁骑}效果，你摸X张牌（X为触发的项数）。",
         "PSlingbao": "凌暴",
         "PSlingbao_info": "每阶段限一次，当你于出牌阶段内使用♣或♠牌时，若此牌花色与你于此阶段使用的上一张牌花色相同，你可以令此牌额外结算一次。",
         "PSjiuchi": "酒池",
@@ -15914,9 +17263,9 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
         "PSbaima": "白马",
         "PSbaima_info": "锁定技，你计算与其他角色距离时-X，其他角色计算与你的距离时+Y（X为你的体力值，Y为你已损失的体力值，至少为1）。",
         "PSluoyi": "裸衣",
-        "PSluoyi_info": "出牌阶段限两次，你可以废除一个装备栏，摸X张牌并视为使用一张【决斗】（X为你已废除的装备栏数）。当你以此法使用【决斗】对其他角色造成伤害时，若你装备区的牌数不大于目标角色，此伤害+1。",
+        "PSluoyi_info": "出牌阶段限两次，你可以废除一个装备栏，视为使用一张【决斗】。当你以此法使用【决斗】对其他角色造成伤害时，若你装备区的牌数不大于目标角色，此伤害+1。",
         "PShanzhan": "酣战",
-        "PShanzhan_info": "每回合限一次，当一名角色进入濒死状态时，你可以将手牌摸至4张，然后若你有被废除的装备栏，你可以弃置至多两张牌，恢复等量的装备栏。",
+        "PShanzhan_info": "每回合限一次，当一名角色进入濒死状态时，你可以弃置至多两张牌，恢复等量的装备栏，然后你将手牌摸至4张。",
         "PSlongwei": "龙威",
         "PSlongwei_info": "当你使用杀指定目标或成为杀的目标时，你可以弃置对方的一张牌，若弃置牌的颜色与该杀的颜色相同，你获得之。",
         "PSqiangshu": "枪术",
@@ -15941,10 +17290,10 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
         "PSxionghuo_info": "游戏开始时，你获得3个“暴戾”标记。出牌阶段，你可以交给一名其他角色一个“暴戾”标记。当你对有“暴戾”标记的其他角色造成伤害时，此伤害+X。有“暴戾”标记的其他角色的出牌阶段开始时，其移去所有“暴戾”标记并随机执行X项：1.受到1点火焰伤害且本回合不能对你使用【杀】；2.失去1点体力且本回合手牌上限-1；3.你随机获得其一张手牌和一张装备区的牌。（X为目标角色的“暴戾”标记数）",
         "PSshajue": "杀绝",
         "PSshajue_info": "锁定技，其他角色进入濒死状态时，你获得一个“暴戾”标记。然后若其体力值小于0，你获得使其进入濒死状态的牌。",
-        "PSqianxun": "谦逊",
-        "PSqianxun_info": "每当一张延时类锦囊牌或其他角色使用的普通锦囊牌生效时，若你是此牌的唯一目标，你可以将所有手牌置于你的武将牌上，你可以如手牌般使用或打出以此法置于武将牌上的牌。若如此做，此回合结束时，你获得你武将牌上的所有牌。",
-        "PSlianying": "连营",
-        "PSlianying_info": "①当你失去最后的手牌时，你可以令至多X名角色各摸一张牌（X为你此次失去的手牌数）。<br>②当你使用或打出牌后，你可以弃置当前回合角色一张手牌，然后摸一张牌。",
+        "PSreqianxun": "谦逊",
+        "PSreqianxun_info": "每当一张延时类锦囊牌或其他角色使用的普通锦囊牌生效时，若你是此牌的唯一目标，你可以将所有手牌置于你的武将牌上，你可以如手牌般使用或打出以此法置于武将牌上的牌。若如此做，此回合结束时，你获得你武将牌上的所有牌。",
+        "PSrelianying": "连营",
+        "PSrelianying_info": "①当你失去最后的手牌时，你可以令至多X名角色各摸一张牌（X为你此次失去的手牌数）。<br>②当你使用或打出牌后，你可以弃置当前回合角色一张手牌，然后摸一张牌。",
         "PSjushou": "据守",
         "PSjushou_info": "一名角色回合开始时或当你需要使用非延时锦囊牌时，若你的武将牌正面朝上，你可以翻面并视为你使用一张你需要的非延时锦囊牌。当你翻面后，你可以弃置一张牌然后选择：1．回复一点体力：2．移动场上一张牌。",
         "PSbianzhen": "变阵",
@@ -16011,7 +17360,7 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
         PSliangquan: "两全",
         "PSliangquan_info": "锁定技，当你使用【杀】或【决斗】指定目标后，你令此牌需要依次使用或打出两张【闪】或【杀】响应。",
         PSshuangquan: "双全",
-        "PSshuangquan_info": "锁定技。<br/>①你视为拥有技能〖马术〗〖飞影〗和〖无双〗。<br/>②你使用【杀】可以额外指定一名目标。<br/>③你造成的所有伤害翻倍，你受到的所有伤害减半（向上取整）。<br/>④你拥有双倍的初始手牌。摸牌阶段，你额外摸等量的牌。<br/>⑤你使用牌后，额外使用对应实体卡牌（不嵌套触发）。<br/>⑥当你不因此技能获得的回合结束后，你执行一个额外的回合。<br/>⑦限定技，当你进入濒死状态且未被救活时，你将体力值回复至体力上限。<br/>⑧游戏开始时，你获得等量的装备区副类别栏。<br/>⑨你回复体力时，回复效果翻倍。<br/>⑩你使用【铁索连环】时可额外指定两名目标，使用单体普通锦囊牌时可额外指定一名目标。",
+        "PSshuangquan_info": "锁定技。<br/>①你视为拥有技能〖马术〗〖飞影〗和〖无双〗。<br/>②你使用【杀】可以额外指定一名目标。<br/>③你造成的所有伤害翻倍，你受到的所有伤害减半（向上取整）。<br/>④你拥有双倍的初始手牌。摸牌阶段，你额外摸等量的牌。<br/>⑤你使用牌后，额外使用对应实体卡牌（不嵌套触发）。<br/>⑥当你不因此技能获得的回合结束后，你执行一个额外的回合。<br/>⑦限定技，当你即将阵亡时，终止此次结算，然后你将体力上限调整为8，再将体力值回复至体力上限。<br/>⑧游戏开始时，你获得等量的装备区副类别栏。<br/>⑨你回复体力时，回复效果翻倍。<br/>⑩你使用【铁索连环】时可额外指定两名目标，使用单体普通锦囊牌时可额外指定一名目标。",
         PSpojun: "破军",
         "PSpojun_info": "当你使用【杀】指定目标后，你可以获得其至多X张牌（X为其体力值）。当你因执行【杀】的效果而对一名角色造成伤害时，若该角色的手牌数和装备区内的牌数均不大于你，则此伤害+1。",
         PStongxiang: "同享",
@@ -16059,7 +17408,7 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
         PSjieying: "劫营",
         "PSjieying_info": "回合开始时，若场上没有拥有“营”标记的角色，你获得1个“营”标记；结束阶段，你可以将你的一个“营”标记交给一名角色；有“营”标记的角色摸牌阶段多摸一张牌，出牌阶段使用【杀】的次数上限+1，手牌上限+1。有“营”的其他角色出牌阶段开始时，其移去“营”标记，然后你获得其所有手牌。",
         PSfushi: "扶世",
-        "PSfushi_info": "每局限X次，准备阶段开始时，你可以移去所有“梅影”标记并摸等量张牌，然后从8张武将牌中选择并获得至多3个技能。若此时你是体力值最低的角色，你回复1点体力。（X为存活角色+死亡角色的势力数）",
+        "PSfushi_info": "结束阶段开始时，你可以移去所有“梅影”标记并摸等量张牌，然后从8张武将牌中选择并获得至多3个技能。若此时你是体力值最低的角色，你回复1点体力。",
         // "PSfushi_append": '<span style="font-family: yuanli">开启扩展“天牢令”体验更佳</span>',
         PSdunshi: "遁世",
         "PSdunshi_info": "每回合限一次。你可以视为使用或打出一张即时牌，然后当前回合角色于本回合内下一次造成伤害时，你选择两项：<br/>⒈防止此伤害。系统从技能描述中包含“出牌/受伤/结束”字样的技能中随机选择4个其未拥有的技能，然后你令当前回合角色获得其中一个技能。<br/>⒉从〖遁世〗中删除你本次使用或打出的牌并获得一个“席”。<br/>⒊减1点体力上限并摸X张牌（X为你的“席”数）。",

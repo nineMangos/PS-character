@@ -20,14 +20,16 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
 					break;
 				default:
 					var li = document.createElement('li');
-					window.PScharacter.characters.forEach(j => {
-						if (log.includes(lib.translate[j]) || (log.includes('〖') && log.includes('〗'))) {
-							log = log
-								.replace(new RegExp(lib.translate[j], 'g'), `<font color=#ff9800>${lib.translate[j]}</font>`)
-								.replace(new RegExp('〖', 'g'), `<font color=#24c022>〖`)
-								.replace(new RegExp('〗', 'g'), `〗</font>`)
-						}
-					});
+					if (!log.startsWith('收录了')) {
+						window.PScharacter.characters.forEach(j => {
+							if (log.includes(lib.translate[j]) || (log.includes('〖') && log.includes('〗'))) {
+								log = log
+									.replace(new RegExp(lib.translate[j], 'g'), `<font color=#ff9800>${lib.translate[j]}</font>`)
+									.replace(new RegExp('〖', 'g'), `<font color=#24c022>〖`)
+									.replace(new RegExp('〗', 'g'), `〗</font>`)
+							}
+						});
+					}
 					li.innerHTML = log;
 					li.style.textAlign = 'left';
 					li.style.marginLeft = '25px';

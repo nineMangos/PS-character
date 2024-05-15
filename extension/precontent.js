@@ -172,6 +172,11 @@ export let PRECONTENT = function (config) {
         return `${get.prefixSpan('PS')}${get.prefixSpan('经典')}`;
       },
     });
+    lib.namePrefix.set('PS界', {
+      getSpan: (prefix, name) => {
+        return `${get.prefixSpan('PS')}${get.prefixSpan('界')}`;
+      },
+    });
   }
 
   /* <-------------------------平仄声相关-------------------------> */

@@ -1,4 +1,34 @@
 {
+  "2.1.7.3": {
+    "changeLog": [
+      "适配了本体1.10.11.1版本，且最低兼容支持本体1.10.8版本",
+      "新增了info.json文件，以便在关闭本扩展后仍能了解到一些信息",
+      "PS赵襄增加觉醒换皮肤和语音效果",
+      "修复PS生熏鱼和其他武将的一些bug"
+    ],
+    "players": [],
+    "cards": []
+  },
+  "2.1.7": {
+    "changeLog": [
+      "/setPlayer/",
+      "收录了九个陈皮、九个鲨雕、希霞、九个夜白、九个芒果等DIYer设计的武将",
+      "新增武将：PS麴义、PS马超、PS群马超、PS陆绩、PS陆逊、PS神左慈、PS吕布、PS袁术",
+      "削弱武将：PS许褚",
+      "修复了双倍收益哥0体力上限复活的bug"
+    ],
+    "players": [
+      "PSquyi",
+      "PSmachao",
+      "PSqun_machao",
+      "PSluji",
+      "PSluxun",
+      "PSshen_zuoci",
+      "PSlvbu",
+      "PSreyuanshu"
+    ],
+    "cards": []
+  },
   "2.1.6": {
     "changeLog": [
       "/setPlayer/",
