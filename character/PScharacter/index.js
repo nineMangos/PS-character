@@ -44,11 +44,11 @@ game.import("character", function (lib, game, ui, get, ai, _status) {
 	return PScharacter;
 });
 
-/* lib.config.all.characters.push("PScharacter"); //所有武将包
-lib.config.all.sgscharacters.push("PScharacter"); //所有本体武将包，push后武将包不可被隐藏*/
-/* lib.config.characters//开启的武将包 */
-/* if (!lib.config.characters.includes("PScharacter"))
-	lib.config.characters.remove("PScharacter"); */ //push后默认启用武将包
+// lib.config.all.characters.push("PScharacter"); //所有武将包
+// lib.config.all.sgscharacters.push("PScharacter"); //所有本体武将包，push后武将包不可被隐藏
+// lib.config.characters//开启的武将包
+// if (!lib.config.characters.includes("PScharacter"))
+// lib.config.characters.remove("PScharacter"); //push后默认启用武将包
 lib.translate["PScharacter_character_config"] = "PS武将";
 /*  <-------------------------武将包与卡包模板（搬运自“活动武将”）-------------------------> */
 //复杂武将包模板(可关闭)

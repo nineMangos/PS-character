@@ -994,5 +994,4 @@ const character = {
 	},
 };
 
-
 export default character
