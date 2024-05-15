@@ -1,4 +1,35 @@
 {
+  "2.1.6": {
+    "changeLog": [
+      "/setPlayer/",
+      "收录了九个陈皮、九个鲨雕、mento last、神鬼高达、九个芒果等DIYer设计的武将",
+      "适配本体1.10.8版本，但不兼容更低版本",
+      "新增了武将：PS许褚、PS公孙瓒、PS董卓、PS黄忠、PS神司马懿、PS乐蔡文姬、PS曹丕、PS曹婴、PS经典黄盖、PS廖化",
+      "重做了武将：PS典韦、PS黄月英、PS张飞",
+      "调整了PS左慈的〖化身〗和PS赵襄的〖扶汉〗",
+      "PS左慈的〖化身〗在发动时增加了“获得技能提示”",
+      "PS赵襄等武将的技能不再与“天牢令”扩展绑定",
+      "移除了“AI禁将”功能，使之独立为一个扩展包",
+      "优化了“启动页美化”功能的底层代码",
+      "优化了大部分PS武将的技能语音"
+    ],
+    "players": [
+      "PSxuzhu",
+      "PSgongsunzan",
+      "PSdongzhuo",
+      "PShuangzhong",
+      "PSshen_simayi",
+      "PSyue_caiwenji",
+      "PScaopi",
+      "PScaoying",
+      "PSdian_huanggai",
+      "PSliaohua",
+      "PSdianwei",
+      "PShuangyueying",
+      "PSzhangfei"
+    ],
+    "cards": []
+  },
   "2.1.5": {
     "changeLog": [
       "/setPlayer/",
