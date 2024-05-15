@@ -366,7 +366,8 @@ export let CONFIG = {
           import('../../../game/codemirror.js').then(() => {
             aceReady();
           });
-          lib.init.css(lib.assetURL + 'layout/default', 'codemirror');
+		  import('codemirror')
+        //   lib.init.css(lib.assetURL + 'layout/default', 'codemirror');
         }
         else {
           aceReady();

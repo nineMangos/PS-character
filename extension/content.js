@@ -79,28 +79,6 @@ export let CONTENT = function (config, pack) {
     return suits.length;
   }
 
-  /* <-------------------------Player#recoverTo函数-------------------------> */
-  /**
-   * 将体力回复至
-   * @param args  
-   * @returns { object } Event#recover 返回一个事件对象
-   */
-  if (!lib.element.player.recoverTo) {
-    lib.element.player.recoverTo = function () {
-      const newArguments = [];
-      let num = 1;
-      for (let i = 0; i < arguments.length; i++) {
-        if (typeof arguments[i] === 'number') {
-          num = arguments[i] - this.getHp(true);
-          newArguments.push(num);
-        } else {
-          newArguments.push(arguments[i]);
-        }
-      }
-      return this.recover(...newArguments);
-    }
-  }
-
   /* <-------------------------Player#reinitCharacter2函数-------------------------> */
   /**
    * 更换武将牌2 
@@ -139,7 +117,7 @@ export let CONTENT = function (config, pack) {
   //改变PS曹丕“颂威”的配音
   game.changeSkillAudio('songwei', 'PScaopi', 'songwei_re_caopi');
   //改变PS赵襄的配音
-  game.changeSkillAudio('refanghun', 'PSzhaoxiang', ['ext:PS武将/audio/skill/PSfanghun', 'ext:PS武将/audio/skill/PSfanghun2']);
+  game.changeSkillAudio('refanghun', 'PSzhaoxiang', ['ext:PS武将/audio/skill/PSfanghun1', 'ext:PS武将/audio/skill/PSfanghun2']);
   game.changeSkillAudio('refanghun', 'PSzhaoxiang2', ['ext:PS武将/audio/skill/PSfanghun_PSzhaoxiang21', 'ext:PS武将/audio/skill/PSfanghun_PSzhaoxiang22']);
   game.changeSkillAudio('PSfushi', 'PSzhaoxiang2', ['ext:PS武将/audio/skill/PSfushi_PSzhaoxiang21', 'ext:PS武将/audio/skill/PSfushi_PSzhaoxiang22']);
 
@@ -183,105 +161,5 @@ export let CONTENT = function (config, pack) {
     audio: 'extension/PS武将/skin/audio/',
  
   }); */
-
-  lib.element.player.PSchooseToDuiben = function (target, transList) {
-    var next = game.createEvent('chooseToDuiben');
-    next.player = this;
-    next.target = target;
-    next.translation = transList;
-    next.setContent('PSchooseToDuiben');
-    return next;
-  }
-  lib.element.content.PSchooseToDuiben = function () {
-    'step 0';
-    if (!event.namelist) event.namelist = ['全军出击', '分兵围城', '奇袭粮道', '开城诱敌'];
-    game.broadcastAll(function (list) {
-      var list2 = ['db_atk1', 'db_atk2', 'db_def1', 'db_def2'];
-      var list3 = ['db_atk1_出阵迎战', 'db_atk2_拱卫中军', 'db_def1_直取敌营', 'db_def2_扰阵疲敌'];
-      for (var i = 0; i < 4; i++) {
-        lib.card[list2[i]].image = `card/${list3[i]}`;
-        lib.translate[list2[i]] = list[i];
-        lib.translate[list2[i] + '_info'] = _status.event.translation[i];
-      }
-    }, event.namelist);
-    if (!event.title) event.title = '对策';
-    game.log(player, '向', target, '发起了', '#y' + event.title);
-    if (!event.ai) event.ai = function () { return 1 + Math.random(); };
-    if (_status.connectMode) {
-      player.chooseButtonOL([
-        [player, [event.title + '：请选择一种策略', [[['', '', 'db_def2'], ['', '', 'db_def1']], 'vcard']], true],
-        [target, [event.title + '：请选择一种策略', [[['', '', 'db_atk1'], ['', '', 'db_atk2']], 'vcard']], true]
-      ], function () { }, event.ai).set('switchToAuto', function () {
-        _status.event.result = 'ai';
-      }).set('processAI', function () {
-        var buttons = _status.event.dialog.buttons;
-        return {
-          bool: true,
-          links: [buttons.randomGet().link],
-        };
-      });
-    }
-    'step 1';
-    if (_status.connectMode) {
-      event.mes = result[player.playerid].links[0][2];
-      event.tes = result[target.playerid].links[0][2];
-      event.goto(4);
-    }
-    else {
-      player.chooseButton([event.title + '：请选择一种策略', [[['', '', 'db_def2'], ['', '', 'db_def1']], 'vcard']], true).ai = event.ai;
-    }
-    'step 2';
-    event.mes = result.links[0][2];
-    target.chooseButton([event.title + '：请选择一种策略', [[['', '', 'db_atk1'], ['', '', 'db_atk2']], 'vcard']], true).ai = event.ai;
-    'step 3';
-    event.tes = result.links[0][2];
-    'step 4';
-    game.broadcast(function () {
-      ui.arena.classList.add('thrownhighlight');
-    });
-    ui.arena.classList.add('thrownhighlight');
-    game.addVideo('thrownhighlight1');
-    target.$compare(game.createCard(event.tes, '', ''), player, game.createCard(event.mes, '', ''));
-    game.log(target, '选择的策略为', '#g' + get.translation(event.tes));
-    game.log(player, '选择的策略为', '#g' + get.translation(event.mes));
-    game.delay(0, 1500);
-    'step 5';
-    var mes = event.mes.slice(6);
-    var tes = event.tes.slice(6);
-    var str;
-    if (mes == tes) {
-      str = get.translation(player) + event.title + '成功';
-      player.popup('胜', 'wood');
-      target.popup('负', 'fire');
-      game.log(player, '#g胜');
-      event.result = { bool: true };
-    }
-    else {
-      str = get.translation(player) + event.title + '失败';
-      target.popup('胜', 'wood');
-      player.popup('负', 'fire');
-      game.log(target, '#g胜');
-      event.result = { bool: false };
-    }
-    event.result.player = event.mes;
-    event.result.target = event.tes;
-    game.broadcastAll(function (str) {
-      var dialog = ui.create.dialog(str);
-      dialog.classList.add('center');
-      setTimeout(function () {
-        dialog.close();
-      }, 1000);
-    }, str);
-    game.trySkillAudio(event.getParent().name + '_' + (event.result.bool ? 'true' + mes : 'false'), player);
-    game.delay(2);
-    'step 6';
-    game.broadcastAll(function () {
-      ui.arena.classList.remove('thrownhighlight');
-    });
-    game.addVideo('thrownhighlight2');
-    if (event.clear !== false) {
-      game.broadcastAll(ui.clear);
-    }
-  }
 }
 

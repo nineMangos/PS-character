@@ -91,12 +91,11 @@ export let PRECONTENT = function (config) {
 
   /* <-------------------------调用js-------------------------> */
   if (config.enable) {
-    lib.init.js(lib.assetURL + 'extension/PS武将/character', "character");
-    lib.init.js(lib.assetURL + 'extension/PS武将/asset', "update");
-    if (lib.config.extension_PS武将_PS_spCharacter === true) lib.init.js(lib.assetURL + 'extension/PS武将/character', "sp_character");
-    if (lib.config.extension_PS武将_pswj_hudong === true) lib.init.js(lib.assetURL + 'extension/PS武将/asset', "emotion");
+	import('../asset/update.js');
+	import('../character/PScharacter/index.js');
+    if (lib.config.extension_PS武将_PS_spCharacter === true) import('../character/PSsp_character/index.js');
+    if (lib.config.extension_PS武将_pswj_hudong === true) import('../asset/emotion.js');
   }
-
   /* <-------------------------改变启动页背景图-------------------------> */
   if (game.getExtensionConfig('PS武将', 'PS_splash') !== 'default') {
     function getAvatars() {
