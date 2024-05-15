@@ -6,7 +6,7 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
       connect: true,
       characterSort: {
         PSsp_character: {
-          PSsp_character_celebrity: ["PSsp_jiugeshadiao", "PSsp_jiugemangguo", "PSsp_yebai"],
+          PSsp_character_celebrity: ["PSsp_jiugeshadiao", "PSsp_jiugemangguo", "PSsp_yebai", "PSsp_jiugechenpi"],
           PSsp_character_meme: ["PSsp_jiuzhuan", "PSsp_yeshou"],
         },
       },
@@ -15,12 +15,14 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
         PSsp_yebai: ["male", "qun", 4, ["PSsp_xiemen", "rewenji"], []],
         PSsp_yeshou: ["male", "qun", 4, ["PSsp_echou", "PSsp_juexing"], []],
         PSsp_jiugemangguo: ["male", "wu", 4, ["PSsp_sucai", "PSsp_linggan", "PSsp_nagao", "PSsp_chongzu"], []],
+        PSsp_jiugechenpi: ["male", "qun", 4, ["PSsp_pojin", "PSsp_jiuchen"], []],
       },
       characterIntro: {
         PSsp_jiugeshadiao: '由“九个鲨雕”设计<br>九个鲨雕，创群之初就已加入，目前是Q群里最高头衔的存在，曾声称已跟作者本人姓。',
         PSsp_yebai: '由“九个夜白”设计',
         PSsp_yeshou: '由“sc蓝晨跃”设计',
         PSsp_jiugemangguo: "由“铝宝”设计",
+        PSsp_jiugechenpi: "由“九个陈皮”设计",
       },//武将介绍
       characterTitle: {
         PSsp_jiugeshadiao: '鲨鱼中的老雕',
@@ -656,7 +658,7 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
               silent: true,
               popup: false,
               filter: function (event, player) {
-                if (player.isPhaseUsing()) return false;
+                if (event.getParent().name === 'phaseUse' && player.isPhaseUsing()) return false;
                 return lib.skill.PSsp_chongzu.filter(event, player);
               },
               content: function () {
@@ -781,6 +783,195 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
             },
           },
         },
+        PSsp_pojin: {
+          audio: 2,
+          enable: "phaseUse",
+          filterCard: true,
+          selectCard: -1,
+          position: "h",
+          usable: 1,
+          mod: {
+            targetInRange: function (card) {
+              if (card.storage && card.storage.PSsp_pojin) return true;
+            },
+            cardUsable: function (card) {
+              if (card.storage && card.storage.PSsp_pojin) return Infinity;
+            },
+          },
+          filter: function (event, player) {
+            var hs = player.getCards('h');
+            if (!hs.length) return false;
+            for (var card of hs) {
+              var mod2 = game.checkMod(card, player, 'unchanged', 'cardEnabled2', player);
+              if (mod2 === false) return false;
+            }
+            return true;
+          },
+          viewAs: {
+            name: "sha",
+            isCard: false,
+            storage: {
+              PSsp_pojin: true,
+            },
+          },
+          onuse: function (links, player) {
+            player.addTempSkill('PSsp_pojin_draw');
+            player.addTempSkill('PSsp_pojin_clear');
+          },
+          ai: {
+            order: 1,
+            threaten: 1.14,
+            unequip: true,
+            "unequip_ai": true,
+            skillTagFilter: function (player, tag, arg) {
+              if (arg && arg.name == 'sha' && arg.card && arg.card.storage && arg.card.storage.PSsp_pojin) return true;
+              return false;
+            },
+            yingbian: function (card, player, targets, viewer) {
+              if (get.attitude(viewer, player) <= 0) return 0;
+              var base = 0, hit = false;
+              if (get.cardtag(card, 'yingbian_hit')) {
+                hit = true;
+                if (targets.filter(function (target) {
+                  return target.hasShan() && get.attitude(viewer, target) < 0 && get.damageEffect(target, player, viewer, get.nature(card)) > 0;
+                })) base += 5;
+              }
+              if (get.cardtag(card, 'yingbian_all')) {
+                if (game.hasPlayer(function (current) {
+                  return !targets.contains(current) && lib.filter.targetEnabled2(card, player, current) && get.effect(current, card, player, player) > 0;
+                })) base += 5;
+              }
+              if (get.cardtag(card, 'yingbian_damage')) {
+                if (targets.filter(function (target) {
+                  return get.attitude(player, target) < 0 && (hit || !target.mayHaveShan() || player.hasSkillTag('directHit_ai', true, {
+                    target: target,
+                    card: card,
+                  }, true)) && !target.hasSkillTag('filterDamage', null, {
+                    player: player,
+                    card: card,
+                    jiu: true,
+                  })
+                })) base += 5;
+              }
+              return base;
+            },
+            canLink: function (player, target, card) {
+              if (!target.isLinked() && !player.hasSkill('wutiesuolian_skill')) return false;
+              if (target.mayHaveShan() && !player.hasSkillTag('directHit_ai', true, {
+                target: target,
+                card: card,
+              }, true)) return false;
+              if (player.hasSkill('jueqing') || player.hasSkill('gangzhi') || target.hasSkill('gangzhi')) return false;
+              return true;
+            },
+            basic: {
+              useful: [5, 3, 1],
+              value: [5, 3, 1],
+            },
+            result: {
+              target: function (player, target, card, isLink) {
+                var eff = function () {
+                  if (!isLink && player.hasSkill('jiu')) {
+                    if (!target.hasSkillTag('filterDamage', null, {
+                      player: player,
+                      card: card,
+                      jiu: true,
+                    })) {
+                      if (get.attitude(player, target) > 0) {
+                        return -7;
+                      }
+                      else {
+                        return -4;
+                      }
+                    }
+                    return -0.5;
+                  }
+                  return -1.5;
+                }();
+                if (!isLink && target.mayHaveShan() && !player.hasSkillTag('directHit_ai', true, {
+                  target: target,
+                  card: card,
+                }, true)) return eff / 1.2;
+                return eff;
+              },
+            },
+            tag: {
+              respond: 1,
+              respondShan: 1,
+              damage: function (card) {
+                if (game.hasNature(card, 'poison')) return;
+                return 1;
+              },
+              natureDamage: function (card) {
+                if (game.hasNature(card)) return 1;
+              },
+              fireDamage: function (card, nature) {
+                if (game.hasNature(card, 'fire')) return 1;
+              },
+              thunderDamage: function (card, nature) {
+                if (game.hasNature(card, 'thunder')) return 1;
+              },
+              poisonDamage: function (card, nature) {
+                if (game.hasNature(card, 'poison')) return 1;
+              },
+            },
+          },
+          subSkill: {
+            draw: {
+              shaRelated: true,
+              audio: 2,
+              frequent: true,
+              trigger: {
+                player: "shaAfter",
+              },
+              filter: function (event, player) {
+                if (event.skill !== 'PSsp_pojin') return false;
+                return !player.hasHistory('sourceDamage', evt => evt.parent === event);
+              },
+              content: function () {
+                player.draw(trigger.cards.length);
+              },
+              "_priority": 0,
+            },
+            clear: {
+              trigger: {
+                player: "useCard1",
+              },
+              forced: true,
+              silent: true,
+              charlotte: true,
+              filter: function (event, player) {
+                return event.skill === 'PSsp_pojin';
+              },
+              content: function () {
+                trigger.baseDamage = trigger.cards.length;
+                if (trigger.addCount !== false) {
+                  trigger.addCount = false;
+                  if (player.stat[player.stat.length - 1].card.sha > 0) {
+                    player.stat[player.stat.length - 1].card.sha--;
+                  }
+                }
+              },
+              popup: false,
+              sub: true,
+              "_priority": 1,
+            },
+          },
+        },
+        PSsp_jiuchen: {
+          audio: 2,
+          trigger: {
+            player: "phaseJieshuBegin",
+          },
+          frequent: true,
+          filter(event, player) {
+            return player.isMinHandcard();
+          },
+          content() {
+            player.draw(2);
+          },
+          "_priority": 0,
+        },
       },
       translate: {
         "PSsp_character_celebrity": '<span style="color:#22a5f1;font-family:xingkai;font-size:24px">群英荟萃</span>',
@@ -789,7 +980,12 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
         "PSsp_yebai": "夜白",
         PSsp_yeshou: "野兽先辈",
         "PSsp_jiugemangguo": "九个芒果",
+        "PSsp_jiugechenpi": "九个陈皮",
 
+        "PSsp_pojin": "破筋",
+        "PSsp_pojin_info": "出牌阶段限一次，你可以将所有手牌当作无距离限制，无视防具，伤害基数为X，不计入次数且无次数限制的【杀】使用。若此【杀】对目标角色生效且未对其造成过伤害，你摸X张牌。（X为此【杀】对应的实体牌数）",
+        "PSsp_jiuchen": "九陈",
+        "PSsp_jiuchen_info": "结束阶段开始时，若你的手牌数为全场最少，你摸两张牌。",
         'PSsp_sucai': '素材',
         'PSsp_sucai_info': '游戏开始时，你获得四枚花色徽章（每花色各一枚），十三枚点数徽章（每点数各一枚），三张白板卡，以及四枚牌名徽章（每基本牌各一枚）。',
         'PSsp_linggan': '灵感',

@@ -1,4 +1,17 @@
 {
+  "2.1.2": {
+    "changeLog": [
+      "/setPlayer/",
+      "新增了武将：PS刘备、九个陈皮",
+      "修复了PS神鬼无前在ai操作下会报错的bug",
+      "修复了关闭本扩展会报错的bug"
+    ],
+    "players": [
+      "PSliubei",
+      "PSsp_jiugechenpi"
+    ],
+    "cards": []
+  },
   "2.1.1": {
     "changeLog": [
       "/setPlayer/",

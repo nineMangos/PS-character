@@ -23,7 +23,7 @@ game.import("extension", function (lib, game, ui, get, ai, _status) {
       //垃圾武将
       lib.rank.rarity.junk.addArray(['PScenhun', 'PSliru', 'PSquansun', 'PSrs_wolong', 'PSsunshangxiang', 'PSfx_shen_guanyu']);
       //精品武将
-      lib.rank.rarity.rare.addArray(['PScaoang', 'PSsp_jiugemangguo', 'PSlingcao', 'PSpanzhangmazhong', 'PSzhugeliang', 'PSmenghuo', 'PSsp_yebai', 'PSshu_sunshangxiang', 'PSxie_sunquan', 'PSxushi', 'PSguanyu', 'PSshen_zhangfei', 'PSlvmeng', 'PSxuyou', 'PShaozhao', 'PSpeixiu', 'PSjiaxu', 'PSshen_liubei', 'PSjiaxu', 'PSzhuangbeidashi', 'PScaocao', 'PSzhoutai', 'PSzhangsong', 'PSshiniangongzhu', 'PSzhanghe', 'PSzhangjiao', 'PSsp_yeshou', 'PSyuanshu', 'PSxizhicai', 'PSsunben', 'PSsunquan', 'PSliuzan', 'PSshen_jiangweix', 'PSshen_zhuge', 'PSrexusheng', 'PSshen_huangzhong', 'PSshen_guojia', 'PScaochun', 'PSqun_sunce', 'PScaoshuang', 'PSlukang', 'PScaoxiu', 'PSdahantianzi', 'db_PSdaweiwuwang', 'PSdianwei', 'PSduyu', 'PSerciyuan', 'PSgaoguimingmen', 'PSguosi', 'PShs_zhonghui', 'PShuanggai', 'PShuangyueying', 'PShw_sunquan']);
+      lib.rank.rarity.rare.addArray(['PScaoang', 'PSliubei', 'PSsp_jiugechenpi', 'PSsp_jiugemangguo', 'PSlingcao', 'PSpanzhangmazhong', 'PSzhugeliang', 'PSmenghuo', 'PSsp_yebai', 'PSshu_sunshangxiang', 'PSxie_sunquan', 'PSxushi', 'PSguanyu', 'PSshen_zhangfei', 'PSlvmeng', 'PSxuyou', 'PShaozhao', 'PSpeixiu', 'PSjiaxu', 'PSshen_liubei', 'PSjiaxu', 'PSzhuangbeidashi', 'PScaocao', 'PSzhoutai', 'PSzhangsong', 'PSshiniangongzhu', 'PSzhanghe', 'PSzhangjiao', 'PSsp_yeshou', 'PSyuanshu', 'PSxizhicai', 'PSsunben', 'PSsunquan', 'PSliuzan', 'PSshen_jiangweix', 'PSshen_zhuge', 'PSrexusheng', 'PSshen_huangzhong', 'PSshen_guojia', 'PScaochun', 'PSqun_sunce', 'PScaoshuang', 'PSlukang', 'PScaoxiu', 'PSdahantianzi', 'db_PSdaweiwuwang', 'PSdianwei', 'PSduyu', 'PSerciyuan', 'PSgaoguimingmen', 'PSguosi', 'PShs_zhonghui', 'PShuanggai', 'PShuangyueying', 'PShw_sunquan']);
       //史诗武将
       lib.rank.rarity.epic.addArray(['PSpeixiu', 'PSsp_jiugeshadiao', 'PSlibai', 'PSzhonghui', 'PSshen_sunquan', 'PSshen_dengai', 'PSshen_xunyu', 'PSmeng_liubei', 'PScaojinyu', 'PSjin_duyu', 'PSsb_xushao', 'PSfuzhijie', 'PSfuzhijie', 'PSwu_zhangliao', 'PSzuoci', 'PSzhangrang', 'PSzhenji', 'PSzhaoxiang', 'PSzhaoyun', 'PSxiahoujie', 'PSguanning', 'PSxushao', 'PSyangbiao', 'PSguanyunchang', 'PSsishouyige', 'PStongxiangge', 'PSsunru', 'PSjiesuanjie', 'PSshengui', 'PSnanhualaoxian', 'PSsh_zhangfei', 'PSshen_ganning']);
       //传说武将
@@ -234,14 +234,6 @@ game.import("extension", function (lib, game, ui, get, ai, _status) {
         pinyin = pinyin.at(-1);
         if (ping.some(yin => pinyin.includes(yin))) return '平';
         else if (ze.some(yin => pinyin.includes(yin))) return '仄';
-        return;
-      };
-
-      /* <-------------------------求两个数之间的随机值，含最大值，含最小值-------------------------> */
-      get.RandomIntInclusive = function (min, max) {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min + 1)) + min;
       };
 
       /* <-------------------------改变技能配音函数-------------------------> */
@@ -287,7 +279,7 @@ game.import("extension", function (lib, game, ui, get, ai, _status) {
         //ui.backgroundMusic.autoplay=true;
         var temp = lib.config.extension_PS武将_Background_Music;
         if (temp == '0') {
-          temp = get.RandomIntInclusive(2, 30);
+          temp = get.rand(2, 30);
           //生成一个范围2到30的整数
           temp = temp.toString();
           //转为字符串
@@ -353,8 +345,12 @@ game.import("extension", function (lib, game, ui, get, ai, _status) {
           node.style.width = "350px";
           switch (link) {
             case "1":
-              let changeLog = window.PScharacter.updateHistory[lib.extensionPack.PS武将.version].changeLog.slice(0);
               let str = '';
+              if (!lib.extensionPack.PS武将) {
+                node.innerHTML = '<font color=red>[需要开启本扩展并重启才能查看]</font>';
+                break;
+              }
+              let changeLog = window.PScharacter.updateHistory[lib.extensionPack.PS武将.version].changeLog.slice(0);
               changeLog.forEach(i => {
                 if (i !== "/setPlayer/" && i !== "/setCard/") {
                   window.PScharacter.characters.forEach(j => {
@@ -432,19 +428,29 @@ game.import("extension", function (lib, game, ui, get, ai, _status) {
       }, */
 
       "PS_jiaqun": {
-        name: '交流群<span style="color:#87CEEB"><font size="4px">▶</font></span>',
+        name: '交流群<img style="transform: translate(0, 2px) rotate(-90deg); width:16px;" src=' + lib.assetURL + 'extension/PS武将/image/other/T2.png>',
         clear: true,
         onclick: function () {
           if (this.jiaqun == undefined) {
-            var more = ui.create.div('.jiaqun', '<div style="border:2px solid gray"><span><img style=width:238px src=' + lib.assetURL + 'extension/PS武将/image/QQgroup/QQgroup.jpg></span>');
+            var more = ui.create.div('.jiaqun1', `<style>@keyframes change{to{height: 290px}}</style><body><div style="border-radius:10px; box-sizing: border-box; border:2px solid gray; transition: all 1s; animation: change 1s forwards; width:238px; height:0; background:url(${lib.assetURL}extension/PS武将/image/other/QQgroup.jpg) no-repeat center center/cover"></div></body>`);
             this.parentNode.insertBefore(more, this.nextSibling);
             this.jiaqun = more;
-            this.innerHTML = '交流群<span style="color:#87CEEB"><font size="4px">▼</font></span>';
-          } else {
-            this.parentNode.removeChild(this.jiaqun);
-            delete this.jiaqun;
-            this.innerHTML = '交流群<span style="color:#87CEEB"><font size="4px">▶</font></span>';
-          };
+            this.jiaqun.dataset.id = '1';
+            this.innerHTML = '<style>@keyframes rot{to{transform: translate(0, 2px)}}</style><body>交流群<img style="transform: translate(0, 1px) rotate(-90deg); width:16px; transition:all 2s; animation: rot .5s forwards"" src=' + lib.assetURL + 'extension/PS武将/image/other/T2.png></body>';
+          } else if (this.jiaqun.dataset.id == '1') {
+            this.jiaqun.innerHTML = `<style>@keyframes change{to{height: 0px; border:0}}</style><body><div style="border-radius:10px; box-sizing: border-box; border:2px solid gray; transition: all 1s; animation: change 1s forwards; width:238px; height:290px; background:url(${lib.assetURL}extension/PS武将/image/other/QQgroup.jpg) no-repeat center center/cover"></div></body>`;
+            if (this.jiaqun.style.display !== 'none') setTimeout(() => this.jiaqun.style.display = 'none', 1000);
+            this.jiaqun.dataset.id = '0';
+            this.innerHTML = '<style>@keyframes rot{to{transform: translate(0, 2px) rotate(-90deg)}}</style><body>交流群<img style="transform: translate(0, 1px); width:16px; transition:all 2s; animation: rot .5s forwards"" src=' + lib.assetURL + 'extension/PS武将/image/other/T2.png></body>';
+          }
+          else {
+            //this.parentNode.removeChild(this.jiaqun);
+            //delete this.jiaqun;        
+            this.jiaqun.style.display = 'inline-block';
+            this.jiaqun.innerHTML = `<style>@keyframes change{to{height: 290px; border:2px solid gray}}</style><body><div style="border-radius:10px; box-sizing: border-box; transition: all 1s; animation: change 1s forwards; width:238px; height:0; background:url(${lib.assetURL}extension/PS武将/image/other/QQgroup.jpg) no-repeat center center/cover"></div></body>`;
+            this.jiaqun.dataset.id = '1';
+            this.innerHTML = '<style>@keyframes rot{to{transform: translate(0, 2px)}}</style><body>交流群<img style="transform: translate(0, 1px) rotate(-90deg); width:16px; transition:all 2s; animation: rot .5s forwards"" src=' + lib.assetURL + 'extension/PS武将/image/other/T2.png></body>';
+          }
         },
       },
 
@@ -697,7 +703,7 @@ game.import("extension", function (lib, game, ui, get, ai, _status) {
       author: '九个芒果',
       diskURL: "",
       forumURL: "",
-      version: "2.1.1",
+      version: "2.1.2",
     }, files: { "character": [], "card": [], "skill": [] },
   }
 })

@@ -7,7 +7,7 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
       characterSort: {
         PScharacter: {
           PScharacter_wei: ['PScaocao', 'PSzhonghui', 'PSdianwei', 'PSzhanghe', 'PScaoxiu', 'PScaoang', 'PSshiniangongzhu', 'PScaojinyu', 'PScaochun', 'PScaoshuang', 'PShs_zhonghui', 'PSxizhicai', 'PSxiahoujie', 'PSzhenji', 'PSwu_zhangliao', 'PShaozhao'],
-          PScharacter_shu: ['PSsh_zhangfei', 'PSzhugeliang', 'PSmenghuo', 'PSshu_sunshangxiang', 'PStongxiangge', 'PSrs_wolong', 'PShuangyueying', 'PSzhaoxiang', 'PSzhangsong', 'PSguanyunchang', 'PSzhaoyun', 'PSzhuangbeidashi', 'PSguanyu', 'PSmeng_liubei'],
+          PScharacter_shu: ['PSsh_zhangfei', 'PSliubei', 'PSzhugeliang', 'PSmenghuo', 'PSshu_sunshangxiang', 'PStongxiangge', 'PSrs_wolong', 'PShuangyueying', 'PSzhaoxiang', 'PSzhangsong', 'PSguanyunchang', 'PSzhaoyun', 'PSzhuangbeidashi', 'PSguanyu', 'PSmeng_liubei'],
           PScharacter_wu: ['PSrexusheng', 'PSlingcao', 'PSlvmeng', 'PSpanzhangmazhong', 'PSxie_sunquan', 'PSsunquan', 'PSsunshangxiang', 'PSliuzan', 'PShuanggai', 'PSlukang', 'PSzhoutai', 'PSquansun', 'PSjiesuanjie', 'PSzhangxuan', 'PScenhun', 'PSsunben', 'PShw_sunquan', 'PSsunru', 'PSfuzhijie', 'PSxushi'],
           PScharacter_qun: ['PSzhangjiao', 'PSlibai', 'PSyuanshu', 'PSxushao', 'PSguanning', 'PSliru', 'PSzuoci', 'PSerciyuan', 'PSdahantianzi', 'PSnanhualaoxian', 'PSduyu', 'PSzhangrang', 'PSqun_sunce', 'PSgaoguimingmen', 'PSsishouyige', 'PSyangbiao', 'PSguosi', 'PSpeixiu', 'PSsb_xushao', 'PSjiaxu', 'PSxuyou'],
           PScharacter_jin: ['PSjin_duyu'],
@@ -16,7 +16,7 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
         },
       },
       character: {
-        PSshouyige: ["male", "shen", 8, ["PSshuangquan"], ["die:../audio/die/shen_lvbu.mp3"]],//另一种写法：['die:ext:扩展名/武将ID.mp3']
+        PSshouyige: ["male", "shen", 8, ["PSshuangquan"], ["die:../audio/die/shen_lvbu.mp3", "boss", "bossallowed"]],//另一种写法：['die:ext:扩展名/武将ID.mp3']
         PSrexusheng: ["male", "wu", 4, ["PSpojun"], ["die:../audio/die/re_xusheng.mp3"]],
         PSsunquan: ["male", "wu", 4, ["PSzhiheng", "rejiuyuan"], []],
         PScaocao: ["male", "wei", 4, ["PSjianxiong", "rehujia"], []],
@@ -63,11 +63,11 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
         "PSshen_jiangweix": ["male", "shen", 3, ["PSjiufa", "PSkefu", "PSwantian"], ["die:shen_jiangwei.mp3"]],
         "PShs_zhonghui": ["male", "wei", 4, ["PSmn_quanji", "PSmn_paiyi"], ["die:../audio/die/xin_zhonghui.mp3"]],
         PSzhuangbeidashi: ["male", "shu", 4, ["pytianjiang", "pyzhuren", "xinfu_jingxie1", "PSshenzhu"], ["die:../audio/die/puyuan.mp3"]],
-        "PSboss_lvbu1": ["male", "shen", 8, ["wushuang", "PSjingjia1", "PSaozhan1", "PSbaguan1"], ["die:../audio/die/boss_lvbu1.mp3"]],
+        "PSboss_lvbu1": ["male", "shen", 8, ["wushuang", "PSjingjia1", "PSaozhan1", "PSbaguan1"], ["die:../audio/die/boss_lvbu1.mp3", "boss", "bossallowed"]],
         "PSboss_lvbu2": ["male", "shen", 6, ["wushuang", "PSshenwei2", "PSshenji2", "PSbaguan2"], ["die:../audio/die/boss_lvbu1.mp3"]],
         "PSboss_lvbu3": ["male", "shen", 6, ["wushuang", "PSshenqu3", "PSjiwu3", "PSbaguan2"], ["die:../audio/die/boss_lvbu1.mp3"]],
         "PSboss_lvbu4": ["male", "shen", 6, ["wushuang", "PSkuangbao4", "PSshenfen4", "PSbaguan2"], ["die:../audio/die/boss_lvbu1.mp3"]],
-        PSshengui: ["male", "shen", 6, ["wushuang", "shenqu", "PSjiwu"], ["die:../audio/die/boss_lvbu1.mp3"]],
+        PSshengui: ["male", "shen", 6, ["wushuang", "PSshenqu", "PSjiwu"], ["die:../audio/die/boss_lvbu1.mp3"]],
         PSzhangrang: ["male", "qun", 4, ["PStaoluan"], []],
         PSxizhicai: ["male", "wei", 3, ["tiandu", "PSxianfu", "PSchouce"], []],
         PSxiahoujie: ["male", "wei", 5, ["PSdanda"], []],
@@ -110,6 +110,7 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
         PSzhugeliang: ["male", "shu", 3, ["PSjiqiao", "PShuoji", "PSpingnan"], []],
         PSpanzhangmazhong: ["male", "wu", 4, ["PSduodao", "PSanjian"], []],
         PSlingcao: ["male", "wu", 4, ["PSdujin", "PSgudan"], []],
+        PSliubei: ["male", "shu", 4, ["PSrende", "rejijiang"], []],
       },
       characterIntro: {
         PSshouyige: '由“九个芒果”设计',
@@ -206,6 +207,7 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
         PSzhugeliang: '由“一顿七只屑狐狸”设计',
         PSpanzhangmazhong: '由“mento last”设计',
         PSlingcao: '由“九个鲨雕”设计',
+        PSliubei: '由“九个芒果”设计',
       },//武将介绍
       characterTitle: {
       },//武将称号
@@ -219,7 +221,7 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
         PSguanyu: ['PSguanyunchang', 'PSguanyu'],
         PSsunben: ['PSqun_sunce', 'PSsunben'],
         PSxushao: ['PSsb_xushao', 'PSxushao'],
-
+        PSliubei: ['PSliubei', 'PSmeng_liubei'],
       },//武将切换
       characterFilter: {
         PSzuoci: function (mode) {
@@ -3066,7 +3068,28 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
             },
           },
         },
-
+        PSshenqu: {
+          audio: "ext:PS武将/audio/skill:2",
+          group: 'PSshenqu2',
+          trigger: { global: 'phaseZhunbeiBegin' },
+          filter: function (event, player) {
+            return player.countCards('h') <= player.maxHp;
+          },
+          frequent: true,
+          content: function () {
+            player.draw(2);
+          }
+        },
+        PSshenqu2: {
+          trigger: { player: 'damageAfter' },
+          direct: true,
+          filter: function (event, player) {
+            return player.hasSkillTag('respondTao') || player.countCards('h', 'tao') > 0;
+          },
+          content: function () {
+            player.chooseToUse({ name: 'tao' }, '神躯：是否使用一张桃？').logSkill = 'shenqu';
+          }
+        },
         "PSmn_qiangxi": {
           group: "PSmn_qiangxi_damage",
           trigger: {
@@ -3096,12 +3119,12 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
               enable: "phaseUse",
               filter: function (event, player) {
                 return game.hasPlayer(function (target) {
-                  return player.inRange(target) && !target.hasSkill('miniqiangxi_off');
+                  return player.inRange(target) && !target.hasSkill('PSmn_qiangxi_off');
                 });
               },
               filterTarget: function (card, player, target) {
                 if (player == target) return false;
-                if (target.hasSkill('miniqiangxi_off')) return false;
+                if (target.hasSkill('PSmn_qiangxi_off')) return false;
                 return player.inRange(target);
               },
               prompt: "失去1点体力并摸一张牌，对一名其他角色造成1点伤害",
@@ -3110,7 +3133,7 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
                 player.loseHp();
                 player.draw();
                 'step 1'
-                target.addTempSkill('miniqiangxi_off');
+                target.addTempSkill('PSmn_qiangxi_off');
                 target.damage();
                 game.playSkillAudio('qiangxi_boss_lvbu3'); game.playAudio('..', 'extension', 'PS武将/audio', 'qiangxix' + [1, 2].randomGet());
               },
@@ -4966,7 +4989,6 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
                   list[result.index] = Math.min(5, list[result.index] + 1);
                   game.log(player, '将', result.control, '数字改为', '#y' + list[result.index])
                   player.markSkill('PSweizhen');
-                  game.log(trigger.name);
                 }
                 if (event.num > 0) event.goto(1);
               },
@@ -7310,7 +7332,7 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
           },
         },
         "PSshenqu3": {
-          audio: "shenqu",
+          audio: "PSshenqu",
           group: "PSshenqu3_tao",
           trigger: {
             global: "phaseZhunbeiBegin",
@@ -7334,7 +7356,7 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
                 return player.hasSkillTag('respondTao') || player.countCards('h', 'tao') > 0;
               },
               content: function () {
-                player.chooseToUse({ name: 'tao' }, '神躯：请使用一张桃', true).logSkill = 'shenqu';
+                player.chooseToUse({ name: 'tao' }, '神躯：请使用一张桃', true).logSkill = 'PSshenqu3';
               },
               sub: true,
             },
@@ -7905,7 +7927,7 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
             ];
             player.chooseControl().set('choiceList', choiceList).set('ai', function () {
               var num = choiceList.length - 1;
-              return get.RandomIntInclusive(0, num);
+              return get.rand(0, num);
             }).set('prompt', '衡策：请选择一项');
             'step 1'
             switch (result.control) {
@@ -8493,7 +8515,7 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
               contorl = contorl.slice(0, num);
             };
             player.chooseControl(contorl).set('choiceList', list).set('ai', function () {
-              return get.RandomIntInclusive(0, contorl.length);
+              return get.rand(0, contorl.length);
             }).set('prompt', '神愤：请选择你要弃置的“💢”标记个数');
             'step 1'
             switch (result.index) {
@@ -12760,11 +12782,8 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
             target: "useCardToTargeted",
           },
           filter: function (event, player, name) {
-            if (name === "useCardToTargeted") return event.card.name == 'sha';
-            var source = event.source;
-            if (!source) return false;
-            return player.countCards('he') > 0 && event.source &&
-              event.card && event.card.name == 'sha';
+            if (name === "useCardToTargeted") return event.player !== player && event.card.name == 'sha';
+            return event.source && event.source !== player;
           },
           direct: true,
           check: function (event, player) {
@@ -12860,6 +12879,123 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
               player.loseHp();
             }
           },
+        },
+        PSrende: {
+          audio: "ext:PS武将/audio/skill:2",
+          enable: "phaseUse",
+          filter: function (event, player) {
+            return game.hasPlayer(function (current) {
+              return current.countCards('h') && !current.hasSkill('PSrende_temp');
+            });
+          },
+          filterTarget: function (card, player, target) {
+            if (!ui.selected.targets.length) return !target.hasSkill('PSrende_temp') && target.countCards('h');
+            return true;
+          },
+          targetprompt: ["交出牌", "获得牌"],
+          selectTarget: 2,
+          multitarget: true,
+          content: function () {
+            'step 0'
+            targets[0].addTempSkill('PSrende_temp', 'phaseUseEnd');
+            targets[0].chooseCard('h', true, [1, targets[0].countCards('h')], '选择交给' + get.translation(targets[1]) + '至少一张牌').set('ai', card => {
+              if (_status.event.attitude) return 0;
+              return 7 - get.value(card);
+            }).set('attitude', get.attitude(targets[0], targets[1]) < 0);;
+            'step 1'
+            if (result.bool && result.cards && result.cards.length) {
+              targets[0].give(result.cards, targets[1]);
+              if (result.cards.length >= 2) {
+                let next = game.createEvent('chooseToUse');
+                next.player = targets[0];
+                next.setContent(lib.skill.PSrende.chooseToUse);
+              }
+            }
+          },
+          chooseToUse: function () {
+            'step 0'
+            var list = [];
+            if (lib.filter.cardUsable({ name: 'sha' }, player, event.getParent('chooseToUse')) && game.hasPlayer(function (current) {
+              return player.canUse('sha', current);
+            })) {
+              list.push(['基本', '', 'sha']);
+            }
+            for (var i of lib.inpile_nature) {
+              if (lib.filter.cardUsable({ name: 'sha', nature: i }, player, event.getParent('chooseToUse')) && game.hasPlayer(function (current) {
+                return player.canUse({ name: 'sha', nature: i }, current);
+              })) {
+                list.push(['基本', '', 'sha', i]);
+              }
+            }
+            if (lib.filter.cardUsable({ name: 'tao' }, player, event.getParent('chooseToUse')) && game.hasPlayer(function (current) {
+              return player.canUse('tao', current);
+            })) {
+              list.push(['基本', '', 'tao']);
+            }
+            if (lib.filter.cardUsable({ name: 'jiu' }, player, event.getParent('chooseToUse')) && game.hasPlayer(function (current) {
+              return player.canUse('jiu', current);
+            })) {
+              list.push(['基本', '', 'jiu']);
+            }
+            if (list.length) {
+              player.chooseButton(['是否视为使用一张基本牌？', [list, 'vcard']]).set('ai', function (button) {
+                var player = _status.event.player;
+                var card = { name: button.link[2], nature: button.link[3], isCard: true };
+                if (card.name == 'tao') {
+                  if (player.hp == 1 || (player.hp == 2 && !player.hasShan()) || player.needsToDiscard()) {
+                    return 5;
+                  }
+                  return 1;
+                }
+                if (card.name == 'sha') {
+                  if (game.hasPlayer(function (current) {
+                    return player.canUse(card, current) && get.effect(current, card, player, player) > 0
+                  })) {
+                    if (card.nature == 'fire') return 2.95;
+                    if (card.nature == 'thunder' || card.nature == 'ice') return 2.92;
+                    return 2.9;
+                  }
+                  return 0;
+                }
+                if (card.name == 'jiu') {
+                  return 0.5;
+                }
+                return 0;
+              });
+            }
+            else {
+              event.finish();
+            }
+            'step 1'
+            if (result && result.bool && result.links[0]) {
+              var card = { name: result.links[0][2], nature: result.links[0][3] };
+              player.chooseUseTarget(card, true);
+            }
+          },
+          ai: {
+            order: 8,
+            result: {
+              target: function (player, target) {
+                if (ui.selected.targets.length == 0) {
+                  return -1;
+                }
+                else {
+                  return 1.2;
+                }
+              },
+              player: 1.1,
+            },
+            expose: 0.4,
+            threaten: 3,
+          },
+          subSkill: {
+            temp: {
+              charlotte: true,
+              silent: true,
+              nopup: true,
+            },
+          },
+          "_priority": 0,
         },
       },
       translate: {
@@ -12965,7 +13101,10 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
         PSzhugeliang: "PS诸葛亮",
         PSpanzhangmazhong: "PS潘璋马忠",
         PSlingcao: "PS凌操",
+        PSliubei: "PS刘备",
 
+        "PSrende": "仁德",
+        "PSrende_info": "出牌阶段，你可以令一名角色将至少一张手牌交给由你指定的其他角色，然后本阶段你不能再对该角色发动〖仁德〗；若其交出的牌不少于两张，其可以视为使用一张基本牌。",
         "PSdujin": "独进",
         "PSdujin_info": "锁定技，摸牌阶段你额外摸X张牌，你的手牌上限+X（X为你装备区里的装备牌数量且至少为1）。",
         "PSgudan": "孤胆",
@@ -13080,6 +13219,8 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
         "PSkangkai_info": "当一名角色成为伤害类牌的目标后，你可以摸一张牌。若如此做，你选择一名除其外的角色，除非该角色交一张牌给对方，否则失去一点体力。若交出的是装备牌，该角色可以使用此牌。",
         PSjiwu: "极武",
         "PSjiwu_info": "出牌阶段，你可以弃置一张牌，然后选择获得【强袭】、【铁骑】、【旋风】、【完杀】中的一项技能直到回合结束。",
+        "PSshenqu": '神躯',
+        "PSshenqu_info": '每名角色的准备阶段，若你的手牌数少于或等于你的体力上限数，你可以摸两张牌；当你受到伤害后，你可以使用一张【桃】。',
         "PSmn_qiangxi": "强袭",
         "PSmn_qiangxi_info": "出牌阶段对每名其他角色限一次，你可以失去1点体力并摸一张牌，对你攻击范围内的一名其他角色造成1点伤害；其他角色受到伤害时，你可以弃置一张装备牌并令伤害值+1。",
         PShuiwan: "会玩",
