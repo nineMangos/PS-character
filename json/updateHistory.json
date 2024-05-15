@@ -1,4 +1,50 @@
 {
+  "2.1.5": {
+    "changeLog": [
+      "/setPlayer/",
+      "新增了武将：PS李丰、PS陈式、PS群赵云、PS笨孙笨",
+      "同甘共苦哥技能调整（其他角色摸牌后 → 于摸牌阶段外获得牌后）",
+      "PS左慈〖化身〗代码重写（以“界左慈”〖化身〗的代码为模板，不再依赖chooseButtonControl函数），并且调整了部分技能（出牌阶段，你可以改变性别和势力 → 出牌阶段限一次，你可以将性别和势力改为与一张“化身牌”相同）",
+      "“AI禁将”功能新增“滚动条”和“小型布局”",
+      "修复了PS神荀彧发动〖天佐〗可能会平局的问题",
+      "修复了“编辑将池”功能不适配本体1.10.6以上版本的bug",
+      "修复了“AI禁将”功能的页面布局会被美化类扩展影响的bug",
+      "修复其他bug若干"
+    ],
+    "players": [
+      "PSlifeng",
+      "PSchenshi",
+      "PSqun_zhaoyun",
+      "PSben_sunben"
+    ],
+    "cards": []
+  },
+  "2.1.4": {
+    "changeLog": [
+      "/setPlayer/",
+      "基本上兼容了本体1.10.6版本（可能有一些bug没有排查到位）",
+      "新增了武将：PS陆逊、PS徐荣"
+    ],
+    "players": [
+      "PSluxun",
+      "PSxurong"
+    ],
+    "cards": []
+  },
+  "2.1.3": {
+    "changeLog": [
+      "/setPlayer/",
+      "新增了武将：PS曹仁、PS张飞",
+      "新增了功能“启动页美化”",
+      "新增了功能“AI禁将”",
+      "修复了PS神诸葛亮标记失效的bug"
+    ],
+    "players": [
+      "PScaoren",
+      "PSzhangfei"
+    ],
+    "cards": []
+  },
   "2.1.2": {
     "changeLog": [
       "/setPlayer/",
