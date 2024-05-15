@@ -73,10 +73,10 @@ export let PRECONTENT = function (config) {
 
         callback(null, targetObject);
       } catch (err) {
-        callback('无法解析 JSON 文件', null);
+        callback(' JSON 文件解析失败\n' + err, null);
       }
     }, function (err) {
-      callback('无法读取 JSON 文件', null);
+      callback(' JSON 文件解析失败\n' + err, null);
     });
   };
 
