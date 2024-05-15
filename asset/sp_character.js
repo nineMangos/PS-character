@@ -7,11 +7,11 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
       characterSort: {
         PSsp_character: {
           PSsp_character_celebrity: ["PSsp_jiugeshadiao", "PSsp_yebai"],
-          PSsp_character_meme: ["PSsp_yeshou"],
+          PSsp_character_meme: ["PSsp_jiuzhuan", "PSsp_yeshou"],
         },
       },
       character: {
-        PSsp_jiugeshadiao: ["male", "shen", 4, ["PSsp_shadiao"], []],
+        PSsp_jiugeshadiao: ["male", "shen", 4, ["PSsp_jiuzhuan", "PSsp_shadiao"], []],
         PSsp_yebai: ["male", "qun", 4, ["PSsp_xiemen", "rewenji"], []],
         PSsp_yeshou: ["male", "qun", 4, ["PSsp_echou", "PSsp_juexing"], []],
       },
@@ -278,10 +278,10 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
           },
           content: function () {
             'step 0'
-            let num = player.getCards('he').reduce(function (arr, card) {
+            let num = player.getCards('h').reduce(function (arr, card) {
               return arr.add(get.suit(card, player)), arr;
             }, []).length;
-            player.chooseCard('邪门：请展示任意张花色不同的手牌', [1, num], true, function (card, player) {
+            player.chooseCard([1, num], 'h', true, function (card, player) {
               if (!ui.selected.cards.length) return true;
               var suit = get.suit(card, player);
               for (var i of ui.selected.cards) {
@@ -290,7 +290,7 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
               return true;
             }).set('complexCard', true).set('ai', function (card) {
               return true;
-            });
+            }).set('prompt', '邪门：请展示任意张花色不同的手牌');
             'step 1'
             if (result.bool && result.cards) {
               player.showCards(result.cards, get.translation(player) + '发动了【邪门】');
@@ -311,20 +311,19 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
           subSkill: {
             next: {
               trigger: {
-                player: ["phaseZhunbeiBefore", "phaseJudgeBefore", "phaseDrawBefore", "phaseUseBefore", "phaseDiscardBefore"],
+                player: "phaseChange",
               },
               filter: function (event, player, name) {
+                if (event.phaseList[event.num].startsWith(player.storage.PSsp_xiemen_count[1])) return false;
                 let num = player.getHistory('useSkill', evt => evt.skill === "PSsp_xiemen_next").length;
-                return player.storage.PSsp_xiemen_count[0] > num && name !== (player.storage.PSsp_xiemen_count[1] + 'Before');
+                return player.storage.PSsp_xiemen_count[0] > num;
               },
               forced: true,
               charlotte: true,
               content: function () {
-                game.log(player, '将', `#g${event.triggername.replace('Before', '')}`, '改为了', `#g${player.storage.PSsp_xiemen_count[1]}`);
-                trigger.cancel();
-                var next = player[player.storage.PSsp_xiemen_count[1]]();
-                event.next.remove(next);
-                trigger.getParent().next.push(next);
+                game.log(player, '将', `#g${trigger.phaseList[trigger.num]}`, '改为了', `#g${player.storage.PSsp_xiemen_count[1]}`);
+                trigger.phaseList[trigger.num] = `${player.storage.PSsp_xiemen_count[1]}|PSsp_xiemen_next`;
+                game.delayx();
               },
               ai: {
                 effect: {
@@ -358,6 +357,34 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
           },
           "_priority": 0,
         },
+        PSsp_jiuzhuan: {
+          trigger: {
+            player: "phaseBegin",
+          },
+          content: function () {
+            'step 0'
+            var next = player.chooseToMove('九转', true);
+            next.set('list', [
+              ['调整任意阶段顺序', [trigger.phaseList, 'vcard']],
+            ]);
+            next.set('filterOk', function (moved) {
+              //return moved[0].length>0;
+              return true;
+            });
+            next.set('processAI', function (list) {
+              let listx = list[0][1][0].slice(0);
+              lib.skill.PSxingtu.shuffle(listx);
+              const moved = listx.map(ele => [void 0, '', ele]);
+              return [moved];
+            });
+            'step 1'
+            if (result.bool) {
+              const arr = result.moved[0].map(ele => ele[2]);
+              trigger.phaseList = arr;
+            }
+          },
+          "_priority": 0,
+        },
       },
       translate: {
         "PSsp_character_celebrity": '<span style="color:#22a5f1;font-family:xingkai;font-size:24px">群英荟萃</span>',
@@ -366,8 +393,10 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
         "PSsp_yebai": "夜白",
         PSsp_yeshou: "野兽先辈",
 
+        "PSsp_jiuzhuan": "九转",
+        "PSsp_jiuzhuan_info": "回合开始时，你可以调整本回合所有阶段的执行顺序。",
         PSsp_xiemen: "邪门",
-        "PSsp_xiemen_info": "①转换技，回合开始，你可以展示并标记任意张花色各不相同的牌，若如此做，阴：本回合你将前等量个非摸牌阶段改为摸牌阶段；阳：本回合你将前等量个非出牌阶段改为出牌阶段。<br>②当你失去因此标记的牌时，你摸一张牌。<br>③你的出牌阶段使用杀次数上限+X（X为你因此展示的牌数）",
+        "PSsp_xiemen_info": "①转换技，回合开始时，你可以展示并标记任意张花色各不相同的牌，若如此做，阴：本回合你将前等量个非摸牌阶段改为摸牌阶段；阳：本回合你将前等量个非出牌阶段改为出牌阶段。<br>②当你失去因此标记的牌时，你摸一张牌。<br>③你的出牌阶段使用杀次数上限+X（X为你因此展示的牌数）",
         PSsp_shadiao: "鲨雕",
         "PSsp_shadiao_info": "你可以弃置X张花色不同的牌视为使用或打出任意即时牌（X为此技能发动的次数）。当X=4时，你可以摸两张牌，然后重置X的发动次数。锁定技，当X>4时，你对所有其他角色各造成1点伤害并摸造成伤害数的牌，然后重置X的发动次数。",
         PSsp_echou: "恶臭",
@@ -385,12 +414,13 @@ window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
         },
         //夜白〖邪门〗动态翻译
         PSsp_xiemen: function (player) {
-          if (player.storage.PSsp_xiemen == true) return '①转换技，回合开始，你可以展示并标记任意张花色各不相同的牌，若如此做，阴：本回合你将前等量个非摸牌阶段改为摸牌阶段；<span class="bluetext">阳：本回合你将前等量个非出牌阶段改为出牌阶段。</span><br>②当你失去因此标记的牌时，你摸一张牌。<br>③你的出牌阶段使用杀次数上限+X（X为你手牌中因此标记的牌数）';
-          return '①转换技，回合开始，你可以展示并标记任意张花色各不相同的牌，若如此做，<span class="bluetext">阴：本回合你将前等量个非摸牌阶段改为摸牌阶段；</span>阳：本回合你将前等量个非出牌阶段改为出牌阶段。<br>②当你失去因此标记的牌时，你摸一张牌。<br>③你的出牌阶段使用杀次数上限+X（X为你手牌中因此标记的牌数）';
+          if (player.storage.PSsp_xiemen == true) return '①转换技，回合开始时，你可以展示并标记任意张花色各不相同的牌，若如此做，阴：本回合你将前等量个非摸牌阶段改为摸牌阶段；<span class="bluetext">阳：本回合你将前等量个非出牌阶段改为出牌阶段。</span><br>②当你失去因此标记的牌时，你摸一张牌。<br>③你的出牌阶段使用杀次数上限+X（X为你因此展示的牌数）';
+          return '①转换技，回合开始时，你可以展示并标记任意张花色各不相同的牌，若如此做，<span class="bluetext">阴：本回合你将前等量个非摸牌阶段改为摸牌阶段；</span>阳：本回合你将前等量个非出牌阶段改为出牌阶段。<br>②当你失去因此标记的牌时，你摸一张牌。<br>③你的出牌阶段使用杀次数上限+X（X为你因此展示的牌数）';
         },
       },
     };
     for (var i in PSsp_character.character) {
+      window.PScharacter.characters.push(i);
       PSsp_character.character[i][4].push(((lib.device || lib.node) ? 'ext:' : 'db:extension-') + 'PS武将/image/character/' + i + '.jpg');
       if (i.includes('PS')) {
         lib.translate[i + '_prefix'] = i.includes('PSshen_') ? 'PS神' : 'PS';

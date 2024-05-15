@@ -1,12 +1,63 @@
-window.PScharacter_update = {
-	version: '2.0.9',
-	update: '2.0.8',
-	changeLog: [
-		'1.适配了新版本的武将名称前缀高亮显示，并且增加了武将前缀样式切换功能',
-		'2.新增/重做了武将：PS李白、PS孙尚香、PS蜀孙尚香、九个鲨雕',
-		'3.添加了十首三国杀局内bgm',
-		'4.修复了已知的bug',
-	],
-	files: [
-	]
-};
+window.PScharacter.import(function (lib, game, ui, get, ai, _status) {
+	//搬运自“活动武将”
+	game.PS_showChangeLog = function (version) {
+		version = version || lib.extensionPack["PS武将"].version;
+		let changeInfo = window.PScharacter.updateHistory[lib.extensionPack.PS武将.version];
+		//加载
+		var dialog = ui.create.dialog('hidden');
+		dialog.addText('<div style="font-size:24px;margin-top:5px;text-align:center;">PS武将 ' + version + ' 版本更新内容</div>');
+		dialog.style.left = '25%';
+		dialog.style.width = '50%';
+		for (var log of changeInfo.changeLog) {
+			switch (log) {
+				case '/setPlayer/':
+					dialog.addText('<div style="font-size:17.5px;text-align:center;">更新角色：</div>')
+					dialog.addSmall([changeInfo.players, 'character']);
+					break;
+				case '/setCard/':
+					dialog.addText('<div style="font-size:17.5px;text-align:center;">更新卡牌：</div>')
+					dialog.addSmall([changeInfo.cards, 'vcard']);
+					break;
+				default:
+					var li = document.createElement('li');
+					li.innerHTML = log;
+					li.style.textAlign = 'left';
+					li.style.marginLeft = '25px';
+					li.style.marginTop = '2.5px';
+					dialog.content.appendChild(li);
+			}
+		}
+		var ul = document.createElement('ul');
+		dialog.content.appendChild(ul);
+		dialog.open();
+		var hidden = false;
+		if (!ui.auto.classList.contains('hidden')) {
+			ui.auto.hide();
+			hidden = true;
+		}
+		game.pause();
+		var control = ui.create.control('确定', function () {
+			dialog.close();
+			control.close();
+			if (hidden) ui.auto.show();
+			game.resume();
+		});
+	};
+	lib.skill._PS_changeLog = {
+		charlotte: true,
+		ruleSkill: true,
+		trigger: {
+			global: [/*'chooseButtonBefore',*/'gameStart', 'gameDrawAfter', 'phaseBefore']
+		},
+		filter: function (event, player) {
+			//if(event.name=='chooseButton'&&event.parent.name!='chooseCharacter') return false;
+			return !lib.config.extension_PS武将_PS_version || lib.config.extension_PS武将_PS_version != lib.extensionPack.PS武将.version;
+		},
+		direct: true,
+		priority: 1919810,
+		content: function () {
+			game.saveConfig('extension_PS武将_PS_version', lib.extensionPack.PS武将.version);
+			game.PS_showChangeLog();
+		},
+	};
+})
