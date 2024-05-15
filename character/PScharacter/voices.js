@@ -82,7 +82,7 @@ const voices = {
 	"#PSshen_zuoci": "道家不入轮回。",
 
 	//PS梦刘备
-	"#PSshiren1": "此战由将军在，方可胜。",
+	"#PSshiren1": "此战有将军在，方可胜。",
 	"#PSshiren2": "蜀汉霸业，方需将军出战。",
 	"#PStaoyuan1": "备，愿结交天下豪杰。",
 	"#PStaoyuan2": "仁之所至,何吝外物。",

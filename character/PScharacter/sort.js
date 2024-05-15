@@ -22,6 +22,7 @@ const characterSort = {
 			"PSzhenji",
 			"PSwu_zhangliao",
 			"PShaozhao",
+			"PSwenyang"
 		],
 		PScharacter_shu: [
 			"PSsh_zhangfei",

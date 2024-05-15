@@ -16761,6 +16761,115 @@ const skills = {
 		},
 		"_priority": 0,
 	},
+	PSlvli: {
+		audio: "lvli",
+		trigger: {
+			player: "damageEnd",
+			source: "damageSource",
+		},
+		filter: function (event, player, name) {
+			if (name == "damageEnd" && !player.storage.PSbeishui) return false;
+			var stat = player.getStat().skill;
+			if (!stat.PSlvli) stat.PSlvli = 0;
+			if (stat.PSlvli > 0 && !player.storage.PSchoujue) return false;
+			if (player.hp == player.countCards("h")) return false;
+			if (player.hp < player.countCards("h") && player.isHealthy()) return false;
+			return true;
+		},
+		content: function () {
+			var stat = player.getStat().skill;
+			stat.PSlvli++;
+			var num = player.hp - player.countCards("h");
+			if (num > 0) player.draw(num);
+			else player.recover(-num);
+		},
+		"_priority": 0,
+	},
+	PSchoujue: {
+		audio: "choujue",
+		derivation: ["PSbeishui", "PSqingjiao"],
+		trigger: {
+			global: "phaseAfter",
+		},
+		audio: 2,
+		skillAnimation: true,
+		animationColor: "water",
+		unique: true,
+		juexingji: true,
+		forced: true,
+		init: function (player, skill) {
+			if (!player.storage[skill]) player.storage[skill] = false;
+		},
+		filter: function (event, player) {
+			if (player.storage.PSchoujue) return false;
+			return player.maxHp > 4;
+		},
+		content: function () {
+			player.awakenSkill("PSchoujue");
+			player.storage.PSchoujue = true;
+			player.addSkills("PSbeishui");
+		},
+		"_priority": 0,
+	},
+	PSbeishui: {
+		trigger: {
+			player: "phaseZhunbeiBegin",
+		},
+		audio: "beishui",
+		skillAnimation: "epic",
+		animationColor: "thunder",
+		unique: true,
+		juexingji: true,
+		forced: true,
+		init: function (player, skill) {
+			if (!player.storage[skill]) player.storage[skill] = false;
+		},
+		filter: function (event, player) {
+			if (player.storage.PSbeishui) return false;
+			return player.hp >= 3;
+		},
+		content: function () {
+			player.awakenSkill("PSbeishui");
+			player.storage.PSbeishui = true;
+			player.addSkills("PSqingjiao");
+		},
+		"_priority": 0,
+	},
+	PSqingjiao: {
+		audio: "qingjiao",
+		trigger: {
+			player: "phaseDrawBegin2",
+		},
+		forced: true,
+		preHidden: true,
+		filter: function (event, player) {
+			return !event.numFixed;
+		},
+		content: function () {
+			trigger.num += 2;
+		},
+		mod: {
+			cardUsable: function (card, player, num) {
+				if (card.name == "sha") return num + 1;
+			},
+			targetInRange: function (card) {
+				if (card.name == 'sha') return true;
+			},
+		},
+		ai: {
+			threaten: 1.5,
+			unequip: true,
+			"unequip_ai": true,
+			skillTagFilter: function (player, tag, arg) {
+				if (
+					arg &&
+					arg.name == "sha"
+				)
+					return true;
+				return false;
+			},
+		},
+	},
 };
 
 export default skills;

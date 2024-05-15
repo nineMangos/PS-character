@@ -992,6 +992,14 @@ const character = {
 		dieAudios: ["die:../audio/die/re_yuanshu.mp3"],
 		trashBin: [],
 	},
+	PSwenyang: {
+		sex: "male",
+		group: "wei",
+		hp: 5,
+		skills: ["PSlvli", "PSchoujue"],
+		dieAudios: [],
+		trashBin: [],
+	}
 };
 
 export default character

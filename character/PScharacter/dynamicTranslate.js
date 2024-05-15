@@ -35,6 +35,12 @@ const dynamicTranslate = {
 			return '转换技，锁定技，<span class="bluetext">阳：出牌阶段开始时，你失去1点体力并摸一张牌，然后本阶段内你视为拥有技能〖怒斩〗，且你的红色手牌均视为火【杀】且无距离限制。</span>阴：出牌阶段开始时，你减1点体力上限并摸一张牌，然后本阶段内你然后本阶段内你视为拥有技能〖厉勇〗，且你的锦囊牌均视为雷【杀】且无使用次数限制。';
 		return '转换技，锁定技，阳：出牌阶段开始时，你失去1点体力并摸一张牌，然后本阶段内你视为拥有技能〖怒斩〗，且你的红色手牌均视为火【杀】且无距离限制。<span class="bluetext">阴：出牌阶段开始时，你减1点体力上限并摸一张牌，然后本阶段内你然后本阶段内你视为拥有技能〖厉勇〗，且你的锦囊牌均视为雷【杀】且无使用次数限制。</span>';
 	},
+	//PS文鸯〖膂力〗动态翻译
+	PSlvli: function (player) {
+		const str1 = player.storage.PSchoujue ? '' : '每回合限一次，';
+		const str2 = player.storage.PSbeishui ? '或受到' : '';
+		return `${str1}当你造成${str2}伤害后，你可以将手牌摸至与体力值相同或将体力回复至与手牌数相同。`;
+	},
 }
 
 export default dynamicTranslate

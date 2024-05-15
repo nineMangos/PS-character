@@ -121,6 +121,7 @@ const characterIntro = {
 	PSluxun: "由“希霞”设计",
 	PSshen_zuoci: "由“九个夜白”设计",
 	PSreyuanshu: "由“九个陈皮”设计",
+	PSwenyang: "由“一顿七只屑狐狸”设计",
 };
 
 export default characterIntro

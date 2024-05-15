@@ -125,7 +125,8 @@ const characterTranslation = {
 	PSluxun: "PS陆逊",
 	PSlvbu: "PS吕布",
 	PSshen_zuoci: "PS神左慈",
-	PSreyuanshu: "PS袁术"
+	PSreyuanshu: "PS袁术",
+	PSwenyang: "PS文鸯"
 }
 
 const skillTranslation = {
@@ -804,7 +805,15 @@ const skillTranslation = {
 	PSshicai: "恃才",
 	PSshicai_info:
 		"当你使用牌时，若此牌与你本回合使用的牌名均不同，则你可以将此牌置于牌堆顶，然后摸一张牌。",
-	PSpingjian_use: "评荐"
+	PSpingjian_use: "评荐",
+	PSlvli: "膂力",
+	PSlvli_info: "每回合限一次，当你造成伤害后，你可以将手牌摸至与体力值相同或将体力回复至与手牌数相同。",
+	PSchoujue: "仇决",
+	PSchoujue_info: "觉醒技，每个回合结束时，若你的体力上限大于4，你获得技能〖背水〗，然后删去〖膂力〗描述中的“每回合限一次。",
+	PSbeishui: "背水",
+	PSbeishui_info: "觉醒技，准备阶段，若你的体力值不小于3，你获得〖清剿〗，然后将〖膂力〗改为受到伤害后也可以发动。",
+	PSqingjiao: "清剿",
+	PSqingjiao_info: "摸牌阶段，你可以多摸两张牌，且你本回合可以额外使用一张【杀】。你使用的【杀】无距离限制且无视防具。",
 }
 
 export { characterTranslation, skillTranslation }
