@@ -1,7 +1,27 @@
 import { lib, get, _status, ui, game, ai } from './noname.js';
+import { MINVERSION } from './version.js';
 
 
 export let PRECONTENT = function (config) {
+	/* <-------------------------本体版本检测-------------------------> */
+	if (lib.version.includes('β')) {
+		alert(`检测到您在一个闭源的、安全性差的本体上运行游戏，为避免产生不必要的兼容问题，已为您关闭《PS武将》，请及时切换至官方版本游玩。`);
+		game.saveExtensionConfig('PS武将', 'enable', false);
+		game.reload();
+	} else {
+		function getVersionNum(version) {
+			const spotIndex = version.search(/(?<=\d+\.\d+\.\d+)(\.)/);
+			const versionNum = spotIndex === -1
+				? +version.replace(/\./g, '')
+				: +version.slice(0, spotIndex).replace(/\./g, '');
+			return versionNum;
+		}
+		if (getVersionNum(lib.version) < getVersionNum(MINVERSION)) {
+			alert(`检测到您本体版本过低，为避免产生不必要的兼容问题，已为您关闭《PS武将》，请及时将本体更新至${MINVERSION}以上版本。`);
+			game.saveExtensionConfig('PS武将', 'enable', false);
+			game.reload();
+		}
+	}
 
 	/* <-------------------------给字符串添加查找方法-------------------------> */
 	Object.defineProperty(String.prototype, "searchAll", {
@@ -94,7 +114,7 @@ export let PRECONTENT = function (config) {
 		import('../asset/update.js');
 		import('../character/PScharacter/index.js');
 		if (lib.config.extension_PS武将_PS_spCharacter === true) import('../character/PSsp_character/index.js');
-		if (lib.config.extension_PS武将_pswj_hudong === true) import('../asset/emotion.js');
+		// if (lib.config.extension_PS武将_pswj_hudong === true) import('../asset/emotion.js');
 	}
 	/* <-------------------------改变启动页背景图-------------------------> */
 	if (game.getExtensionConfig('PS武将', 'PS_splash') !== 'default') {

@@ -37,6 +37,7 @@ game.import("character", function (lib, game, ui, get, ai, _status) {
 		if (!character.dieAudios.length) {
 			character.dieAudios.push(`die:../audio/die/${i.replace("PS", "")}.mp3`);
 		}
+		character.trashBin = character.trashBin.concat(character.dieAudios);
 		if (i.includes("PS") && !PScharacter.translate[i + "_prefix"]) {
 			lib.translate[i + "_prefix"] = i.includes("PSshen_") ? "PS神" : "PS";
 		}
@@ -44,11 +45,13 @@ game.import("character", function (lib, game, ui, get, ai, _status) {
 	return PScharacter;
 });
 
-// lib.config.all.characters.push("PScharacter"); //所有武将包
-// lib.config.all.sgscharacters.push("PScharacter"); //所有本体武将包，push后武将包不可被隐藏
-// lib.config.characters//开启的武将包
-// if (!lib.config.characters.includes("PScharacter"))
-// lib.config.characters.remove("PScharacter"); //push后默认启用武将包
+/**
+ * lib.config.all.characters // 所有的武将包
+ * lib.config.all.sgscharacters //所有的三国杀武将包
+ * lib.config.characters //所有开启的武将包
+ */
+if (!lib.config.extension_PS武将_PS_version) lib.config.characters.push("PScharacter");
+lib.config.all.characters.push("PScharacter");
 lib.translate["PScharacter_character_config"] = "PS武将";
 /*  <-------------------------武将包与卡包模板（搬运自“活动武将”）-------------------------> */
 //复杂武将包模板(可关闭)

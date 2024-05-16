@@ -42,8 +42,6 @@ game.import("character", function (lib, game, ui, get, ai, _status) {
 	return PSsp_character;
 });
 
-// lib.config.all.characters.push("PSsp_character");
-// lib.config.all.sgscharacters.push("PSsp_character");
-//if (!lib.config.characters.includes('PSsp_character')) lib.config.characters.remove('PSsp_character');
+lib.config.all.characters.push("PSsp_character");
 lib.translate["PSsp_character_character_config"] = "PS特殊武将";
 

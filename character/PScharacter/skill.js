@@ -16930,7 +16930,7 @@ const skills = {
 					})[0];
 				})
 				.forResult();
-			const { targets } = await player
+			const { bool, targets } = await player
 				.chooseTarget(`令一名角色获得【${get.translation(control)}】直到其回合结束`, function (card, player, target) {
 					return true;
 				})
@@ -16938,8 +16938,10 @@ const skills = {
 					return get.attitude(_status.event.player, target) > 0;
 				})
 				.forResult();
-			targets[0].addTempSkills(control, { player: "phaseEnd" });
-			targets[0].popup(control);
+			if (bool) {
+				targets[0].addTempSkills(control, { player: "phaseEnd" });
+				targets[0].popup(control);
+			}
 			// game.log(player,'获得了','#g【'+get.translation(result.control)+'】');
 		},
 		ai: {
@@ -17086,14 +17088,17 @@ const skills = {
 				])
 				.set('filterMove', function (from, to) {
 					function handleGaintag(card) {
-						const source = card.link;
-						const gaintag = get.owner(source) === player && _status.event.moved[1].includes(source) && !_status.event.moved[0].includes(source);
-						card.node.gaintag.innerHTML = gaintag ? '被交换' : '';
+						setTimeout(() => {
+							try {
+								if (!card || !card.node) return;
+								const source = card.link;
+								const gaintag = get.owner(source) === target && _status.event.moved[0].includes(source);
+								card.node.gaintag.innerHTML = gaintag ? '被交换' : get.owner(source) === target ? '未被交换' : '';
+							} catch (e) { console.log(e); }
+						}, 0)
 					}
-					try {
-						handleGaintag(from);
-						/* if (typeof to != 'number')  */handleGaintag(to);
-					} catch { }
+					handleGaintag(from);
+					handleGaintag(to);
 					return typeof to != 'number';
 				})
 				.set('processAI', function (list) {

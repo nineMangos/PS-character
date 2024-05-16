@@ -114,6 +114,8 @@ export let CONTENT = function (config, pack) {
 	game.changeSkillAudio('tiandu', 'PSxizhicai', 'tiandu_xizhicai');
 	//改变PS钟会“保族”的配音
 	game.changeSkillAudio('clanbaozu', 'PSzhonghui', 'clanbaozu_clan_zhonghui');
+	//改变PS钟琰“保族”的配音
+	game.changeSkillAudio('clanbaozu', 'PSzhongyan', 'clanbaozu_clan_zhongyan');
 	//改变PS曹丕“颂威”的配音
 	game.changeSkillAudio('songwei', 'PScaopi', 'songwei_re_caopi');
 	//改变PS赵襄的配音

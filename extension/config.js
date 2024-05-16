@@ -1,4 +1,4 @@
-import { VERSION } from './version.js';
+import { VERSION, MINVERSION } from './version.js';
 import { lib, get, _status, ui, game, ai } from './noname.js';
 
 
@@ -53,7 +53,7 @@ export let CONFIG = {
 
 	bd1: {
 		clear: true,
-		name: '适配本体版本：1.10.8',
+		name: `最低支持本体版本：${MINVERSION}`,
 		nopointer: true
 	},
 

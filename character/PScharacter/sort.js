@@ -45,7 +45,7 @@ const characterSort = {
 			"PSzhaoyun",
 			"PSzhuangbeidashi",
 			"PSguanyu",
-			"PSmeng_liubei",
+			"PSmeng_liubei"
 		],
 		PScharacter_wu: [
 			"PSrexusheng",
@@ -170,7 +170,7 @@ const sortTranslation = {
 			}
 		</style>
 		<body>
-			<div id='双势力'>
+			<hhh id='双势力'>
 				<span style='font-family:xingkai;font-size:24px'>双势力</span>
 			</div>
 		</body>
