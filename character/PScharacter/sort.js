@@ -106,7 +106,7 @@ const characterSort = {
 			"PSjiaxu",
 			"PSxuyou",
 		],
-		PScharacter_jin: ["PSjin_duyu"],
+		PScharacter_jin: ["PSjin_duyu", "PSzhongyan"],
 		PScharacter_shen: [
 			"PSshen_sunquan",
 			"PSshen_zuoci",

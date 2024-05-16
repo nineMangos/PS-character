@@ -16791,7 +16791,6 @@ const skills = {
 		trigger: {
 			global: "phaseAfter",
 		},
-		audio: 2,
 		skillAnimation: true,
 		animationColor: "water",
 		unique: true,
@@ -16869,6 +16868,289 @@ const skills = {
 				return false;
 			},
 		},
+	},
+	PSrebolan: {
+		audio: 'bolan',
+		banned: ["kotomi_chuanxiang"],
+		global: "PSrebolan_g",
+		initList(player) {
+			var list,
+				skills = [];
+			if (get.mode() == "guozhan") {
+				list = [];
+				for (var i in lib.characterPack.mode_guozhan) {
+					if (lib.character[i]) list.push(i);
+				}
+			} else if (_status.connectMode) list = get.charactersOL();
+			else {
+				list = [];
+				for (var i in lib.character) {
+					if (lib.filter.characterDisabled2(i) || lib.filter.characterDisabled(i)) continue;
+					list.push(i);
+				}
+			}
+			for (var i of list) {
+				if (i.indexOf("gz_jun") == 0) continue;
+				for (var j of lib.character[i][3]) {
+					if (j == "PSrebolan") continue;
+					var skill = lib.skill[j];
+					if (!skill || skill.juexingji || skill.hiddenSkill || skill.zhuSkill || skill.dutySkill || skill.chargeSkill || lib.skill.PSrebolan.banned.includes(j)) continue;
+					if (skill.init || (skill.ai && (skill.ai.combo || skill.ai.notemp || skill.ai.neg))) continue;
+					var info = lib.translate[j + "_info"];
+					if (info && info.indexOf("出牌阶段限一次") != -1) skills.add(j);
+				}
+			}
+			player.storage.PSrebolan = skills;
+		},
+		enable: "phaseUse",
+		usable: 2,
+		async content(event, trigger, player) {
+			if (!player.isIn()) {
+				return;
+			}
+			if (!player.storage.PSrebolan) lib.skill.PSrebolan.initList(player);
+			const list = player.storage.PSrebolan.randomGets(6);
+			if (!list.length) {
+				return;
+			}
+			const { control } = await player
+				.chooseControl(list)
+				.set(
+					"choiceList",
+					list.map(function (i) {
+						return '<div class="skill">【' + get.translation(lib.translate[i + "_ab"] || get.translation(i).slice(0, 2)) + "】</div><div>" + get.skillInfoTranslation(i, player) + "</div>";
+					})
+				)
+				.set("displayIndex", false)
+				.set("prompt", "博览：请选择你要获得的技能")
+				.set("ai", () => {
+					var list = _status.event.controls.slice();
+					return list.sort((a, b) => {
+						return get.skillRank(b, "in") - get.skillRank(a, "in");
+					})[0];
+				})
+				.forResult();
+			const { targets } = await player
+				.chooseTarget(`令一名角色获得【${get.translation(control)}】直到其回合结束`, function (card, player, target) {
+					return true;
+				})
+				.set('ai', function (target) {
+					return get.attitude(_status.event.player, target) > 0;
+				})
+				.forResult();
+			targets[0].addTempSkills(control, { player: "phaseEnd" });
+			targets[0].popup(control);
+			// game.log(player,'获得了','#g【'+get.translation(result.control)+'】');
+		},
+		ai: {
+			threaten: 0.9,
+		},
+		subSkill: {
+			g: {
+				audio: "bolan",
+				forceaudio: true,
+				enable: "phaseUse",
+				usable: 1,
+				prompt: "出牌阶段限一次。你可以令一名有〖博览〗的角色从六个描述中包含“出牌阶段限一次”的技能中选择一个，你获得此技能直到此阶段结束。",
+				filter: function (event, player) {
+					return game.hasPlayer(function (current) {
+						return current != player && current.hasSkill("PSrebolan");
+					});
+				},
+				filterTarget: function (card, player, target) {
+					return player != target && target.hasSkill("PSrebolan");
+				},
+				selectTarget: function () {
+					if (
+						game.countPlayer(current => {
+							return lib.skill.PSrebolan_g.filterTarget(null, _status.event.player, current);
+						}) == 1
+					)
+						return -1;
+					return 1;
+				},
+				content: function () {
+					"step 0";
+					player.loseHp();
+					"step 1";
+					if (target.isIn() && player.isIn()) {
+						if (!target.storage.PSrebolan) lib.skill.PSrebolan.initList(target);
+						var list = target.storage.PSrebolan.randomGets(6);
+						if (!list.length) {
+							event.finish();
+							return;
+						}
+						target
+							.chooseControl(list)
+							.set(
+								"choiceList",
+								list.map(function (i) {
+									return '<div class="skill">【' + get.translation(lib.translate[i + "_ab"] || get.translation(i).slice(0, 2)) + "】</div><div>" + get.skillInfoTranslation(i, player) + "</div>";
+								})
+							)
+							.set("displayIndex", false)
+							.set("prompt", "博览：请选择令" + get.translation(player) + "获得的技能")
+							.set("ai", () => {
+								var list = _status.event.controls.slice();
+								return list.sort((a, b) => {
+									return (get.skillRank(b, "in") - get.skillRank(a, "in")) * get.attitude(_status.event.player, _status.event.getParent().player);
+								})[0];
+							});
+					} else event.finish();
+					"step 2";
+					target.line(player);
+					player.addTempSkills(result.control, "phaseUseEnd");
+					player.popup(result.control);
+				},
+				ai: {
+					order: function (item, player) {
+						if (player.hp >= 5 || player.countCards("h") >= 10) return 10;
+						var list = game.filterPlayer(current => lib.skill.PSrebolan_g.filterTarget(null, player, current));
+						for (var target of list) {
+							if (get.attitude(target, player) > 0) return 10;
+						}
+						return 4;
+					},
+					result: {
+						player: function (player, target) {
+							if (player.hasUnknown()) return player.hp + player.countCards("h") / 4 - 5 > 0 ? 1 : 0;
+							var tao = player.countCards("h", "tao");
+							if (player.hp + tao > 4) return 4 + get.attitude(player, target);
+							if (player.hp + tao > 3) return get.attitude(player, target) - 2;
+							return 0;
+						},
+					},
+				},
+				sub: true,
+				"_priority": 0,
+			},
+		},
+		"_priority": 0,
+	},
+	PSguangu: {
+		audio: 'clanguangu',
+		trigger: {
+			global: ["useSkillAfter", "logSkill"],
+		},
+		usable: 1,
+		filter(event, player) {
+			if (player.hp <= 0) return false;
+			if (event.type != "player") return false;
+			var skill = event.sourceSkill || event.skill;
+			var info = get.info(skill);
+			if (info.charlotte) return false;
+			var translation = get.skillInfoTranslation(skill, event.player);
+			if (!translation) return false;
+			var match = translation.match(/“?出牌阶段/g);
+			if (!match || match.every(value => value != "出牌阶段")) return false;
+			return game.hasPlayer(current => {
+				return current.countCards("h");
+			});
+		},
+		check(event, player) {
+			return true;
+		},
+		async cost(event, trigger, player) {
+			const num = parseInt(player.hp) || 1;
+			event.result = await player
+				.chooseTarget(get.prompt("PSguangu"), `观看一名角色至多${get.cnNumber(num)}张牌`, function (card, player, target) {
+					return target.countCards("h");
+				})
+				.set('ai', function (target) {
+					const att = get.attitude(_status.event.player, target);
+					return 1 + Math.abs(att) - att;
+				})
+				.forResult();
+		},
+		async content(event, trigger, player) {
+			const target = event.targets[0];
+			const num = parseInt(player.hp) || 1;
+
+			const { cards } = await player
+				.choosePlayerCard(target, "h", true, [1, num])
+				.set("prompt", `观骨：观看${get.translation(target)}的至多${get.cnNumber(num)}张牌`)
+				.set("ai", button => {
+					if (ui.selected.buttons.length >= _status.event.num) return 0;
+					return Math.random();
+				})
+				.set("num", num)
+				.forResult();
+			event.getParent().viewedCount = cards.length;
+
+			const topCards = get.cards(num);
+			const { moved } = await player
+				.chooseToMove("观骨：与牌堆顶交换任意牌")
+				.set('list', [
+					["牌堆顶", topCards],
+					[`${get.translation(target)}的手牌`, cards],
+				])
+				.set('filterMove', function (from, to) {
+					function handleGaintag(card) {
+						const source = card.link;
+						const gaintag = get.owner(source) === player && _status.event.moved[1].includes(source) && !_status.event.moved[0].includes(source);
+						card.node.gaintag.innerHTML = gaintag ? '被交换' : '';
+					}
+					try {
+						handleGaintag(from);
+						/* if (typeof to != 'number')  */handleGaintag(to);
+					} catch { }
+					return typeof to != 'number';
+				})
+				.set('processAI', function (list) {
+					const player = _status.event.player;
+					const target = _status.event.target;
+					const cards = list[0][1].concat(list[1][1]).sort(function (a, b) {
+						return get.attitude(player, target) >= 0
+							? get.useful(a) - get.useful(b)
+							: get.useful(b) - get.useful(a);
+					}), cards2 = cards.splice(0, _status.event.num);
+					return [cards2, cards];
+				})
+				.set('target', target)
+				.set('num', num)
+				.forResult();
+
+			const loses = moved[0].slice(), gains = moved[1].slice();
+			loses.removeArray(topCards);
+			gains.removeArray(cards);
+			if (loses.length) await target.lose(loses, ui.cardPile);
+			if (gains.length) await target.gain(gains, "draw");
+
+			const filterCards = cards.filter(card => !moved[1].includes(card) && player.hasUseTarget(card, null, false));
+			if (!filterCards.length) {
+				return
+			}
+
+			const { bool, links } = await player
+				.chooseButton(["观骨：是否使用其中一张被交换的手牌？", filterCards])
+				.set("filterButton", button => {
+					return true;
+				})
+				.set("ai", button => {
+					return get.useful(button.link);
+				})
+				.forResult();
+
+			if (bool) {
+				const card = links[0];
+				const cardx = {
+					name: get.name(card, get.owner(card)),
+					nature: get.nature(card, get.owner(card)),
+					cards: [card],
+				};
+				const next = player.chooseUseTarget(cardx, [card], true, false).set("oncard", card => {
+					const owner = _status.event.getParent().owner;
+					if (owner) owner.$throw(card.cards);
+				});
+				if (card.name === cardx.name && get.is.sameNature(card, cardx, true)) next.viewAs = false;
+				const owner = get.owner(card);
+				if (owner != player && get.position(card) == "h") {
+					next.throw = false;
+					next.set("owner", owner);
+				}
+			}
+		},
+		"_priority": 0,
 	},
 };
 

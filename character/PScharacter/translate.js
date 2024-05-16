@@ -126,7 +126,8 @@ const characterTranslation = {
 	PSlvbu: "PS吕布",
 	PSshen_zuoci: "PS神左慈",
 	PSreyuanshu: "PS袁术",
-	PSwenyang: "PS文鸯"
+	PSwenyang: "PS文鸯",
+	PSzhongyan: "PS钟琰",
 }
 
 const skillTranslation = {
@@ -814,6 +815,10 @@ const skillTranslation = {
 	PSbeishui_info: "觉醒技，准备阶段，若你的体力值不小于3，你获得〖清剿〗，然后将〖膂力〗改为受到伤害后也可以发动。",
 	PSqingjiao: "清剿",
 	PSqingjiao_info: "摸牌阶段，你可以多摸两张牌，且你本回合可以额外使用一张【杀】。你使用的【杀】无距离限制且无视防具。",
+	PSrebolan: "博览",
+	PSrebolan_info: "出牌阶段限两次，你可以从六个含有“出牌阶段”的技能中选择一个技能，令场上一名角色获得之直到其下回合结束。其他角色的出牌阶段限一次，其可以失去1点体力，令你从六个含有“出牌阶段”的技能中选择一个，其获得此技能直到此阶段结束。",
+	PSguangu: "观骨",
+	PSguangu_info: "每名角色每回合限一次，当一名角色发动“出牌阶段”的技能后，你可以观看一名角色至多X张手牌，你可以将这些牌与牌顶堆的X张牌交换。若如此做，你可以使用其中一张被交换的手牌。（X为你体力值）",
 }
 
 export { characterTranslation, skillTranslation }
