@@ -35,6 +35,6 @@ gitee仓库地址：https://gitee.com/ninemangos/PS-character
 
 ## 其他的无名杀资源
 
-[棘手懒人包仓库](https://github.com/lieren2023/noname-app-update)
-[魔改十周年UI仓库](https://github.com/mengxinzxz/decadeUI--mx)
+1.  [棘手懒人包仓库](https://github.com/lieren2023/noname-app-update)
+2.  [魔改十周年UI仓库](https://github.com/mengxinzxz/decadeUI--mx)
 
