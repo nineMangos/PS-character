@@ -30,7 +30,7 @@ gitee仓库地址：https://gitee.com/ninemangos/PS-character
 
 ## 扩展群聊
 
-![QQ群](./image/other/QQgroup.jpg "PS武将扩展交流群")
+![QQ群](./image/other/QQgroup2.jpg "PS武将扩展交流群")
 
 
 ## 其他的无名杀资源
