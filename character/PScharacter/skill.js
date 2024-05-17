@@ -11249,9 +11249,6 @@ const skills = {
 				if (map.type && map.type != '任意') event.type = map.type;
 				if (map.suit && map.suit != '任意') event.suit = map.suit;
 				game.log(player, '声明了', (event.suit || '任意花色'), '和', (event.type || '任意类型'));
-				console.log(map);
-				console.log(event.suit);
-				console.log(event.type);
 				player.popup(get.translation(event.suit + 2 || '任意花色') + '<br/>' + get.translation(event.type || '任意类型'), 'thunder');
 			}
 			"step 3"
@@ -16897,7 +16894,7 @@ const skills = {
 					if (!skill || skill.juexingji || skill.hiddenSkill || skill.zhuSkill || skill.dutySkill || skill.chargeSkill || lib.skill.PSrebolan.banned.includes(j)) continue;
 					if (skill.init || (skill.ai && (skill.ai.combo || skill.ai.notemp || skill.ai.neg))) continue;
 					var info = lib.translate[j + "_info"];
-					if (info && info.indexOf("出牌阶段限一次") != -1) skills.add(j);
+					if (info && info.indexOf("出牌阶段") != -1) skills.add(j);
 				}
 			}
 			player.storage.PSrebolan = skills;
@@ -16953,7 +16950,7 @@ const skills = {
 				forceaudio: true,
 				enable: "phaseUse",
 				usable: 1,
-				prompt: "出牌阶段限一次。你可以令一名有〖博览〗的角色从六个描述中包含“出牌阶段限一次”的技能中选择一个，你获得此技能直到此阶段结束。",
+				prompt: "出牌阶段限一次。你可以令一名有〖博览〗的角色从六个描述中包含“出牌阶段”的技能中选择一个，你获得此技能直到此阶段结束。",
 				filter: function (event, player) {
 					return game.hasPlayer(function (current) {
 						return current != player && current.hasSkill("PSrebolan");

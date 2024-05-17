@@ -4,23 +4,34 @@ import { MINVERSION } from './version.js';
 
 export let PRECONTENT = function (config) {
 	/* <-------------------------本体版本检测-------------------------> */
-	if (lib.version.includes('β')) {
-		alert(`检测到您在一个闭源的、安全性差的本体上运行游戏，为避免产生不必要的兼容问题，已为您关闭《PS武将》，请及时切换至官方版本游玩。`);
+	function compareVersion(curVersion, minVersion) {
+		function getSliceVersion(version) {
+			const spotIndex = version.search(/(?<=\d+\.\d+\.\d+)(\.)/);
+			if (!spotIndex === -1) version = version.slice(0, spotIndex);
+			return version.split('.');
+		}
+		curVersion = getSliceVersion(curVersion);
+		minVersion = getSliceVersion(minVersion);
+		let bool = false;
+		for (let i = 0; i < curVersion.length; i++) {
+			if (+curVersion[i] > +minVersion[i]) {
+				bool = true;
+				break;
+			} else if (+curVersion[i] === +minVersion[i]) {
+				if (i === curVersion.length - 1) {
+					bool = true;
+					break;
+				}
+			} else {
+				break;
+			}
+		}
+		return bool;
+	}
+	if (!compareVersion(lib.version, MINVERSION)) {
+		alert(`检测到您的本体版本过低，为避免产生不必要的兼容问题，已为您关闭《PS武将》，请及时将本体更新至${MINVERSION}以上版本。`);
 		game.saveExtensionConfig('PS武将', 'enable', false);
 		game.reload();
-	} else {
-		function getVersionNum(version) {
-			const spotIndex = version.search(/(?<=\d+\.\d+\.\d+)(\.)/);
-			const versionNum = spotIndex === -1
-				? +version.replace(/\./g, '')
-				: +version.slice(0, spotIndex).replace(/\./g, '');
-			return versionNum;
-		}
-		if (getVersionNum(lib.version) < getVersionNum(MINVERSION)) {
-			alert(`检测到您本体版本过低，为避免产生不必要的兼容问题，已为您关闭《PS武将》，请及时将本体更新至${MINVERSION}以上版本。`);
-			game.saveExtensionConfig('PS武将', 'enable', false);
-			game.reload();
-		}
 	}
 
 	/* <-------------------------给字符串添加查找方法-------------------------> */
