@@ -80,7 +80,7 @@ const characterIntro = {
 	PSguanyu: "由“一顿七只屑狐狸”设计",
 	PSshen_zhangfei: "由“虚幼屎”设计",
 	PSmeng_liubei: "由“遇见鲲啊”设计",
-	PSshen_dengai: "由“顾梦133”设计",
+	PSshen_dengai: "由“mento last”设计",
 	PSshen_xunyu: "由“一顿七只屑狐狸”设计",
 	PShaozhao: "由“你想去哪儿呢”设计",
 	PSxuyou: "由“神鬼高达”设计",
@@ -122,7 +122,10 @@ const characterIntro = {
 	PSshen_zuoci: "由“九个夜白”设计",
 	PSreyuanshu: "由“九个陈皮”设计",
 	PSwenyang: "由“一顿七只屑狐狸”设计",
-	PSzhongyan: "由“mento last”设计"
+	PSzhongyan: "由“mento last”设计",
+	PSshen_nanhualaoxian: "由“mento last”设计",
+	PShr_caocao: "由“九个夜白”设计",
+	PSshenpei: "由“mento last”设计",
 };
 
 export default characterIntro

@@ -1,3 +1,5 @@
+import { lib, game, ui, get, ai, _status } from "../../extension/noname.js";
+
 const dynamicTranslate = {
 	//PS徐氏〖问卦〗动态翻译
 	PSwengua: function (player) {
@@ -39,6 +41,34 @@ const dynamicTranslate = {
 		const str1 = player.storage.PSchoujue ? '' : '每回合限一次，';
 		const str2 = player.storage.PSbeishui ? '或受到' : '';
 		return `${str1}当你造成${str2}伤害后，你可以将手牌摸至与体力值相同或将体力回复至与手牌数相同。`;
+	},
+	//PS神南华老仙〖道骨〗动态翻译
+	PSnandou: function (player) {
+		const str = player.storage.PSdaogu_nandou ? '' : '限定技，';
+		return `${str}你可以将一张基本牌当作锦囊牌使用。`;
+	},
+	//PS神南华老仙〖道骨〗动态翻译
+	PSbeidou: function (player) {
+		const str = player.storage.PSdaogu_beidou ? '' : '限定技，';
+		return `${str}你可以将一张装备牌当作基本牌使用。`;
+	},
+	//PS神左慈〖汲魂〗动态翻译
+	PSshen_jihun: function (player) {
+		let str1 = '你受到伤害后';
+		let str2 = '其他角色脱离濒死状态后';
+		if (player.storage.PSshen_huashen.damage) str1 = `<del>${str1}</del>`;
+		if (player.storage.PSshen_huashen.dyingAfter) str2 = `<del>${str2}</del>`;
+		return `当[${str1}]，或[${str2}]，你可以将剩余武将牌堆的一张牌置于武将牌上，称为“魂”。`;
+	},
+	//PS神南华老仙〖道骨〗动态翻译
+	PSdaogu: function (player) {
+		const num = player.storage.PSdaogu_count;
+		return `锁定技，你每发动过【${num}】次技能（〖道骨〗除外），你选择一项：1、失去你的一个技能，然后将〖道骨〗描述中【】内的数字减1（至少为1）。2、重置或恢复场上的一个技能（若为〖南斗〗或〖北斗〗，则改为重置并失去限定技标签）。3、随机获得场上的一个技能，直到你下回合结束。`;
+	},
+	//华容曹操〖发笑〗动态翻译
+	PSfaxiao: function (player) {
+		if (!player.storage.PSfaxiao) return '转换技，当你受到伤害后，或当你于回合外失去牌后，<span class="bluetext">阳：你可以念一句文本包含“哼”、“呵”、“哈”的台词（随机三个自选其一）；</span>阴：你获得你上一次所念的台词所属的技能。若已获得该技能，则：若因伤害触发，则对所有其他角色各造成一点伤害，否则弃置所有其他角色各一张牌。';
+		return '转换技，当你受到伤害后，或当你于回合外失去牌后，阳：你可以念一句文本包含“哼”、“呵”、“哈”的台词（随机三个自选其一）；<span class="bluetext">阴：你获得你上一次所念的台词所属的技能。若已获得该技能，则：若因伤害触发，则对所有其他角色各造成一点伤害，否则弃置所有其他角色各一张牌。</span>'
 	},
 }
 

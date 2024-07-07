@@ -1,4 +1,36 @@
 {
+  "2.2.0": {
+    "changeLog": [
+      "/setPlayer/",
+      "新增了武将：华容曹操、PS审配",
+      "重做了武将：PS神邓艾",
+      "修复了已知的bug"
+    ],
+    "players": [
+      "PShr_caocao",
+      "PSshenpei",
+      "PSshen_dengai"
+    ],
+    "cards": []
+  },
+  "2.1.9": {
+    "changeLog": [
+      "/setPlayer/",
+      "新增了武将：PS神南华老仙、狐狸（特殊武将）",
+      "调整了PS郝昭的〖镇骨〗和PS陆绩的〖整论〗",
+      "修复了PS神左慈无限复活的bug",
+      "修复了PS钟琰描述与实际效果不符的bug",
+      "修复了PS神马超发动〖铁骑〗会报错的bug",
+      "修复了其他已知的bug"
+    ],
+    "players": [
+      "PSshen_nanhualaoxian",
+      "PSsp_huli",
+      "PShaozhao",
+      "PSluji"
+    ],
+    "cards": []
+  },
   "2.1.8": {
     "changeLog": [
       "/setPlayer/",

@@ -5,6 +5,7 @@ const characterSort = {
 			"PSsp_jiugemangguo",
 			"PSsp_yebai",
 			"PSsp_jiugechenpi",
+			"PSsp_huli",
 		],
 		PSsp_character_meme: ["PSsp_jiuzhuan", "PSsp_yeshou"],
 	},

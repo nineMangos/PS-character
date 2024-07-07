@@ -26,6 +26,8 @@ const characterReplace = {
 	PSmachao: ["PSmachao", "PSqun_machao"],
 	PSluxun: ["PSluxun", "PSreluxun"],
 	PSzuoci: ["PSzuoci", "PSshen_zuoci"],
+	PSnanhualaoxian: ["PSnanhualaoxian", "PSshen_nanhualaoxian"],
+	PScaocao: ["PScacao", "PShr_caocao"],
 };
 
 export default characterReplace

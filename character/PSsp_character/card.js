@@ -1,3 +1,5 @@
+import { lib, game, ui, get, ai, _status } from "../../extension/noname.js";
+
 const card = {
 	PSsp_blank: {
 		type: null,

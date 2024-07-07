@@ -39,6 +39,14 @@ const character = {
 		dieAudios: [],
 		trashBin: [],
 	},
+	PSsp_huli: {
+		sex: "female",
+		group: "shen",
+		hp: 3,
+		skills: ["PSsp_jiuwei", "PSsp_mingshu", "PSsp_jiuming"],
+		dieAudios: [],
+		trashBin: [],
+	},
 }
 
 export default character

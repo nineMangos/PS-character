@@ -76,7 +76,7 @@ export let CONFIG = {
 		},
 	},
 
-	"PS_jiaqun": {
+	/* "PS_jiaqun": {
 		name: '交流群<img style="vertical-align: text-top; transition: all .8s; linear; transform: rotate(-90deg); width:16px;" src=' + lib.assetURL + 'extension/PS武将/image/other/T2.png>',
 		clear: true,
 		onclick: function () {
@@ -106,6 +106,32 @@ export let CONFIG = {
 				this.icon.style.transform = 'rotate(0deg)';
 			}
 		},
+	}, */
+
+	"PS_repository1": {
+		clear: true,
+		name: `点击复制github仓库地址`,
+		async onclick() {
+			if (navigator.clipboard && navigator.clipboard.writeText) {
+				await navigator.clipboard.writeText("https://github.com/nineMangos/PS-character");
+				alert('内容已成功复制到剪贴板');
+			} else {
+				alert('复制失败');
+			}
+		}
+	},
+
+	"PS_repository2": {
+		clear: true,
+		name: `点击复制gitee仓库地址`,
+		async onclick() {
+			if (navigator.clipboard && navigator.clipboard.writeText) {
+				await navigator.clipboard.writeText("https://gitee.com/ninemangos/PS-character");
+				alert('内容已成功复制到剪贴板');
+			} else {
+				alert('复制失败');
+			}
+		}
 	},
 
 	"PS_splash": {
@@ -238,7 +264,6 @@ export let CONFIG = {
 		"intro": '打开“编辑武将”功能页面',
 		clear: true,
 		onclick: function () {
-			debugger
 			var container = ui.create.div('.popup-container.editor');
 			var editorpage = ui.create.div(container);
 			var discardConfig = ui.create.div('.editbutton', '取消', editorpage, function () {

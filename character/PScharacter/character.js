@@ -4,7 +4,7 @@ const character = {
 		group: "shen",
 		hp: 8,
 		skills: ["PSshuangquan"],
-		dieAudios: ["die:../audio/die/shen_lvbu.mp3"],
+		dieAudios: ["shen_lvbu"],
 		isBossAllowed: true,
 		isBoss: true,
 		trashBin: [],
@@ -14,7 +14,7 @@ const character = {
 		group: "wu",
 		hp: 4,
 		skills: ["PSpojun"],
-		dieAudios: ["die:../audio/die/re_xusheng.mp3"],
+		dieAudios: ["re_xusheng"],
 		trashBin: [],
 	},
 	PSsunquan: {
@@ -87,7 +87,7 @@ const character = {
 		group: "shu",
 		hp: 4,
 		skills: ["PSshihuang", "PSpaoxiao"],
-		dieAudios: ["die:../audio/die/zhangfei.mp3"],
+		dieAudios: ["zhangfei"],
 		trashBin: [],
 	},
 	PStongxiangge: {
@@ -95,7 +95,7 @@ const character = {
 		group: "shu",
 		hp: 4,
 		skills: ["PStongxiang"],
-		dieAudios: ["die:../audio/die/maliang.mp3"],
+		dieAudios: ["maliang"],
 		trashBin: [],
 	},
 	PSrs_wolong: {
@@ -103,7 +103,7 @@ const character = {
 		group: "shu",
 		hp: 3,
 		skills: ["PSranshang", "bazhen", "rehuoji", "rekanpo", "cangzhuo"],
-		dieAudios: ["die:../audio/die/re_sp_zhugeliang.mp3"],
+		dieAudios: ["sp_zhugeliang"],
 		trashBin: [],
 	},
 	PShuanggai: {
@@ -135,7 +135,7 @@ const character = {
 		group: "shen",
 		hp: 3,
 		skills: ["PSqixing", "PSkuangfeng", "PSdawu"],
-		dieAudios: ["die:../audio/die/shen_zhugeliang.mp3"],
+		dieAudios: ["shen_zhugeliang"],
 		trashBin: [],
 	},
 	PShuangyueying: {
@@ -169,7 +169,7 @@ const character = {
 		group: "shu",
 		hp: 4,
 		skills: ["refanghun", "PSfushi"],
-		dieAudios: [],
+		dieAudios: ["ext:PS武将/audio/die:true"],
 		trashBin: [],
 	},
 	PSlukang: {
@@ -186,7 +186,7 @@ const character = {
 		group: "qun",
 		hp: 3,
 		skills: ["PSjuece", "remieji", "xinfencheng"],
-		dieAudios: [],
+		dieAudios: ["re_liru"],
 		trashBin: [],
 	},
 	PScaoang: {
@@ -219,7 +219,7 @@ const character = {
 		group: "qun",
 		hp: 4,
 		skills: ["PSzanhe"],
-		dieAudios: ["die:../audio/die/yuantanyuanshang.mp3"],
+		dieAudios: ["yuantanyuanshang"],
 		trashBin: [],
 	},
 	PSdahantianzi: {
@@ -227,7 +227,7 @@ const character = {
 		group: "qun",
 		hp: 4,
 		skills: ["PSshengshi", "PSluanshi", "PSshanrang"],
-		dieAudios: ["die:../audio/die/liuxie.mp3"],
+		dieAudios: ["liuxie"],
 		isAiForbidden: true,
 		trashBin: [],
 	},
@@ -253,7 +253,7 @@ const character = {
 		group: "wu",
 		hp: 4,
 		skills: ["PShengzhi", "PSnengwan"],
-		dieAudios: ["die:../audio/die/re_sunquan.mp3"],
+		dieAudios: ["re_sunquan"],
 		isZhugong: true,
 		trashBin: [],
 	},
@@ -262,7 +262,7 @@ const character = {
 		group: "wu",
 		hp: 4,
 		skills: ["PSzailaiyici"],
-		dieAudios: ["die:../audio/die/zhangxuan.mp3"],
+		dieAudios: ["zhangxuan"],
 		trashBin: [],
 	},
 	PSguanyunchang: {
@@ -270,7 +270,7 @@ const character = {
 		group: "shu",
 		hp: 4,
 		skills: ["wusheng", "PSweizhen"],
-		dieAudios: ["die:../audio/die/re_guanyu.mp3"],
+		dieAudios: ["re_guanyu"],
 		trashBin: [],
 	},
 	PSshen_zhaoyun: {
@@ -304,7 +304,7 @@ const character = {
 		group: "wei",
 		hp: 4,
 		skills: ["PSshanjia"],
-		dieAudios: ["die:../audio/die/caoang.mp3"],
+		dieAudios: ["caoang"],
 		trashBin: [],
 	},
 	PScaojinyu: {
@@ -312,7 +312,7 @@ const character = {
 		group: "wei",
 		hp: 4,
 		skills: ["PSyuqi", "PSshanshen", "PSxianjing"],
-		dieAudios: ["die:ext:PS武将/audio/die/PScaojinyu.mp3"],
+		dieAudios: ["ext:PS武将/audio/die:true"],
 		trashBin: [],
 	},
 	PSzhaoyun: {
@@ -344,7 +344,7 @@ const character = {
 		group: "shen",
 		hp: 3,
 		skills: ["PSluoying", "PSjiushi"],
-		dieAudios: ["die:../audio/die/re_caozhi.mp3"],
+		dieAudios: ["re_caozhi"],
 		trashBin: [],
 	},
 	PSsunben: {
@@ -352,7 +352,7 @@ const character = {
 		group: "wu",
 		hp: 4,
 		skills: ["oljiang", "PSbaiban", "PSbb_hunzi", "olzhiba"],
-		dieAudios: ["die:../audio/die/re_sunben.mp3"],
+		dieAudios: ["re_sunben"],
 		isZhugong: true,
 		trashBin: [],
 	},
@@ -361,7 +361,7 @@ const character = {
 		group: "qun",
 		hp: 4,
 		skills: ["PSmiewu", "PSqiyang"],
-		dieAudios: ["die:../audio/die/sp_duyu.mp3"],
+		dieAudios: ["sp_duyu"],
 		trashBin: [],
 	},
 	PSshen_jiangweix: {
@@ -369,7 +369,7 @@ const character = {
 		group: "shen",
 		hp: 3,
 		skills: ["PSjiufa", "PSkefu", "PSwantian"],
-		dieAudios: ["die:shen_jiangwei.mp3"],
+		dieAudios: ["shen_jiangwei"],
 		trashBin: [],
 	},
 	PShs_zhonghui: {
@@ -378,7 +378,7 @@ const character = {
 		hp: 4,
 		skills: ["PSmn_quanji", "PSmn_paiyi"],
 		clans: ['颍川钟氏'],
-		dieAudios: ["die:../audio/die/xin_zhonghui.mp3"],
+		dieAudios: ["xin_zhonghui"],
 		trashBin: [],
 	},
 	PSzhuangbeidashi: {
@@ -386,7 +386,7 @@ const character = {
 		group: "shu",
 		hp: 4,
 		skills: ["pytianjiang", "pyzhuren", "xinfu_jingxie1", "PSshenzhu"],
-		dieAudios: ["die:../audio/die/puyuan.mp3"],
+		dieAudios: ["puyuan"],
 		trashBin: [],
 	},
 	PSboss_lvbu1: {
@@ -394,7 +394,7 @@ const character = {
 		group: "shen",
 		hp: 8,
 		skills: ["wushuang", "PSjingjia1", "PSaozhan1", "PSbaguan1"],
-		dieAudios: ["die:../audio/die/boss_lvbu1.mp3"],
+		dieAudios: ["boss_lvbu1"],
 		isBossAllowed: true,
 		isBoss: true,
 		trashBin: [],
@@ -404,7 +404,7 @@ const character = {
 		group: "shen",
 		hp: 6,
 		skills: ["wushuang", "PSshenwei2", "PSshenji2", "PSbaguan2"],
-		dieAudios: ["die:../audio/die/boss_lvbu1.mp3"],
+		dieAudios: ["boss_lvbu2"],
 		trashBin: [],
 	},
 	PSboss_lvbu3: {
@@ -412,7 +412,7 @@ const character = {
 		group: "shen",
 		hp: 6,
 		skills: ["wushuang", "PSshenqu3", "PSjiwu3", "PSbaguan2"],
-		dieAudios: ["die:../audio/die/boss_lvbu1.mp3"],
+		dieAudios: ["boss_lvbu3"],
 		trashBin: [],
 	},
 	PSboss_lvbu4: {
@@ -420,7 +420,7 @@ const character = {
 		group: "shen",
 		hp: 6,
 		skills: ["wushuang", "PSkuangbao4", "PSshenfen4", "PSbaguan2"],
-		dieAudios: ["die:../audio/die/boss_lvbu1.mp3"],
+		dieAudios: ["shen_lvbu"],
 		trashBin: [],
 	},
 	PSshengui: {
@@ -428,7 +428,7 @@ const character = {
 		group: "shen",
 		hp: 6,
 		skills: ["wushuang", "PSshenqu", "PSjiwu"],
-		dieAudios: ["die:../audio/die/boss_lvbu1.mp3"],
+		dieAudios: ["boss_lvbu1"],
 		trashBin: [],
 	},
 	PSzhangrang: {
@@ -462,7 +462,7 @@ const character = {
 		hp: 4,
 		maxHp: 5,
 		skills: ["PSxiaozhan", "PSzengxi"],
-		dieAudios: ["die:../audio/die/re_sunben.mp3"],
+		dieAudios: ["re_sunben"],
 		trashBin: [],
 	},
 	PSgaoguimingmen: {
@@ -470,7 +470,7 @@ const character = {
 		group: "qun",
 		hp: 4,
 		skills: ["PSluansha"],
-		dieAudios: ["die:../audio/die/xin_yuanshao.mp3"],
+		dieAudios: ["xin_yuanshao"],
 		trashBin: [],
 	},
 	PSsishouyige: {
@@ -478,7 +478,7 @@ const character = {
 		group: "qun",
 		hp: 4,
 		skills: ["PShengce"],
-		dieAudios: [],
+		dieAudios: [],//暂无
 		trashBin: [],
 	},
 	db_PSdaweiwuwang: {
@@ -486,7 +486,7 @@ const character = {
 		group: "wei",
 		hp: 4,
 		skills: ["PSdwww_zhiheng", "PSxiangong", "PScuicheng"],
-		dieAudios: ["die:../audio/die/re_sunquan.mp3"],
+		dieAudios: ["re_sunquan"],
 		doubleGroup: ["wei", "wu"],
 		trashBin: [],
 	},
@@ -495,7 +495,7 @@ const character = {
 		group: "wu",
 		hp: 4,
 		skills: ["rezhiheng", "PShuiwan", "rejiuyuan"],
-		dieAudios: ["die:../audio/die/re_sunquan.mp3"],
+		dieAudios: ["re_sunquan"],
 		trashBin: [],
 	},
 	PSyangbiao: {
@@ -520,7 +520,7 @@ const character = {
 		group: "shen",
 		hp: 3,
 		skills: ["PSdingjun"],
-		dieAudios: ["die:../audio/die/sb_huangzhong.mp3"],
+		dieAudios: ["sb_huangzhong"],
 		trashBin: [],
 	},
 	PSshen_guojia: {
@@ -545,7 +545,7 @@ const character = {
 		hp: 4,
 		maxHp: 6,
 		skills: ["PSwu_tuxi", "PSwu_zhenzhan"],
-		dieAudios: ["die:../audio/die/re_zhangliao.mp3"],
+		dieAudios: ["re_zhangliao"],
 		trashBin: [],
 	},
 	PSsunru: {
@@ -562,7 +562,7 @@ const character = {
 		group: "wu",
 		hp: 4,
 		skills: ["PSfuzhi"],
-		dieAudios: ["die:../audio/die/zhangxuan.mp3"],
+		dieAudios: ["zhangxuan"],
 		trashBin: [],
 	},
 	PSfx_shen_guanyu: {
@@ -570,7 +570,7 @@ const character = {
 		group: "shen",
 		hp: 4,
 		skills: ["PSshenwu", "PShunwu"],
-		dieAudios: ["die:../audio/die/shen_guanyu.mp3"],
+		dieAudios: ["shen_guanyu"],
 		trashBin: [],
 	},
 	PSpeixiu: {
@@ -594,7 +594,7 @@ const character = {
 		group: "jin",
 		hp: 4,
 		skills: ["PSsanchen", "PSzhaotao", "PSpozhu"],
-		dieAudios: ["die:../audio/die/duyu.mp3"],
+		dieAudios: ["duyu"],
 		trashBin: [],
 	},
 	PSsb_xushao: {
@@ -602,7 +602,7 @@ const character = {
 		group: "qun",
 		hp: 4,
 		skills: ["PSsb_pingjian"],
-		dieAudios: ["die:../audio/die/xushao.mp3"],
+		dieAudios: ["xushao"],
 		trashBin: [],
 	},
 	PSxushi: {
@@ -650,14 +650,14 @@ const character = {
 		group: "shu",
 		hp: 1,
 		skills: ["PStaoyuan", "PSshiren"],
-		dieAudios: ["die:../audio/die/re_liubei.mp3"],
+		dieAudios: ["re_liubei"],
 		trashBin: [],
 	},
 	PSshen_dengai: {
 		sex: "male",
 		group: "shen",
 		hp: 4,
-		skills: ["dctuoyu", "PSxianjin", "dcqijing"],
+		skills: ["PStuoyu", "PSxianjin", "PSqijing"],
 		dieAudios: [],
 		trashBin: [],
 	},
@@ -706,7 +706,7 @@ const character = {
 		group: "wu",
 		hp: 4,
 		skills: ["PSbolan"],
-		dieAudios: ["die:../audio/die/re_lvmeng.mp3"],
+		dieAudios: ["re_lvmeng"],
 		trashBin: [],
 	},
 	PSzhonghui: {
@@ -715,7 +715,7 @@ const character = {
 		hp: 4,
 		skills: ["clanyuzhi", "PSquanshu", "clanbaozu", "PSpaiyi"],
 		clans: ['颍川钟氏'],
-		dieAudios: ["die:../audio/die/clan_zhonghui.mp3"],
+		dieAudios: ["clan_zhonghui"],
 		trashBin: [],
 	},
 	PSlibai: {
@@ -731,7 +731,7 @@ const character = {
 		group: "wu",
 		hp: 4,
 		skills: ["PSzongheng", "PSxiqu", "PSchengchen"],
-		dieAudios: ["die:../audio/die/re_sunquan.mp3"],
+		dieAudios: ["re_sunquan"],
 		trashBin: [],
 	},
 	PSshu_sunshangxiang: {
@@ -739,7 +739,7 @@ const character = {
 		group: "shu",
 		hp: 3,
 		skills: ["PSliangzhu", "PSfanxiang"],
-		dieAudios: ["die:../audio/die/sp_sunshangxiang.mp3"],
+		dieAudios: ["sp_sunshangxiang"],
 		trashBin: [],
 	},
 	PSmenghuo: {
@@ -747,7 +747,7 @@ const character = {
 		group: "shu",
 		hp: 4,
 		skills: ["PShuoshou", "PSxingluan"],
-		dieAudios: ["die:../audio/die/re_menghuo.mp3"],
+		dieAudios: ["re_menghuo"],
 		trashBin: [],
 	},
 	PSzhugeliang: {
@@ -806,7 +806,7 @@ const character = {
 		hp: 3,
 		skills: ["PSreqianxun", "PSrelianying"],
 		clans: ['吴郡陆氏'],
-		dieAudios: [],
+		dieAudios: ["re_luxun"],
 		trashBin: [],
 	},
 	PSxurong: {
@@ -838,7 +838,7 @@ const character = {
 		group: "wu",
 		hp: 3,
 		skills: ["jiang", "PShunzi", "zhiba"],
-		dieAudios: ["die:../audio/die/sunce.mp3"],
+		dieAudios: ["sunce"],
 		trashBin: [],
 	},
 	PSqun_zhaoyun: {
@@ -846,7 +846,7 @@ const character = {
 		group: "qun",
 		hp: 4,
 		skills: ["PSlongwei", "PSqiangshu"],
-		dieAudios: [],
+		dieAudios: ["zhaoyun"],
 		trashBin: [],
 	},
 	PSxuzhu: {
@@ -903,7 +903,7 @@ const character = {
 		group: "wei",
 		hp: 3,
 		skills: ["PSfangzhu", "PSxingshang", "songwei"],
-		dieAudios: ["die:../audio/die/re_caopi.mp3"],
+		dieAudios: ["re_caopi"],
 		isZhugong: true,
 		trashBin: [],
 	},
@@ -920,7 +920,7 @@ const character = {
 		group: "wu",
 		hp: 4,
 		skills: ["kurou", "PSshiming"],
-		dieAudios: ["die:../audio/die/huanggai.mp3"],
+		dieAudios: ["huanggai"],
 		trashBin: [],
 	},
 	PSliaohua: {
@@ -929,7 +929,7 @@ const character = {
 		hp: 5,
 		maxHp: 6,
 		skills: ["PSdangxian", "PSfuli"],
-		dieAudios: ["die:../audio/die/xin_liaohua.mp3"],
+		dieAudios: ["xin_liaohua"],
 		trashBin: [],
 	},
 	PSquyi: {
@@ -945,7 +945,7 @@ const character = {
 		group: "shu",
 		hp: 4,
 		skills: ["PStieji", "PScema"],
-		dieAudios: ["die:../audio/die/sb_machao.mp3"],
+		dieAudios: ["sb_machao"],
 		trashBin: [],
 	},
 	PSqun_machao: {
@@ -953,14 +953,14 @@ const character = {
 		group: "qun",
 		hp: 4,
 		skills: ["PSzhuiming", "PSjinge"],
-		dieAudios: ["die:../audio/die/sp_machao.mp3"],
+		dieAudios: ["sp_machao"],
 		trashBin: [],
 	},
 	PSluji: {
 		sex: "male",
 		group: "wu",
 		hp: 3,
-		skills: ["PShuaiju", "nzry_yili", "nzry_zhenglun"],
+		skills: ["PShuaiju", "nzry_yili", "PSzhenglun"],
 		clans: ['吴郡陆氏'],
 		dieAudios: [],
 		trashBin: [],
@@ -987,7 +987,7 @@ const character = {
 		group: "shen",
 		hp: 3,
 		skills: ["PSshen_huashen", "PSshen_jihun", "PSshen_xinsheng"],
-		dieAudios: ["die:ext:PS武将/audio/die/PSshen_zuoci.mp3"],
+		dieAudios: ["ext:PS武将/audio/die:true"],
 		trashBin: [],
 	},
 	PSreyuanshu: {
@@ -995,7 +995,7 @@ const character = {
 		group: "qun",
 		hp: 4,
 		skills: ["PSshelian", "PSjixi"],
-		dieAudios: ["die:../audio/die/re_yuanshu.mp3"],
+		dieAudios: ["re_yuanshu"],
 		trashBin: [],
 	},
 	PSwenyang: {
@@ -1014,7 +1014,31 @@ const character = {
 		clans: ['颍川钟氏'],
 		dieAudios: [],
 		trashBin: [],
-	}
+	},
+	PSshen_nanhualaoxian: {
+		sex: "male",
+		group: "shen",
+		hp: 3,
+		skills: ["PSnandou", "PSbeidou", "PSwuji", "PSdaogu"],
+		dieAudios: ["ext:PS武将/audio/die:true"],
+		trashBin: [],
+	},
+	PShr_caocao: {
+		sex: "male",
+		group: "wei",
+		hp: 4,
+		skills: ["PSfaxiao"],
+		dieAudios: ["sb_caocao"],
+		trashBin: [],
+	},
+	PSshenpei: {
+		sex: "male",
+		group: "qun",
+		hp: 3,
+		skills: ["PSshouye", "PSliezhi"],
+		dieAudios: [],
+		trashBin: [],
+	},
 };
 
 export default character

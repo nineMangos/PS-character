@@ -1,3 +1,5 @@
+import { lib, game, ui, get, ai, _status } from "../../extension/noname.js";
+
 const dynamicTranslate = {
 	//野兽先辈〖恶臭〗动态翻译
 	PSsp_echou: function (player) {

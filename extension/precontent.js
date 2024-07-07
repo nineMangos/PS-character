@@ -63,69 +63,16 @@ export let PRECONTENT = function (config) {
 		}
 	});//const str = 'aabbccaabbcc'; str.searchAll('a') --> [0, 1, 6, 7]; str.searchAll(/a/) --> [0, 1, 6, 7]
 
-	/* <-------------------------加载json文件函数，搬运自福瑞拓展，已获得原作者允许，感谢钫酸酱-------------------------> */
-	game.PS_loadJsonFromFile = function (filePath, callback, targetObject) {
-		// 默认参数处理
-		if (!targetObject) {
-			targetObject = Array.isArray(targetObject) ? [] : {};
-		}
-
-		// 参数校验
-		if (typeof filePath !== 'string' || typeof callback !== 'function') {
-			throw new Error('无效的参数');
-		}
-
-		// 读取配置文件
-		game.readFile(filePath, function (data) {
-			try {
-				// 解析配置文件内容
-				var isBuffer = data instanceof ArrayBuffer;
-				var config;
-				if (isBuffer) {
-					var decoder = new TextDecoder("UTF-8");
-					var decodedData = decoder.decode(data);
-					config = JSON.parse(decodedData);
-				} else {
-					config = JSON.parse(data);
-				}
-
-				// 合并配置到目标对象
-				if (Array.isArray(config)) {
-					if (Array.isArray(targetObject)) {
-						targetObject.push.apply(targetObject, config);
-					}
-				} else {
-					for (var key in config) {
-						if (config.hasOwnProperty(key)) {
-							targetObject[key] = config[key];
-						}
-					}
-				}
-
-				callback(null, targetObject);
-			} catch (err) {
-				callback(' JSON 文件解析失败\n' + err, null);
-			}
-		}, function (err) {
-			callback(' JSON 文件解析失败\n' + err, null);
-		});
-	};
-
 	//将updateHistory.json文件里的更新日志存入window.PScharacter.updateHistory
-	game.PS_loadJsonFromFile('extension/PS武将/json/updateHistory.json', function (error, data) {
-		if (error) {
-			alert(error);
-		} else {
-			// console.log(data);
-		}
-	}, window.PScharacter.updateHistory);
+	lib.init.promises
+		.json(`${lib.assetURL}extension/PS武将/json/updateHistory.json`)
+		.then(info => window.PScharacter.updateHistory = info, err => alert('JSON 文件解析失败\n' + err))
 
 	/* <-------------------------调用js-------------------------> */
 	if (config.enable) {
 		import('../asset/update.js');
 		import('../character/PScharacter/index.js');
 		if (lib.config.extension_PS武将_PS_spCharacter === true) import('../character/PSsp_character/index.js');
-		// if (lib.config.extension_PS武将_pswj_hudong === true) import('../asset/emotion.js');
 	}
 	/* <-------------------------改变启动页背景图-------------------------> */
 	if (game.getExtensionConfig('PS武将', 'PS_splash') !== 'default') {
@@ -211,14 +158,9 @@ export let PRECONTENT = function (config) {
 
 	/* <-------------------------平仄声相关-------------------------> */
 	//将rusheng.json文件里的入声字数组存入lib.PS_rusheng
-	lib.PS_rusheng = [];
-	game.PS_loadJsonFromFile('extension/PS武将/json/rusheng.json', function (error, data) {
-		if (error) {
-			alert(error);
-		} else {
-			// console.log(data);
-		}
-	}, lib.PS_rusheng);
+	lib.init.promises
+		.json(`${lib.assetURL}extension/PS武将/json/rusheng.json`)
+		.then(info => lib.PS_rusheng = info, err => alert('JSON 文件解析失败\n' + err))
 
 	//获取平仄的函数
 	get.PS_pingZe = function (str) {
@@ -234,15 +176,26 @@ export let PRECONTENT = function (config) {
 		else if (ze.some(yin => pinyin.includes(yin))) return '仄';
 	};
 
-	/* <-------------------------改变技能配音函数-------------------------> */
-	game.changeSkillAudio = function (skillName, playerName, audioName) {
-		if (Array.isArray(playerName)) {
-			playerName.forEach(ele => game.changeSkillAudio(skillName, ele, audioName));
-		} else {
-			if (!lib.skill[skillName]) return;
-			if (!lib.skill[skillName].audioname2) lib.skill[skillName].audioname2 = {};
-			lib.skill[skillName].audioname2[playerName] = audioName;
+	/**
+	 * 改变技能配音的函数
+	 * @param { Array | string } skillsName 
+	 * @param { HTMLDivElement[] | HTMLDivElement } playersName 
+	 * @param { boolean | string | Array | number } audioName 
+	 */
+	game.changeSkillAudio = function (skillsName, playersName, audioName) {
+		if (typeof skillsName === 'string') {
+			skillsName = [skillsName];
 		}
+		skillsName.forEach(skillName => {
+			if (typeof playersName === 'string') {
+				playersName = [playersName];
+			} 
+			playersName.forEach(playerName =>{
+				if (!lib.skill[skillName]) return;
+				if (!lib.skill[skillName].audioname2) lib.skill[skillName].audioname2 = {};
+				lib.skill[skillName].audioname2[playerName] = audioName;
+			})
+		})
 	};
 
 	/* <-------------------------播放BGM函数，搬运自福瑞拓展，已获得原作者允许，感谢钫酸酱-------------------------> */

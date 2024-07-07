@@ -1,3 +1,5 @@
+import { lib, game, ui, get, ai, _status } from "../../extension/noname.js";
+
 const skill = {
 	PSsp_echou: {
 		audio: "ext:PS武将/audio/skill:2",
@@ -1525,6 +1527,97 @@ const skill = {
 		},
 		_priority: 0,
 	},
+	PSsp_jiuwei: {
+		trigger: {
+			global: ["loseAfter", "loseAsyncAfter"],
+		},
+		forced: true,
+		filter: function (event, player) {
+			if (event.type != "discard" || event.getlx === false) return false;
+			for (var i of event.cards) {
+				const num = get.number(i, event.cards2 && event.cards2.includes(i) ? event.player : false);
+				if (get.position(i, true) == "d" && (num % 3 === 0 || num === 7)) return true;
+			}
+			return false;
+		},
+		async content(event, trigger, player) {
+			const number = trigger.cards.reduce((sum, card) => {
+				const num = get.number(card, trigger.cards2 && trigger.cards2.includes(card) ? trigger.player : false);
+				return sum + (num % 3 === 0 || num === 7)
+			}, 0);
+			await player.draw(number);
+		}
+	},
+	PSsp_mingshu: {
+		trigger: {
+			player: "damageBegin4",
+		},
+		filter(event, player) {
+			return event.num > 0;
+		},
+		check: () => true,
+		marktext: "屑",
+		intro: {
+			name: "屑(命数)",
+			name2: "屑",
+			content: "mark",
+		},
+		async content(event, trigger, player) {
+			trigger.cancel();
+			player.addMark("PSsp_mingshu", 1, false);
+		},
+		group: "PSsp_mingshu_removeMark",
+		subSkill: {
+			removeMark: {
+				trigger: {
+					player: "phaseEnd",
+				},
+				forced: true,
+				filter(event, player) {
+					return player.hasMark("PSsp_mingshu");
+				},
+				async content(event, trigger, player) {
+					const num = player.countMark("PSsp_mingshu");
+					player.removeMark("PSsp_mingshu", num);
+					player.markAuto("PSsp_mingshu");
+					const { cards } = await player.chooseToDiscard(num, "hes", true).forResult();
+					if (cards.length < num) await player.loseHp(num - cards.length);
+				},
+			}
+		},
+		ai: {
+			halfneg: true,
+			filterDamage: true,
+			nofire: true,
+		}
+	},
+	PSsp_jiuming: {
+		unique: true,
+		mark: true,
+		skillAnimation: true,
+		animationColor: "soil",
+		limited: true,
+		intro: {
+			content: "limited",
+		},
+		check: () => true,
+		init: (player, skill) => (player.storage[skill] = false),
+		trigger: {
+			player: "dying",
+		},
+		filer(event, player) {
+			return player.hasMark("PSsp_mingshu") || player.countCards('h');
+		},
+		async content(event, trigger, player) {
+			player.awakenSkill("PSsp_jiuming");
+			const num = player.countMark("PSsp_mingshu");
+			player.removeMark("PSsp_mingshu", num);
+			await player.discard(player.getCards('h'));
+			await player.gainMaxHp();
+			await player.recoverTo(player.maxHp);
+			await player.draw(3);
+		},
+	}
 }
 
 export default skill

@@ -7,7 +7,7 @@ import { PRECONTENT } from './extension/precontent.js';
 
 window.PScharacter = {
 	updateHistory: {},
-	deepClone: function (obj) {
+	deepClone(obj) {
 		return new Promise((resolve) => {
 			const { port1, port2 } = new MessageChannel();
 			port1.postMessage(obj);
@@ -15,7 +15,7 @@ window.PScharacter = {
 				resolve(msg.data);
 			}
 		});
-	},//window.PScharacter.deepClone(obj).then(i => obj2 = i)
+	},//let obj2; -> deepClone(obj).then(i => obj2 = i);
 	characters: [],
 };
 

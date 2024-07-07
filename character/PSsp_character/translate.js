@@ -3,7 +3,8 @@ const characterTranslation = {
 	PSsp_yebai: "夜白",
 	PSsp_yeshou: "野兽先辈",
 	PSsp_jiugemangguo: "九个芒果",
-	PSsp_jiugechenpi: "九个陈皮"
+	PSsp_jiugechenpi: "九个陈皮",
+	PSsp_huli: "狐狸",
 }
 
 const skillTranslation = {
@@ -44,7 +45,13 @@ const skillTranslation = {
 		"当你造成伤害时，你可以将伤害值改为1919810，然后令目标角色的非锁定技和防具失效，直到伤害结算完毕。",
 	PSsp_juexing: "撅醒",
 	PSsp_juexing_info:
-		"撅醒技，当你击杀一名角色后，你升级〖恶臭〗。"
+		"撅醒技，当你击杀一名角色后，你升级〖恶臭〗。",
+	PSsp_jiuwei: "九尾",
+	PSsp_jiuwei_info: "锁定技，当一张点数为3的倍数，或点数为7的牌进入弃牌堆时，你摸一张牌。",
+	PSsp_mingshu: "命数",
+	PSsp_mingshu_info: "狐狸技，当你即将受到伤害时，你可以获得一枚“屑”标记，并防止此次伤害。你的回合结束时，你移去所有的“屑”标记并弃置X张牌，然后若你弃置的牌数不足X，你失去Y点体力（X为“屑”标记数，Y为X与弃置牌数之差）。",
+	PSsp_jiuming: "九命",
+	PSsp_jiuming_info: "限定技，当你进入濒死状态时，你可以移去所有的“屑”标记并弃置所有手牌，然后增加一点体力上限，回复所有体力并摸三张牌。",
 }
 
 export { characterTranslation, skillTranslation }

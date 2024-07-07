@@ -22,7 +22,8 @@ const characterSort = {
 			"PSzhenji",
 			"PSwu_zhangliao",
 			"PShaozhao",
-			"PSwenyang"
+			"PSwenyang",
+			"PShr_caocao"
 		],
 		PScharacter_shu: [
 			"PSsh_zhangfei",
@@ -105,6 +106,7 @@ const characterSort = {
 			"PSsb_xushao",
 			"PSjiaxu",
 			"PSxuyou",
+			"PSshenpei"
 		],
 		PScharacter_jin: ["PSjin_duyu", "PSzhongyan"],
 		PScharacter_shen: [
@@ -131,6 +133,7 @@ const characterSort = {
 			"PSshen_zhangfei",
 			"PSshen_dengai",
 			"PSshen_xunyu",
+			"PSshen_nanhualaoxian"
 		],
 		PScharacter_db: ["db_PSdaweiwuwang"],
 	},
@@ -170,9 +173,9 @@ const sortTranslation = {
 			}
 		</style>
 		<body>
-			<hhh id='双势力'>
+			<span id='双势力' style="display: block; position: unset; transition: unset;">
 				<span style='font-family:xingkai;font-size:24px'>双势力</span>
-			</div>
+			</span>
 		</body>
 	`,
 };

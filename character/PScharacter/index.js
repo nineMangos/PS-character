@@ -35,9 +35,8 @@ game.import("character", function (lib, game, ui, get, ai, _status) {
 			(lib.device || lib.node ? "ext:" : "db:extension-") + `PS武将/image/character/${i}.jpg`
 		);
 		if (!character.dieAudios.length) {
-			character.dieAudios.push(`die:../audio/die/${i.replace("PS", "")}.mp3`);
+			character.dieAudios.push(i.replace("PS", ""));
 		}
-		character.trashBin = character.trashBin.concat(character.dieAudios);
 		if (i.includes("PS") && !PScharacter.translate[i + "_prefix"]) {
 			lib.translate[i + "_prefix"] = i.includes("PSshen_") ? "PS神" : "PS";
 		}

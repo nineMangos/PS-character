@@ -5,6 +5,7 @@ const characterIntro = {
 	PSsp_yeshou: "由“sc蓝晨跃”设计",
 	PSsp_jiugemangguo: "由“铝宝”设计",
 	PSsp_jiugechenpi: "由“九个陈皮”设计",
+	PSsp_huli: "由“一顿七只屑狐狸”设计",
 }
 
 export default characterIntro
